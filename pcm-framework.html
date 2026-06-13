@@ -1,0 +1,925 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP-Framework ? Praxis-SOPs</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
+:root {
+  /* Praxis-CI (Default) - wird optional von config/praxis.js überschrieben */
+  --rot:#C0392B;--rot-h:#FDECEA;
+  --orange:#BB4E26;--org-h:#F8EAE3;
+  --gruen:#1E8449;--gruen-h:#EAFAF1;
+  --blau:#025669;--blau-h:#E6EFF1;
+  --grau:#566573;--grau-h:#F4F6F7;
+  --dunkel:#1C2833;--linie:#D5D8DC;
+  --kupfer:#BB4E26;--petrol-dark:#013D4B;--petrol-light:#03758F;--warmweiss:#FDF8F5;
+  --praxis-blau:#025669;--praxis-dunkel:#013D4B;
+  --font-head:'Merriweather',Georgia,serif;
+  --radius:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:var(--dunkel);background:#FAFBFC;padding:16px 10px 60px}
+.page{max-width:720px;margin:0 auto}
+.hidden{display:none!important}
+
+/* HEADER (SOP-Viewer) */
+.sop-header{background:white;border-radius:var(--radius);border:1px solid var(--linie);overflow:hidden;margin-bottom:10px}
+.hd-top{background:var(--blau);padding:14px 18px 12px}
+.hd-eye{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:3px}
+.hd-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:2px}
+.hd-sub{font-size:12px;color:rgba(255,255,255,.75)}
+.hd-meta{display:flex;flex-wrap:wrap}
+.hd-mi{padding:7px 14px;border-right:1px solid var(--linie);font-size:12px;flex:1;min-width:110px}
+.hd-mi:last-child{border-right:none}
+.hd-ml{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--grau);margin-bottom:1px}
+.hd-mv{color:var(--dunkel);font-weight:500}
+.hd-note{background:var(--blau-h);border-top:1px solid var(--linie);padding:7px 14px;font-size:12px;color:var(--blau)}
+.hd-note strong{font-size:10px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:1px}
+
+/* STEPS */
+.step{background:white;border:1px solid var(--linie);border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+.step-hd{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;transition:background .12s}
+.step-hd:hover{background:var(--grau-h)}
+.step-num{width:42px;height:42px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;background:var(--blau)}
+.step-title{flex:1;padding:10px 4px;font-size:13px;font-weight:600}
+.badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.b-red{background:var(--rot-h);color:var(--rot)}
+.b-blue{background:var(--blau-h);color:var(--blau)}
+.b-green{background:var(--gruen-h);color:var(--gruen)}
+.b-orange{background:var(--org-h);color:var(--orange)}
+.b-gray{background:var(--grau-h);color:var(--grau)}
+.chev{margin-right:12px;color:var(--grau);font-size:11px;transition:transform .18s;flex-shrink:0}
+.chev.open{transform:rotate(180deg)}
+.step-body{display:none;padding:12px 14px 14px;border-top:1px solid var(--linie)}
+.step-body.open{display:block}
+
+/* BOXES */
+.box{border-radius:6px;padding:9px 13px;font-size:13px;margin:7px 0}
+.lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.bx-blue{background:var(--blau-h);border-left:3px solid var(--blau);color:#1A3A5C}
+.bx-blue .lbl{color:var(--blau)}
+.bx-green{background:var(--gruen-h);border-left:3px solid var(--gruen);color:#145A32}
+.bx-green .lbl{color:var(--gruen)}
+.bx-red{background:var(--rot-h);border-left:3px solid var(--rot);color:#7B241C}
+.bx-red .lbl{color:var(--rot)}
+.bx-orange{background:var(--org-h);border-left:3px solid var(--orange);color:#784212}
+.bx-orange .lbl{color:var(--orange)}
+.bx-gray{background:var(--grau-h);border-left:3px solid var(--grau);color:#2C3E50}
+.bx-gray .lbl{color:var(--grau)}
+
+/* CHECKLISTE */
+.checklist{border:1px solid var(--linie);border-radius:6px;overflow:hidden;margin:7px 0}
+.chk{display:flex;align-items:center;gap:10px;padding:7px 12px;border-bottom:1px solid var(--linie);cursor:pointer;user-select:none;font-size:13px;transition:background .1s}
+.chk:last-child{border-bottom:none}
+.chk:hover{background:var(--grau-h)}
+.cb{width:17px;height:17px;border:1.5px solid #BDC3C7;border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .12s}
+.cb.on{background:var(--rot);border-color:var(--rot)}
+.cb.on::after{content:'';width:8px;height:5px;border-left:2px solid white;border-bottom:2px solid white;transform:rotate(-45deg) translate(1px,-1px)}
+.chk-g .cb.on{background:var(--gruen);border-color:var(--gruen)}
+
+/* SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:7px 0}
+@media(max-width:480px){.split{grid-template-columns:1fr}}
+.sp-cell{border-radius:6px;padding:10px 13px;font-size:13px;border:2px solid transparent}
+.sp-cell strong{display:block;margin-bottom:4px;font-size:13px}
+.sp-green{background:var(--gruen-h);border-color:#A9DFBF;color:#145A32}
+.sp-red{background:var(--rot-h);border-color:#F5B7B1;color:#7B241C}
+.sp-orange{background:var(--org-h);border-color:#FAD7A0;color:#784212}
+.sp-blue{background:var(--blau-h);border-color:#A9C7CF;color:#013D4B}
+
+/* TABELLEN */
+.tbl{width:100%;border-collapse:collapse;margin:7px 0;font-size:12px}
+.tbl th{padding:6px 10px;text-align:left;font-weight:600;color:#fff}
+.tbl td{padding:7px 10px;border-bottom:1px solid var(--linie);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl-blue th{background:var(--blau)}
+.tbl-green th{background:var(--gruen)}
+.tbl-red th{background:var(--rot)}
+.row-green td{background:var(--gruen-h)}
+.row-gray td{background:var(--grau-h)}
+.fw{font-weight:600}
+
+/* INPUTS */
+.form-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0}
+.form-row label{font-size:13px;color:var(--dunkel);flex-shrink:0}
+input[type=number],input[type=text],input[type=date]{border:1px solid var(--linie);border-radius:5px;padding:4px 8px;font-size:13px;background:#fff;color:var(--dunkel);outline:none;transition:border .15s}
+input[type=number]:focus,input[type=text]:focus,input[type=date]:focus{border-color:var(--blau)}
+input[type=number]{width:64px}
+input[type=date]{width:150px}
+.unit-btn{font-size:12px;font-weight:600;padding:4px 10px;border:1px solid var(--linie);border-radius:4px;cursor:pointer;background:#fff;color:var(--dunkel);transition:all .12s}
+.unit-btn.sel{background:var(--blau-h);color:var(--blau);border-color:#A9C7CF}
+.radio-group{display:flex;gap:6px;flex-wrap:wrap}
+.rbtn{font-size:12px;font-weight:600;padding:4px 11px;border:1px solid var(--linie);border-radius:4px;cursor:pointer;background:#fff;color:var(--dunkel);transition:all .12s}
+.rbtn:hover{background:var(--grau-h)}
+.rbtn.sel{background:var(--blau-h);color:var(--blau);border-color:#A9C7CF}
+.form-section{border:1px solid var(--linie);border-radius:6px;padding:10px 12px;margin:7px 0;background:var(--grau-h)}
+select{border:1px solid var(--linie);border-radius:5px;padding:4px 8px;font-size:13px;background:#fff;color:var(--dunkel);outline:none}
+select:focus{border-color:var(--blau)}
+
+/* Section heading */
+.sec{font-size:12px;font-weight:700;color:var(--dunkel);margin:11px 0 5px;padding-bottom:3px;border-bottom:1.5px solid var(--linie)}
+
+/* BULLETS */
+.ul{list-style:none;margin:5px 0}
+.ul li{padding:2px 0 2px 16px;position:relative;font-size:13px}
+.ul li::before{content:'?';position:absolute;left:3px;color:#BDC3C7}
+.note{font-size:11px;color:var(--grau);font-style:italic;margin-top:4px}
+
+/* PRIMARY BUTTON */
+.prim-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#fff;background:var(--blau);border:none;border-radius:6px;padding:8px 16px;cursor:pointer;transition:background .15s;margin-top:8px}
+.prim-btn:hover{filter:brightness(.92)}
+
+/* OUTPUT / KOPIER-BEREICH */
+.output-wrap{margin-top:10px}
+.output-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--grau);margin-bottom:5px}
+.output-area{width:100%;min-height:200px;border:1.5px solid var(--linie);border-radius:8px 8px 0 0;padding:12px 14px;font-size:13px;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.75;background:#FDFEFE;resize:vertical;color:var(--dunkel);border-bottom:none}
+.copy-bar{display:flex;align-items:center;justify-content:space-between;background:var(--dunkel);border-radius:0 0 8px 8px;padding:8px 14px}
+.copy-bar-label{font-size:11px;color:rgba(255,255,255,.6)}
+.copy-bar-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#fff;background:var(--blau);border:none;border-radius:5px;padding:6px 14px;cursor:pointer;transition:background .15s}
+.copy-bar-btn:hover{filter:brightness(.92)}
+.copy-bar-btn.ok{background:var(--gruen)}
+
+/* DASHBOARD */
+.dashboard-page{max-width:1180px;margin:0 auto;padding:16px 10px 40px}
+.dashboard-header{background:var(--praxis-dunkel);border-radius:10px;padding:18px 22px 16px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.dashboard-logo{width:50px;height:50px;background:var(--blau);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px}
+.dashboard-logo-img{width:50px;height:50px;object-fit:contain;flex-shrink:0;background:#fff;border-radius:8px;padding:5px}
+.dashboard-title{color:#fff;font-size:18px;font-weight:700;line-height:1.2;font-family:var(--font-head)}
+.dashboard-sub{color:rgba(255,255,255,.55);font-size:12px;margin-top:2px}
+.dash-section-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grau);margin:20px 0 8px 2px}
+.sop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-bottom:8px}
+.sop-card{background:white;border:1px solid var(--linie);border-radius:10px;padding:14px 16px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;display:block;text-align:left;width:100%;font:inherit}
+.sop-card:hover{border-color:var(--blau);box-shadow:0 2px 10px rgba(2,86,105,.12);transform:translateY(-1px)}
+.sop-card-accent{position:absolute;top:0;left:0;right:0;height:3px;background:var(--blau)}
+.sop-card-icon{font-size:22px;margin-bottom:7px}
+.sop-card-title{font-size:13px;font-weight:700;color:var(--praxis-dunkel);margin-bottom:3px;line-height:1.3;font-family:var(--font-head)}
+.sop-card-sub{font-size:11px;color:var(--grau);line-height:1.4}
+.sop-card-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-top:8px;background:var(--gruen-h);color:var(--gruen)}
+.app-shell{display:grid;grid-template-columns:210px 260px minmax(0,1fr);gap:12px;align-items:start}
+.nav-col,.list-col,.work-col{min-width:0}
+.nav-panel,.list-panel{position:sticky;top:12px;background:white;border:1px solid var(--linie);border-radius:8px;overflow:hidden}
+.nav-head,.list-head{padding:10px 12px;background:var(--grau-h);border-bottom:1px solid var(--linie);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--grau)}
+.area-btn,.item-btn{display:block;width:100%;border:0;background:#fff;text-align:left;font:inherit;cursor:pointer;border-bottom:1px solid var(--linie);transition:background .12s,border-color .12s}
+.area-btn:last-child,.item-btn:last-child{border-bottom:0}
+.area-btn{padding:12px 13px}
+.area-btn:hover,.item-btn:hover{background:var(--blau-h)}
+.area-btn.sel{background:var(--praxis-dunkel);color:#fff}
+.area-title{display:block;font-weight:800;font-size:13px;line-height:1.25}
+.area-sub{display:block;margin-top:2px;font-size:11px;color:var(--grau);line-height:1.35}
+.area-btn.sel .area-sub{color:rgba(255,255,255,.72)}
+.nav-tools{padding:10px 12px;background:#fff;border-top:1px solid var(--linie)}
+.nav-reset{width:100%;font-size:12px;font-weight:700;color:var(--grau);background:#fff;border:1px solid var(--linie);border-radius:6px;padding:7px 10px;cursor:pointer}
+.nav-reset:hover{background:var(--grau-h);color:var(--dunkel)}
+.item-btn{position:relative;padding:12px 13px 12px 16px}
+.item-btn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:transparent}
+.item-btn.sel{background:var(--blau-h)}
+.item-btn.sel::before{background:var(--blau)}
+.item-group-label{padding:10px 12px 6px;background:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--grau);border-bottom:1px solid var(--linie)}
+.item-group-label:not(:first-child){border-top:1px solid var(--linie)}
+.item-title{display:block;font-weight:800;font-size:13px;line-height:1.28;color:var(--praxis-dunkel)}
+.item-sub{display:block;margin-top:3px;font-size:11px;color:var(--grau);line-height:1.35}
+.work-empty{background:white;border:1px dashed var(--linie);border-radius:8px;padding:28px;text-align:center;color:var(--grau)}
+.work-empty strong{display:block;color:var(--praxis-dunkel);font-family:var(--font-head);font-size:17px;margin-bottom:5px}
+.work-col .sop-embed .page{max-width:none}
+.sop-embed .page{max-width:none;padding:0}
+
+/* RED-FLAG-BANNER (zentrales Sicherheits-Signal) */
+.rf-banner{position:sticky;top:54px;z-index:99;background:var(--rot);color:#fff;border-radius:10px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;box-shadow:0 3px 14px rgba(192,57,43,.35);animation:rfpulse 1.6s ease-in-out infinite}
+@keyframes rfpulse{0%,100%{box-shadow:0 3px 14px rgba(192,57,43,.30)}50%{box-shadow:0 3px 22px rgba(192,57,43,.65)}}
+.rf-banner .rf-ico{font-size:24px;flex-shrink:0}
+.rf-banner .rf-h{font-size:14px;font-weight:800;letter-spacing:.02em;font-family:var(--font-head)}
+.rf-banner .rf-text{font-size:12px;color:rgba(255,255,255,.92);margin-top:1px}
+@media print{.rf-banner{animation:none}}
+
+/* MELDUNGS-PANEL (dynamische Hinweise) */
+.meld-panel{margin-bottom:12px}
+
+/* LOADER / FEHLER */
+.boot-card{max-width:640px;margin:40px auto;background:#fff;border:1px solid var(--linie);border-radius:12px;padding:26px 28px;text-align:center}
+.boot-card .spinner{width:34px;height:34px;border:3px solid var(--blau-h);border-top-color:var(--blau);border-radius:50%;margin:0 auto 14px;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.boot-card h2{font-family:var(--font-head);font-size:17px;color:var(--praxis-dunkel);margin-bottom:6px}
+.boot-card p{font-size:13px;color:var(--grau)}
+.err-panel{max-width:720px;margin:0 auto 14px;background:var(--rot-h);border:1px solid #F5B7B1;border-left:4px solid var(--rot);border-radius:8px;padding:14px 16px}
+.err-panel h3{font-size:13px;color:var(--rot);font-weight:800;margin-bottom:6px}
+.err-panel ul{list-style:none;font-size:12px;color:#7B241C}
+.err-panel li{padding:3px 0 3px 18px;position:relative}
+.err-panel li::before{content:'?';position:absolute;left:0}
+.err-panel .hint{margin-top:8px;font-size:11px;color:var(--grau);font-style:italic}
+
+/* FOOTER */
+.praxis-footer{margin-top:22px;padding-top:14px;border-top:2px solid var(--blau);text-align:center;font-size:11px;color:var(--grau);line-height:1.7}
+.praxis-footer .pf-name{font-family:var(--font-head);font-weight:700;color:var(--blau);font-size:12px}
+.praxis-footer a.pf-name{text-decoration:none}
+.praxis-footer a.pf-name:hover{text-decoration:underline}
+
+@media print{.dashboard-page--nav,.nav-col,.list-col{display:none}.app-shell{display:block}}
+@media(max-width:900px){
+  .app-shell{grid-template-columns:1fr}
+  .nav-panel,.list-panel{position:static}
+  .nav-panel{display:grid;grid-template-columns:repeat(3,1fr)}
+  .nav-head{display:none}
+  .area-btn{border-bottom:0;border-right:1px solid var(--linie);padding:10px}
+  .area-btn:last-child{border-right:0}
+}
+@media(max-width:560px){
+  .nav-panel{grid-template-columns:1fr}
+  .area-btn{border-right:0;border-bottom:1px solid var(--linie)}
+  .area-btn:last-child{border-bottom:0}
+}
+</style>
+</head>
+<body>
+
+<!-- Lade-Anzeige -->
+<div id="pcm-loader" class="boot-card">
+  <div class="spinner"></div>
+  <h2>SOPs werden geladen ...</h2>
+  <p>Add-ons aus dem Ordner werden eingebunden.</p>
+</div>
+
+<!-- Fehler-Bereich (bleibt sichtbar, blockiert aber nicht) -->
+<div id="pcm-errors"></div>
+
+<!-- Dashboard (wird generiert) -->
+<div id="pcm-dashboard" class="dashboard-page hidden"></div>
+
+<!-- SOP-Viewer (wird generiert) -->
+<div id="pcm-viewer" class="dashboard-page hidden"></div>
+
+<!-- 1) Manifest: welche Add-ons geladen werden -->
+<script src="addons.js"></script>
+
+<!-- 2) Die Engine -->
+<script>
+"use strict";
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   PCM-SOP-FRAMEWORK - Engine
+   L?dt Add-ons (Weg A: selbst-registrierende .js-Dateien), rendert das
+   Dashboard und die SOP-Viewer, wertet Demo-Stoppzeichen live aus und baut den
+   PVS-Textbaustein über das austauschbare PVS-Template zusammen.
+   Diese Datei wird NICHT pro Praxis angepasst - nur die Add-ons.
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+/* ---- 1. ?ffentliche Registry-API (von den Add-ons aufgerufen) -------- */
+window.PCM = (function () {
+  const sops = [];
+  let pvsTemplate = null;
+  let praxis = null;
+  return {
+    registerSOP(def) { if (def && def.id) sops.push(def); },
+    setPvsTemplate(tpl) { pvsTemplate = tpl; },
+    setPraxis(p) { praxis = p; },
+    _sops: () => sops,
+    _pvs: () => pvsTemplate,
+    _praxis: () => praxis
+  };
+})();
+
+/* ---- 2. Hilfsfunktionen --------------------------------------------- */
+const $ = (sel, root) => (root || document).querySelector(sel);
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+const STIL_BOX = { rot: 'bx-red', blau: 'bx-blue', gruen: 'bx-green', orange: 'bx-orange', grau: 'bx-gray' };
+const STIL_TBL = { blau: 'tbl-blue', gruen: 'tbl-green', rot: 'tbl-red' };
+
+/* Sammelt Lade-/Laufzeitfehler und zeigt sie verst?ndlich an */
+const bootErrors = [];
+window.addEventListener('error', function (ev) {
+  // Syntaxfehler in einem nachgeladenen Add-on landen hier
+  if (ev && ev.filename && /\.js($|\?)/.test(ev.filename)) {
+    const datei = ev.filename.split('/').slice(-2).join('/');
+    bootErrors.push('Fehler in ' + datei + ': ' + (ev.message || 'Skriptfehler') +
+      (ev.lineno ? ' (Zeile ' + ev.lineno + ')' : ''));
+    renderErrors();
+  }
+});
+
+/* ---- 3. Add-on-Loader (dynamische <script>-Tags, file://-tauglich) --- */
+function loadScript(src) {
+  return new Promise(function (resolve) {
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = function () { resolve({ src: src, ok: true }); };
+    s.onerror = function () { resolve({ src: src, ok: false }); };
+    document.head.appendChild(s);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', boot);
+
+async function boot() {
+  const manifest = window.PCM_ADDONS;
+  if (!manifest) {
+    showFatal('Die Datei <code>addons.js</code> wurde nicht gefunden (oder enth?lt kein <code>window.PCM_ADDONS</code>). ' +
+      'Sie muss im selben Ordner wie diese HTML-Datei liegen.');
+    return;
+  }
+
+  // Reihenfolge: erst Praxis-Branding & PVS-Template, dann die SOPs
+  const files = [];
+  if (manifest.praxis) files.push(manifest.praxis);
+  if (manifest.pvsTemplate) files.push(manifest.pvsTemplate);
+  (manifest.sops || []).forEach(function (f) { files.push(f); });
+
+  const results = await Promise.all(files.map(loadScript));
+  results.filter(function (r) { return !r.ok; }).forEach(function (r) {
+    bootErrors.push('Datei nicht gefunden oder nicht ladbar: ' + r.src);
+  });
+
+  if (!PCM._pvs()) {
+    bootErrors.push('Kein PVS-Textbaustein-Format geladen. Bitte ' +
+      (manifest.pvsTemplate || 'config/pvs-template.js') + ' pr?fen.');
+  }
+  const erwartet = (manifest.sops || []).length;
+  const geladen = PCM._sops().length;
+  if (geladen < erwartet) {
+    bootErrors.push('Nur ' + geladen + ' von ' + erwartet + ' SOP-Add-ons geladen. ' +
+      'Mögliche Ursache: Tippfehler im Dateinamen in addons.js oder ein Fehler in der SOP-Datei.');
+  }
+
+  applyPraxis();
+  renderErrors();
+  $('#pcm-loader').classList.add('hidden');
+
+  if (geladen === 0) {
+    showFatal('Es wurde keine einzige SOP geladen. Bitte die Eintr?ge unter <code>sops:</code> in ' +
+      '<code>addons.js</code> sowie die Dateien im Ordner <code>sops/</code> pr?fen.');
+    return;
+  }
+  renderDashboard();
+}
+
+/* ---- 4. Fehleranzeige ----------------------------------------------- */
+function renderErrors() {
+  const box = $('#pcm-errors');
+  if (!box) return;
+  if (!bootErrors.length) { box.innerHTML = ''; return; }
+  box.innerHTML =
+    '<div class="err-panel"><h3>Hinweise beim Laden der Add-ons</h3><ul>' +
+    bootErrors.map(function (e) { return '<li>' + e + '</li>'; }).join('') +
+    '</ul><div class="hint">Geladene SOPs funktionieren normal. ' +
+    'Beim öffnen per Doppelklick zeigen manche Browser zus?tzliche Details in der Entwicklerkonsole (F12).</div></div>';
+}
+function showFatal(htmlMsg) {
+  $('#pcm-loader').classList.add('hidden');
+  const box = $('#pcm-errors');
+  box.innerHTML = '<div class="err-panel"><h3>SOP-Framework konnte nicht starten</h3>' +
+    '<p style="font-size:13px;color:#7B241C">' + htmlMsg + '</p></div>';
+}
+
+/* ---- 5. Praxis-Branding -------------------------------------------- */
+function applyPraxis() {
+  const p = PCM._praxis() || {};
+  if (p.farben && typeof p.farben === 'object') {
+    const root = document.documentElement;
+    if (p.farben.primaer) { root.style.setProperty('--blau', p.farben.primaer); root.style.setProperty('--praxis-blau', p.farben.primaer); }
+    if (p.farben.primaerDunkel) root.style.setProperty('--praxis-dunkel', p.farben.primaerDunkel);
+    if (p.farben.akzent) root.style.setProperty('--kupfer', p.farben.akzent);
+  }
+  document.title = (p.name ? p.name + ' · ' : '') + 'SOP-Übersicht';
+}
+
+/* ---- 6. Dashboard --------------------------------------------------- */
+function renderDashboard() {
+  const p = PCM._praxis() || {};
+  const dash = $('#pcm-dashboard');
+  $('#pcm-viewer').classList.add('hidden');
+  dash.classList.remove('hidden');
+
+  const logoHtml = p.logo
+    ? '<img class="dashboard-logo-img" src="' + esc(p.logo) + '" alt="">'
+    : '<div class="dashboard-logo">+</div>';
+
+  // nach Kategorie gruppieren (Reihenfolge nach erstem Auftreten)
+  const sops = PCM._sops();
+  const gruppen = [];
+  const idx = {};
+  sops.forEach(function (s) {
+    const k = s.kategorie || 'SOPs';
+    if (!(k in idx)) { idx[k] = gruppen.length; gruppen.push({ name: k, items: [] }); }
+    gruppen[idx[k]].items.push(s);
+  });
+
+  let html =
+    '<div class="dashboard-header">' + logoHtml +
+    '<div><div class="dashboard-title">' + esc(p.name || 'Praxis-SOPs') + '</div>' +
+    '<div class="dashboard-sub">' + esc(p.untertitel || 'Strukturierte Handlungsanweisungen für die MFA-/PCM-/VERAH-Sprechstunde') + '</div></div></div>';
+
+  gruppen.forEach(function (g) {
+    html += '<div class="dash-section-label">' + esc(g.name) + '</div><div class="sop-grid">';
+    g.items.forEach(function (s) {
+      html +=
+        '<button class="sop-card" data-open="' + esc(s.id) + '">' +
+        '<div class="sop-card-accent" style="background:' + esc(s.farbe || 'var(--blau)') + '"></div>' +
+        '<div class="sop-card-icon">' + esc(s.icon || '*') + '</div>' +
+        '<div class="sop-card-title">' + esc(s.titel || s.id) + '</div>' +
+        '<div class="sop-card-sub">' + esc(s.untertitel || '') + '</div>' +
+        '<div class="sop-card-badge">Aktiv' + (s.version ? ' · v' + esc(s.version) : '') + '</div>' +
+        '</button>';
+    });
+    html += '</div>';
+  });
+
+  html += footerHtml(p);
+  dash.innerHTML = html;
+  dash.querySelectorAll('.sop-card').forEach(function (btn) {
+    btn.addEventListener('click', function () { openSOP(btn.getAttribute('data-open')); });
+  });
+  window.scrollTo(0, 0);
+}
+
+const PCM_BEREICHE = [
+  { key: 'Torwache', titel: 'Torwache', sub: 'Erstkontakt im Fantasy-Heilhaus' },
+  { key: 'Heiler-Helfer-Sprechstunde', titel: 'Heiler-Helfer-Sprechstunde', sub: 'Akute und chronische Fantasy-Faelle' },
+  { key: 'Scores', titel: 'Fantasy-Scores', sub: 'Frei erfundene Rechner und Dokumentation' }
+];
+let aktiverBereich = 'Torwache';
+
+function sopBereich(s) {
+  if (s.bereich) return s.bereich;
+  if (s.kategorie === 'Scores') return 'Scores';
+  if (s.kategorie === 'Empfang') return 'Torwache';
+  return 'Heiler-Helfer-Sprechstunde';
+}
+
+function sopUnterbereich(s) {
+  if (s.unterbereich) return s.unterbereich;
+  if (sopBereich(s) === 'Heiler-Helfer-Sprechstunde') return 'Akut';
+  return '';
+}
+
+function unterbereichTitel(key) {
+  return {
+    Akut: 'Akute Faelle',
+    Chronisch: 'Chronische Faelle'
+  }[key] || key || 'Thema';
+}
+
+function renderDashboard(bereich) {
+  const p = PCM._praxis() || {};
+  const dash = $('#pcm-dashboard');
+  const viewer = $('#pcm-viewer');
+  if (viewer) viewer.classList.add('hidden');
+  dash.classList.remove('hidden');
+  aktiverBereich = bereich || aktiverBereich || 'Torwache';
+
+  const logoHtml = p.logo
+    ? '<img class="dashboard-logo-img" src="' + esc(p.logo) + '" alt="">'
+    : '<div class="dashboard-logo">+</div>';
+
+  const sops = PCM._sops();
+  const bereiche = PCM_BEREICHE.filter(function (b) {
+    return sops.some(function (s) { return sopBereich(s) === b.key; });
+  });
+  if (!bereiche.some(function (b) { return b.key === aktiverBereich; }) && bereiche.length) aktiverBereich = bereiche[0].key;
+  const items = sops.filter(function (s) { return sopBereich(s) === aktiverBereich; });
+
+  let html =
+    '<div class="dashboard-header">' + logoHtml +
+    '<div><div class="dashboard-title">' + esc(p.name || 'Fantasy-Heilhaus') + '</div>' +
+    '<div class="dashboard-sub">' + esc(p.untertitel || 'Interaktive Fantasy-Demo-SOPs, Stoppzeichen und Textbausteine') + '</div></div></div>' +
+    '<div class="app-shell">' +
+    '<div class="nav-col"><div class="nav-panel"><div class="nav-head">Bereich</div>';
+
+  bereiche.forEach(function (b) {
+    html += '<button class="area-btn' + (b.key === aktiverBereich ? ' sel' : '') + '" data-area="' + esc(b.key) + '">' +
+      '<span class="area-title">' + esc(b.titel) + '</span><span class="area-sub">' + esc(b.sub) + '</span></button>';
+  });
+
+  html += '<div class="nav-tools"><button class="nav-reset" id="pcm-nav-reset" type="button">Zurücksetzen</button></div>' +
+    '</div></div><div class="list-col"><div class="list-panel"><div class="list-head">Thema</div>';
+  if (items.length) {
+    if (aktiverBereich === 'Heiler-Helfer-Sprechstunde') {
+      ['Akut', 'Chronisch'].forEach(function (gruppe) {
+        const gruppenItems = items.filter(function (s) { return sopUnterbereich(s) === gruppe; });
+        if (!gruppenItems.length) return;
+        html += '<div class="item-group-label">' + esc(unterbereichTitel(gruppe)) + '</div>';
+        gruppenItems.forEach(function (s) {
+          html += '<button class="item-btn" data-open="' + esc(s.id) + '">' +
+            '<span class="item-title">' + esc(s.titel || s.id) + '</span>' +
+            '<span class="item-sub">' + esc(s.untertitel || s.kategorie || '') + '</span></button>';
+        });
+      });
+    } else {
+      items.forEach(function (s) {
+        html += '<button class="item-btn" data-open="' + esc(s.id) + '">' +
+          '<span class="item-title">' + esc(s.titel || s.id) + '</span>' +
+          '<span class="item-sub">' + esc(s.untertitel || s.kategorie || '') + '</span></button>';
+      });
+    }
+  } else {
+    html += '<div class="item-sub" style="padding:14px">Noch keine Add-ons in diesem Bereich.</div>';
+  }
+
+  html += '</div></div><div class="work-col" id="pcm-workspace">' +
+    '<div class="work-empty"><strong>Thema auswählen</strong>Links einen Bereich und ein Thema öffnen.</div>' +
+    '</div></div>' + footerHtml(p);
+
+  dash.innerHTML = html;
+  dash.querySelectorAll('[data-area]').forEach(function (btn) {
+    btn.addEventListener('click', function () { renderDashboard(btn.getAttribute('data-area')); });
+  });
+  dash.querySelectorAll('[data-open]').forEach(function (btn) {
+    btn.addEventListener('click', function () { openSOP(btn.getAttribute('data-open')); });
+  });
+  const resetBtn = $('#pcm-nav-reset', dash);
+  if (resetBtn) resetBtn.addEventListener('click', resetAktiveSOP);
+
+  if (items.length) openSOP(items[0].id, true);
+  window.scrollTo(0, 0);
+}
+
+function footerHtml(p) {
+  if (!p.footer) return '';
+  const brand = p.footerBrand || 'Asklaion';
+  const brandHtml = p.footerLink
+    ? '<a class="pf-name" href="' + esc(p.footerLink) + '" target="_blank" rel="noopener noreferrer">' + esc(brand) + '</a>'
+    : '<span class="pf-name">' + esc(brand) + '</span>';
+  return '<div class="praxis-footer">' + brandHtml + '<br>' + esc(p.footer) + '</div>';
+}
+
+/* ---- 7. SOP-Viewer -------------------------------------------------- */
+let aktiveSOP = null;
+let state = {};
+
+function openSOP(id, silent) {
+  const def = PCM._sops().find(function (s) { return s.id === id; });
+  if (!def) return;
+  aktiveSOP = def;
+  aktiverBereich = sopBereich(def);
+  state = initState(def);
+  document.querySelectorAll('[data-open]').forEach(function (btn) {
+    btn.classList.toggle('sel', btn.getAttribute('data-open') === id);
+  });
+  renderViewer(def);
+  const dash = $('#pcm-dashboard');
+  const viewer = $('#pcm-viewer');
+  if (dash) dash.classList.remove('hidden');
+  if (viewer) viewer.classList.add('hidden');
+  if (!silent) {
+    const target = $('#pcm-workspace') || $('#pcm-dashboard');
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+function closeSOP() {
+  aktiveSOP = null;
+  const w = $('#pcm-workspace');
+  if (w) {
+    w.innerHTML = '<div class="work-empty"><strong>Thema auswählen</strong>Links einen Bereich und ein Thema öffnen.</div>';
+  } else {
+    renderDashboard(aktiverBereich);
+  }
+}
+
+function resetAktiveSOP() {
+  if (!aktiveSOP) return;
+  state = initState(aktiveSOP);
+  renderViewer(aktiveSOP);
+}
+
+function initState(def) {
+  const st = {};
+  (def.schritte || []).forEach(function (sc) {
+    (sc.elemente || []).forEach(function (el) {
+      if (!el.id) return;
+      if (el.typ === 'checkliste' || el.typ === 'icd') st[el.id] = [];
+      else if (el.typ === 'auswahl') st[el.id] = null;
+      else if (el.typ === 'zahl') st[el.id] = { wert: '', einheit: (el.einheiten && el.einheiten[0]) || '' };
+      else if (el.typ === 'text' || el.typ === 'textarea') st[el.id] = '';
+    });
+  });
+  if (def.initialState) Object.assign(st, JSON.parse(JSON.stringify(def.initialState)));
+  return st;
+}
+
+function renderViewer(def) {
+  const v = $('#pcm-workspace') || $('#pcm-viewer');
+  let html =
+    '' +
+    '<div class="rf-banner hidden" id="pcm-rf-banner"><span class="rf-ico">!</span>' +
+    '<div><div class="rf-h">Demo-Stoppzeichen - Freigabe einholen</div>' +
+    '<div class="rf-text" id="pcm-rf-text">Beispiel pausieren und keine reale Handlungsempfehlung ableiten.</div></div></div>' +
+    '<div class="meld-panel" id="pcm-meld"></div>' +
+    '<div class="sop-embed"><div class="page">' + headerHtml(def);
+
+  (def.schritte || []).forEach(function (sc, i) {
+    html += stepHtml(sc, i);
+  });
+
+  // Baustein-Bereich
+  html +=
+    '<div class="step"><div class="step-hd" data-step-toggle="out">' +
+    '<div class="step-num" style="background:' + esc(def.farbe || 'var(--blau)') + '">*</div>' +
+    '<div class="step-title">PVS-Dokumentation erzeugen</div>' +
+    '<span class="badge b-gray">Dokumentation</span>' +
+    '<div class="chev open" data-chev="out">v</div></div>' +
+    '<div class="step-body open" data-body="out">' +
+    '<button class="prim-btn" id="pcm-gen" style="background:' + esc(def.farbe || 'var(--blau)') + '">' +
+    '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>' +
+    ' PVS-Dokumentation erzeugen</button>' +
+    '<div id="pcm-out" class="output-wrap hidden">' +
+    '<div class="output-label">PVS-Dokumentation</div>' +
+    '<textarea id="pcm-out-text" class="output-area" readonly></textarea>' +
+    '<div class="copy-bar"><span class="copy-bar-label">Kopieren - ins PVS einf?gen</span>' +
+    '<button class="copy-bar-btn" id="pcm-copy"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Alles kopieren</button></div>' +
+    '</div></div></div>';
+
+  html += '</div></div>'; // page, sop-embed
+  v.innerHTML = html;
+  wireViewer(def);
+  refresh();
+}
+
+function headerHtml(def) {
+  const farbe = def.farbe || 'var(--blau)';
+  let meta = '';
+  const metaItems = [];
+  if (def.quelle) metaItems.push(['Quelle', def.quelle]);
+  if (def.version) metaItems.push(['Version', def.version]);
+  if (def.stand) metaItems.push(['Stand', def.stand]);
+  if (metaItems.length) {
+    meta = '<div class="hd-meta">' + metaItems.map(function (m) {
+      return '<div class="hd-mi"><div class="hd-ml">' + esc(m[0]) + '</div><div class="hd-mv">' + esc(m[1]) + '</div></div>';
+    }).join('') + '</div>';
+  }
+  const note = def.delegationshinweis
+    ? '<div class="hd-note" style="background:#F5EEF8;color:' + esc(farbe) + ';border-color:#D7BDE2">' +
+      '<strong>Hinweis · Delegation</strong>' + esc(def.delegationshinweis) + '</div>'
+    : '';
+  return '<div class="sop-header"><div class="hd-top" style="background:' + esc(farbe) + '">' +
+    '<div class="hd-eye">SOP-Framework · ' + esc(sopBereich(def)) + '</div>' +
+    '<div class="hd-title">' + esc(def.titel || def.id) + '</div>' +
+    (def.untertitel ? '<div class="hd-sub">' + esc(def.untertitel) + '</div>' : '') +
+    '</div>' + meta + note + '</div>';
+}
+
+function stepHtml(sc, i) {
+  const offen = !!sc.offen;
+  const farbe = sc.farbe || 'var(--blau)';
+  const badge = sc.rolle
+    ? '<span class="badge ' + (sc.rolleStil ? 'b-' + sc.rolleStil : 'b-blue') + '">' + esc(sc.rolle) + '</span>'
+    : '';
+  let body = '';
+  (sc.elemente || []).forEach(function (el) { body += elementHtml(el); });
+  return '<div class="step">' +
+    '<div class="step-hd" data-step-toggle="' + i + '">' +
+    '<div class="step-num" style="background:' + esc(farbe) + '">' + (sc.nr != null ? esc(sc.nr) : (i + 1)) + '</div>' +
+    '<div class="step-title">' + esc(sc.titel || '') + '</div>' + badge +
+    '<div class="chev ' + (offen ? 'open' : '') + '" data-chev="' + i + '">v</div></div>' +
+    '<div class="step-body ' + (offen ? 'open' : '') + '" data-body="' + i + '">' + body + '</div></div>';
+}
+
+function elementHtml(el) {
+  switch (el.typ) {
+    case 'info':
+      return '<div class="box ' + (STIL_BOX[el.stil] || 'bx-blue') + '">' +
+        (el.titel ? '<div class="lbl">' + esc(el.titel) + '</div>' : '') + esc(el.text) + '</div>';
+    case 'split':
+      return '<div class="split">' + (el.zellen || []).map(function (z) {
+        return '<div class="sp-cell sp-' + (z.stil === 'gruen' ? 'green' : z.stil === 'rot' ? 'red' : z.stil === 'orange' ? 'orange' : 'blue') + '">' +
+          (z.titel ? '<strong>' + esc(z.titel) + '</strong>' : '') + esc(z.text) + '</div>';
+      }).join('') + '</div>';
+    case 'sec':
+      return '<div class="sec">' + esc(el.text) + '</div>';
+    case 'checkliste': {
+      const g = el.stil === 'gruen' ? ' chk-g' : '';
+      const rows = (el.items || []).map(function (it) {
+        return '<div class="chk' + g + '" data-check="' + esc(el.id) + '"><div class="cb"></div><span>' + esc(it) + '</span></div>';
+      }).join('');
+      return '<div class="checklist" data-checklist="' + esc(el.id) + '">' + rows + '</div>';
+    }
+    case 'auswahl': {
+      const opts = (el.optionen || []).map(function (o) {
+        return '<button class="rbtn" data-radio="' + esc(el.id) + '" data-wert="' + esc(o.wert) + '">' + esc(o.text) + '</button>';
+      }).join('');
+      return '<div class="form-row">' + (el.label ? '<label>' + esc(el.label) + '</label>' : '') +
+        '<div class="radio-group">' + opts + '</div></div>';
+    }
+    case 'zahl': {
+      const einh = (el.einheiten || []).map(function (u, k) {
+        return '<button class="unit-btn' + (k === 0 ? ' sel' : '') + '" data-unit="' + esc(el.id) + '" data-wert="' + esc(u) + '">' + esc(u) + '</button>';
+      }).join('');
+      return '<div class="form-row">' + (el.label ? '<label>' + esc(el.label) + '</label>' : '') +
+        '<input type="number" data-num="' + esc(el.id) + '"' +
+        (el.min != null ? ' min="' + esc(el.min) + '"' : '') +
+        (el.max != null ? ' max="' + esc(el.max) + '"' : '') +
+        ' placeholder="' + esc(el.platzhalter || '-') + '">' + einh + '</div>';
+    }
+    case 'tabelle': {
+      const kopf = (el.kopf || []).map(function (h, k) {
+        return '<th' + (el.breiten && el.breiten[k] ? ' style="width:' + esc(el.breiten[k]) + '"' : '') + '>' + esc(h) + '</th>';
+      }).join('');
+      const zeilen = (el.zeilen || []).map(function (z) {
+        const cls = z.stil ? ' class="row-' + (z.stil === 'gruen' ? 'green' : 'gray') + '"' : '';
+        const cells = (z.zellen || z).map(function (c, k) {
+          return '<td' + (k === 0 ? ' class="fw"' : '') + '>' + esc(c) + '</td>';
+        }).join('');
+        return '<tr' + cls + '>' + cells + '</tr>';
+      }).join('');
+      return '<table class="tbl ' + (STIL_TBL[el.stil] || 'tbl-blue') + '">' +
+        (kopf ? '<thead><tr>' + kopf + '</tr></thead>' : '') + '<tbody>' + zeilen + '</tbody></table>';
+    }
+    case 'liste':
+      return '<ul class="ul">' + (el.items || []).map(function (it) { return '<li>' + esc(it) + '</li>'; }).join('') + '</ul>';
+    case 'icd': {
+      const rows = (el.items || []).map(function (it) {
+        return '<div class="chk chk-g" data-icd="' + esc(el.id) + '" data-code="' + esc(it.code) + '"><div class="cb"></div>' +
+          '<span><strong>' + esc(it.code) + '</strong> &nbsp;-&nbsp; ' + esc(it.text) + '</span></div>';
+      }).join('');
+      return '<div class="sec">Demo-Codes (LD) auswaehlen:</div>' +
+        '<div class="box bx-blue"><div class="lbl">Hinweis</div>Auswahl durch Anklicken (Mehrfachauswahl moeglich). Frei erfundene Codes werden in den Baustein uebernommen.</div>' +
+        '<div class="checklist" data-icdlist="' + esc(el.id) + '">' + rows + '</div>';
+    }
+    case 'text':
+      return '<div class="form-row">' + (el.label ? '<label>' + esc(el.label) + '</label>' : '') +
+        '<input type="text" data-text="' + esc(el.id) + '" placeholder="' + esc(el.platzhalter || '') + '" style="flex:1;min-width:180px"></div>';
+    case 'textarea':
+      return '<div class="form-row" style="align-items:stretch;display:block">' +
+        (el.label ? '<label style="display:block;margin-bottom:4px">' + esc(el.label) + '</label>' : '') +
+        '<textarea data-text="' + esc(el.id) + '" placeholder="' + esc(el.platzhalter || '') + '" ' +
+        'style="width:100%;min-height:' + esc(el.hoehe || '90px') + ';border:1px solid var(--linie);border-radius:6px;padding:8px 10px;font:inherit;resize:vertical"></textarea></div>';
+    case 'html':
+      return el.html || '';
+    default:
+      return '';
+  }
+}
+
+/* ---- 8. Interaktion / State ---------------------------------------- */
+function wireViewer(def) {
+  const v = $('#pcm-workspace') || $('#pcm-viewer');
+
+  // Schritte auf-/zuklappen
+  v.querySelectorAll('[data-step-toggle]').forEach(function (hd) {
+    hd.addEventListener('click', function () {
+      const key = hd.getAttribute('data-step-toggle');
+      const body = v.querySelector('[data-body="' + key + '"]');
+      const chev = v.querySelector('[data-chev="' + key + '"]');
+      const open = body.classList.toggle('open');
+      if (chev) chev.classList.toggle('open', open);
+    });
+  });
+
+  // Checklisten (rot = Demo-Stoppzeichen / blau-gruen = sonstige)
+  v.querySelectorAll('[data-check]').forEach(function (row) {
+    row.addEventListener('click', function () {
+      row.querySelector('.cb').classList.toggle('on');
+      const id = row.getAttribute('data-check');
+      state[id] = collectChecks(v, 'data-checklist', id);
+      refresh();
+    });
+  });
+
+  // Demo-Code-Auswahl
+  v.querySelectorAll('[data-icd]').forEach(function (row) {
+    row.addEventListener('click', function () {
+      row.querySelector('.cb').classList.toggle('on');
+      const id = row.getAttribute('data-icd');
+      state[id] = collectIcd(v, id);
+      refresh();
+    });
+  });
+
+  // Auswahl (Radio-Buttons)
+  v.querySelectorAll('[data-radio]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const id = btn.getAttribute('data-radio');
+      const wert = btn.getAttribute('data-wert');
+      v.querySelectorAll('[data-radio="' + id + '"]').forEach(function (b) {
+        b.classList.toggle('sel', b === btn);
+      });
+      state[id] = wert;
+      refresh();
+    });
+  });
+
+  // Zahl + Einheit
+  v.querySelectorAll('[data-num]').forEach(function (inp) {
+    inp.addEventListener('input', function () {
+      const id = inp.getAttribute('data-num');
+      state[id] = state[id] || { wert: '', einheit: '' };
+      state[id].wert = inp.value;
+      refresh();
+    });
+  });
+  v.querySelectorAll('[data-unit]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const id = btn.getAttribute('data-unit');
+      const wert = btn.getAttribute('data-wert');
+      v.querySelectorAll('[data-unit="' + id + '"]').forEach(function (b) {
+        b.classList.toggle('sel', b === btn);
+      });
+      state[id] = state[id] || { wert: '', einheit: '' };
+      state[id].einheit = wert;
+      refresh();
+    });
+  });
+
+  // Freitext
+  v.querySelectorAll('[data-text]').forEach(function (inp) {
+    inp.addEventListener('input', function () {
+      state[inp.getAttribute('data-text')] = inp.value;
+      refresh();
+    });
+  });
+
+  // Baustein erzeugen + kopieren
+  $('#pcm-gen').addEventListener('click', generateBaustein);
+  $('#pcm-copy').addEventListener('click', copyBaustein);
+}
+
+function collectChecks(v, attr, id) {
+  const out = [];
+  v.querySelectorAll('[' + attr + '="' + id + '"] .chk').forEach(function (row) {
+    if (row.querySelector('.cb').classList.contains('on')) {
+      out.push(row.querySelector('span').textContent.trim());
+    }
+  });
+  return out;
+}
+function collectIcd(v, id) {
+  const out = [];
+  v.querySelectorAll('[data-icd="' + id + '"]').forEach(function (row) {
+    if (row.querySelector('.cb').classList.contains('on')) out.push(row.getAttribute('data-code'));
+  });
+  return out;
+}
+
+/* Live-Auswertung: Red-Flag-Banner + Hinweis-Panel */
+function refresh() {
+  if (!aktiveSOP) return;
+  let res = { redflag: false, meldungen: [] };
+  if (typeof aktiveSOP.auswertung === 'function') {
+    try { res = aktiveSOP.auswertung(state) || res; }
+    catch (e) { res = { redflag: false, meldungen: [{ stil: 'orange', titel: 'Auswertungsfehler', text: String(e.message || e) }] }; }
+  }
+  const banner = $('#pcm-rf-banner');
+  banner.classList.toggle('hidden', !res.redflag);
+  if (res.redflag && res.bannerText) $('#pcm-rf-text').textContent = res.bannerText;
+
+  const meld = $('#pcm-meld');
+  meld.innerHTML = (res.meldungen || []).map(function (m) {
+    return '<div class="box ' + (STIL_BOX[m.stil] || 'bx-blue') + '">' +
+      (m.titel ? '<div class="lbl">' + esc(m.titel) + '</div>' : '') + esc(m.text) + '</div>';
+  }).join('');
+
+  // Wenn Baustein schon sichtbar ist: live aktualisieren
+  if (!$('#pcm-out').classList.contains('hidden')) generateBaustein(true);
+}
+
+/* ---- 9. PVS-Textbaustein (generisch, über das PVS-Template) --------- */
+function applyPvsTemplate(sections) {
+  const tpl = PCM._pvs() || { abschnitte: [{ key: 'AN', label: 'AN' }, { key: 'BE', label: 'BE' }, { key: 'TH', label: 'TH' }, { key: 'LD', label: 'LD' }], trennzeichen: '\n', leereWeglassen: true };
+  const out = [];
+  (tpl.abschnitte || []).forEach(function (ab) {
+    let val = sections[ab.key];
+    if (val == null) { if (!tpl.leereWeglassen) { out.push(ab.label); out.push(''); } return; }
+    val = String(val).trim();
+    if (!val) { if (!tpl.leereWeglassen) { out.push(ab.label); out.push(''); } return; }
+    out.push(ab.label);
+    out.push(val);
+  });
+  return out.join(tpl.trennzeichen || '\n');
+}
+
+function generateBaustein(silent) {
+  if (!aktiveSOP || typeof aktiveSOP.baustein !== 'function') return;
+  let sections;
+  try { sections = aktiveSOP.baustein(state) || {}; }
+  catch (e) {
+    $('#pcm-out-text').value = 'Fehler bei der Baustein-Erzeugung: ' + (e.message || e);
+    $('#pcm-out').classList.remove('hidden');
+    return;
+  }
+  $('#pcm-out-text').value = applyPvsTemplate(sections);
+  $('#pcm-out').classList.remove('hidden');
+  if (silent !== true) $('#pcm-out').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function copyBaustein() {
+  const ta = $('#pcm-out-text');
+  if (!ta || !ta.value) return;
+  ta.removeAttribute('readonly');
+  ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+  ta.setAttribute('readonly', '');
+  if (!ok && navigator.clipboard) { navigator.clipboard.writeText(ta.value).catch(function () {}); }
+  const btn = $('#pcm-copy');
+  btn.classList.add('ok');
+  btn.innerHTML = '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Kopiert!';
+  setTimeout(function () {
+    btn.classList.remove('ok');
+    btn.innerHTML = '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Alles kopieren';
+  }, 2200);
+}
+</script>
+</body>
+</html>
