@@ -22,8 +22,6 @@ Weil jede SOP in einer eigenen Datei liegt, lassen sich Module frei kombinieren,
 
 ## Live-Demo
 
-Sobald GitHub Pages für dieses Repository aktiviert ist, läuft die Demo direkt im Browser:
-
 **→ https://lollylan.github.io/SOP/**
 
 Es werden keine Daten gespeichert oder versendet – die App läuft vollständig lokal im Browser.
