@@ -1,4 +1,4 @@
-# Heilhaus zur Weissen Eiche – interaktives SOP-Framework
+# Interaktives SOP-Framework
 
 Ein leichtgewichtiges, modulares Framework für **interaktive SOPs (Standard Operating Procedures)**: klickbare Arbeitsabläufe, Checklisten, Score-Rechner und kopierbare Textbausteine – alles als statische Webseite, ganz ohne Server oder Datenbank.
 
