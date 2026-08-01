@@ -1,85 +1,202 @@
-# Interaktives SOP-Framework
+# Asklaion SOP
 
-Ein leichtgewichtiges, modulares Framework für **interaktive SOPs (Standard Operating Procedures)**: klickbare Arbeitsabläufe, Checklisten, Score-Rechner und kopierbare Textbausteine – alles als statische Webseite, ganz ohne Server oder Datenbank.
+Eine Sammlung **interaktiver Standard Operating Procedures (SOPs)** für die hausärztliche
+Versorgung: klickbare Arbeitsabläufe, Checklisten, Score-Rechner, strukturierte Befundmodule
+und kopierfertige Textbausteine für das Praxisverwaltungssystem.
 
-> **Wichtig: Dies ist nur ein Framework mit Beispielinhalt.**
-> Alle hier gezeigten Fälle, „Erkrankungen", Stoppzeichen, Scores, Werte und Codes sind **frei erfunden** (High-Fantasy-Demo) und dienen ausschließlich dazu, die Technik und die Modularität zu demonstrieren. Sie sind **keine** medizinische, rechtliche oder organisatorische Handlungsempfehlung.
+Alles läuft als **statische Webseite** – ohne Server, ohne Datenbank, ohne Installation.
+Es werden keine Daten gespeichert oder versendet; die Anwendung arbeitet vollständig
+lokal im Browser.
 
-## Idee
+**→ Zum Ausprobieren: https://lollylan.github.io/SOP/**
 
-Statt SOPs als statische PDF- oder Textdokumente abzulegen, macht dieses Framework sie **erlebbar**: als klickbare, strukturierte und wiederverwendbare Arbeitsabläufe. Jede SOP und jeder Score ist ein eigenständiges Modul – einzeln ergänzbar, ersetzbar und versionierbar.
+> **Die SOPs sind Vorlagen.** Jede Praxis muss sie an ihre eigenen Abläufe, Delegations-
+> regeln und Freigaben anpassen, fachlich validieren und vor dem Einsatz ärztlich
+> freigeben. Sie sind keine medizinische oder rechtliche Handlungsempfehlung.
 
-Der Beispielinhalt ist bewusst eine **Fantasy-Demo**, damit sofort klar ist: Es geht um das **Gerüst**, nicht um konkrete Inhalte. Den fachlichen Teil füllt jeder selbst.
+---
 
-## Für wen ist das gedacht?
+## Für Anwenderinnen und Anwender
 
-Das Framework ist als **leeres, modulares Gerüst** konzipiert, das auf zwei Wegen mit echten, fachlich freigegebenen Inhalten befüllt werden kann:
+**Eine bebilderte Schritt-für-Schritt-Anleitung – herunterladen, anpassen, in der Praxis
+einsetzen – finden Sie auf [asklaion.de](https://www.asklaion.de).**
 
-- **Einzelne Praxen** ergänzen ihre eigenen, intern abgestimmten SOPs Modul für Modul.
-- **Verbände, Fachgesellschaften oder Netzwerke** können das Framework mit **offiziellen, validierten SOPs** bestücken und gemeinsam pflegen.
+Wenn Sie es nur kurz ansehen möchten, genügt der Demo-Link oben. Für den eigenen
+Einsatz laden Sie das Paket herunter:
 
-Weil jede SOP in einer eigenen Datei liegt, lassen sich Module frei kombinieren, austauschen und weitergeben – ohne den Kern des Frameworks anzufassen.
+1. Oben auf dieser Seite auf den grünen Knopf **`Code`** klicken.
+2. **`Download ZIP`** wählen.
+3. Das heruntergeladene Archiv entpacken.
+4. Die Datei **`pcm-framework.html`** doppelklicken – sie öffnet sich im Browser.
 
-## Live-Demo
+Fertig. Es ist keine Installation nötig, und die Anwendung funktioniert auch ohne
+Internetverbindung.
 
-**→ https://lollylan.github.io/SOP/**
+Was Sie anschließend typischerweise anpassen:
 
-Es werden keine Daten gespeichert oder versendet – die App läuft vollständig lokal im Browser.
+| Was | Wo |
+|---|---|
+| Praxisname, Farben, Logo, Fußzeile | `config/praxis.js` |
+| Aufbau der Textbausteine (AN, BE, TH, LD …) | `config/pvs-template.js` |
+| Welche SOPs geladen werden | `addons.js` |
+| Die SOPs selbst | Dateien im Ordner `sops/` |
 
-## Dank
+Diese Dateien lassen sich mit jedem Texteditor öffnen. **Wie das im Einzelnen geht,
+steht ausführlich auf [asklaion.de](https://www.asklaion.de)** – dort wird auch erklärt,
+worauf Sie bei eigenen Inhalten achten müssen.
 
-Ein ausdrücklicher Dank geht an **Carsten** und **Wolfgang** für die Idee zu interaktiven SOPs. Diese Demo greift ihre Grundidee auf: SOPs nicht nur als statische Texte abzulegen, sondern als klickbare, strukturierte und wiederverwendbare Arbeitsabläufe erlebbar zu machen.
+### Was ist enthalten?
 
-## Was ist enthalten?
+- **Startseite** – Kurzüberblick und Bildnachweise
+- **Telefontriage** – Erstkontakt mit Red-Flag-Abfrage
+- **PCM-Sprechstunde** – Akutanlässe und Chroniker *(Inhalte folgen)*
+- **Hitze-Medikation (CALOR-Liste)** *(Inhalt folgt)*
+- **Patientenaufklärungen** – Deximed-Verweise
+- **Dermatologie** – Effloreszenzen-Bestimmung und Dermatoskopie mit ABCD-Score
+- **Sonographie** – strukturierte Befundung Abdomen und Schilddrüse
+- **Orthopädie** – Gelenkuntersuchung, Neutral-Null-Methode, Funktionstests
+- **EKG** – schrittweise Befundung mit automatischer Beurteilung
+- **Scores** – rund 30 Rechner von CHA₂DS₂-VASc bis PHQ-9
 
-- **Torwache** – fiktiver Erstkontakt / Empfang mit Demo-Stoppzeichen
-- **Heiler-Helfer-Sprechstunde** – akute und chronische Fantasy-Fälle, getrennt gelistet
-- **Fantasy-Scores** – frei erfundene Score-Rechner
-- **Textbaustein-Ausgabe** mit den Abschnitten AN, BE, TH und LD (frei konfigurierbar)
-- **Modulares Add-on-System** – jede SOP und jeder Score liegt in einer eigenen JS-Datei
+Die mit *(Inhalt folgt)* markierten Bereiche sind bewusst leer: Für diese Inhalte liegen
+die Einverständniserklärungen der Rechteinhaber noch nicht vor. Struktur und Einordnung
+bleiben sichtbar, damit erkennbar ist, was ergänzt wird.
 
-## Projektstruktur
+---
+
+## Für technisch Versierte
+
+### Architektur
+
+Eine Engine, beliebig viele Add-ons. `pcm-framework.html` enthält die komplette Engine
+(Rendering, State, Red-Flag-Auswertung, Textbaustein-Erzeugung) und wird **nicht pro
+Praxis angepasst**. Jede SOP ist eine eigenständige JS-Datei, die sich beim Laden selbst
+registriert:
+
+```js
+PCM.registerSOP({
+  id: 'beispiel',
+  titel: 'Beispiel-SOP',
+  bereich: 'PCM-Sprechstunde',     // Spalte 1 der Navigation
+  unterbereich: 'Akutanlaesse',    // Gruppierung
+  kategorie: 'Infektiologie',      // Fachbereich
+  schritte: [ /* Elemente: info, checkliste, auswahl, zahl, tabelle, icd, html … */ ],
+  auswertung: function (state) { /* Red Flags und Hinweise, läuft live */ },
+  baustein:   function (state) { /* { AN, BE, TH, LD } für das PVS */ }
+});
+```
+
+Neue Datei in `sops/` ablegen, Pfad in `addons.js` unter `sops` eintragen – fertig.
+Die vollständige Referenz aller Elementtypen, der Live-Auswertung und des Baustein-Formats
+steht in **[`ANLEITUNG.md`](ANLEITUNG.md)**.
+
+Add-ons werden bewusst als `.js` geladen und nicht als `.json`: Beim Öffnen per Doppelklick
+(`file://`) blockieren Browser das Nachladen von Text- und JSON-Dateien per `fetch`,
+selbstregistrierende Skripte sind davon nicht betroffen.
+
+### Projektstruktur
 
 ```text
 .
-├── index.html              # Startseite (leitet auf die App weiter, für GitHub Pages)
-├── pcm-framework.html      # die eigentliche App
-├── addons.js               # Manifest: welche Module geladen werden
+├── index.html                  # Weiterleitung auf die App (für GitHub Pages)
+├── pcm-framework.html          # die Engine – enthält die komplette Anwendung
+├── addons.js                   # Manifest: welche Module geladen werden
+├── ANLEITUNG.md                # Referenz zum Schreiben eigener SOPs
+├── .nojekyll                   # schaltet die Jekyll-Verarbeitung auf Pages ab
 ├── config/
-│   ├── praxis.js           # Branding (Name, Farben, Logo, Footer)
-│   ├── pvs-template.js     # Format der Textbausteine
-│   └── logo.png            # Logo
-└── sops/
-    ├── sop-torwache.js     # Erstkontakt / Empfang
-    ├── akut-*.js           # je eine akute SOP pro Datei
-    ├── chronisch-*.js      # je eine chronische SOP pro Datei
-    └── score-*.js          # je ein Score pro Datei
+│   ├── praxis.js               # Branding: Name, Farben, Logo, Fußzeile
+│   ├── pvs-template.js         # Aufbau der PVS-Textbausteine
+│   └── logo.png                # Programmlogo
+├── sops/
+│   ├── startseite.js           # Startseite
+│   ├── sop-*.js                # je eine SOP pro Datei
+│   ├── scores-*.js             # Score-Rechner, nach Fachgebiet gebündelt
+│   └── dermatoskopie-assets/   # Beispielbilder Dermatoskopie
+├── assets/
+│   ├── effloreszenzen/         # Beispielbilder Effloreszenzen
+│   └── sonographie/            # Beispielbilder Sonographie
+└── PVS/
+    └── Pegamed.txt             # Beispiel für ein PVS-Baustein-Format
 ```
 
-## Eigene SOPs einbauen
+### Lokal starten
 
-1. Eine vorhandene Datei aus `sops/` kopieren.
-2. ID, Titel, Schritte, Auswertung und Textbaustein anpassen.
-3. Die neue Datei in `addons.js` unter `sops` eintragen.
-4. **Eigene Inhalte fachlich prüfen, validieren und vor einem echten Einsatz freigeben.**
+Doppelklick auf `pcm-framework.html` genügt – kein Build, kein Server. Wer lieber über
+HTTP entwickelt:
 
-Eine ausführliche Anleitung mit allen Elementtypen, der Live-Auswertung und dem
-Textbaustein-Format steht in [`ANLEITUNG.md`](ANLEITUNG.md).
+```bash
+python -m http.server 8765
+```
 
-## Lokal starten
+Dann `http://localhost:8765/` aufrufen.
 
-Einfach `pcm-framework.html` im Browser öffnen – oder `index.html` für die
-Weiterleitung. Es ist kein Build-Schritt und kein Server nötig.
+### Eigenes GitHub Pages aufsetzen
 
-## Rechtlicher Hinweis
+Das Repository ist so aufgebaut, dass es sich direkt als GitHub Page ausliefern lässt:
 
-Dieses Repository enthält **keine echten medizinischen SOPs**, Triagefragen, Scores,
-Grenzwerte oder ICD-Codes. Wer das Framework produktiv nutzen möchte, muss die fiktiven
-Inhalte **vollständig** durch eigene, fachlich validierte und freigegebene Inhalte ersetzen.
+1. Repository forken oder klonen.
+2. Unter **Settings → Pages** als Quelle *Deploy from a branch* wählen, Branch `main`,
+   Ordner `/ (root)`.
+3. Fertig – die Seite erscheint unter `https://<benutzername>.github.io/<repo>/`.
 
-Die verwendeten Fantasy-Begriffe sind eigenständig gewählt und nicht als Bezug zu
-bestehenden Fantasy-Franchises gedacht.
+Zwei Details sind dafür entscheidend und bereits enthalten:
+
+- **`.nojekyll`** im Wurzelverzeichnis. Ohne diese Datei schiebt GitHub Pages alles durch
+  Jekyll, und Jekyll ignoriert sämtliche Dateien und Ordner, deren Name mit `_` oder `.`
+  beginnt – die fehlen dann kommentarlos im Ergebnis. Die Datei ist leer; sie muss nur da
+  sein. Beim Herunterladen als ZIP ist sie unsichtbar, aber vorhanden.
+- **`index.html`** im Wurzelverzeichnis, das auf `pcm-framework.html` weiterleitet.
+  GitHub Pages sucht beim Aufruf des Wurzelpfads nach `index.html`; ohne diese Datei
+  erscheint eine 404-Seite.
+
+Alle Pfade im Projekt sind relativ, das Repository funktioniert daher auch in einem
+Unterverzeichnis wie `/SOP/` ohne Anpassung.
+
+---
+
+## Bildnachweise und Nutzungsbedingungen der Bilder
+
+Alle verwendeten Bilder sind mit einer Quellenangabe direkt am Bild versehen. Die
+vollständigen Nachweise stehen in den jeweiligen Bildordnern:
+
+- [`assets/sonographie/BILDNACHWEIS.md`](assets/sonographie/BILDNACHWEIS.md)
+- [`assets/effloreszenzen/BILDNACHWEIS.md`](assets/effloreszenzen/BILDNACHWEIS.md)
+
+**Sonographiebilder.** Herzlichen Dank an das **Albertinen Krankenhaus**
+(Immanuel Albertinen Diakonie gGmbH, Hamburg) für die Bereitstellung der
+Sonographiebilder aus dem [Sonographie-Atlas](https://sonographiebilder.de/sonographie-atlas).
+
+> ⚠️ **Diese Bilder sind von der MIT-Lizenz ausgenommen.** Sie dürfen ausschließlich
+> **unentgeltlich und nichtkommerziell** genutzt werden. Wer dieses Projekt
+> weiterverwendet, anpasst oder weitergibt, muss diesen Hinweis übernehmen. Andernfalls
+> ist jede weitere Verwendung der Bilder erneut mit der Immanuel Albertinen Diakonie
+> gGmbH abzustimmen.
+
+**Effloreszenzen.** Die Bilder stammen von Wikimedia Commons und stehen unter freien
+Lizenzen (Creative Commons bzw. Public Domain). Bei Weitergabe gelten die jeweiligen
+Lizenzbedingungen – Namensnennung, bei CC BY-SA zusätzlich Weitergabe unter gleicher
+Lizenz. Die Einzelnachweise stehen in der oben verlinkten Datei.
+
+**Dermatoskopie.** Die Quelle ist bei jedem Bild als Bildunterschrift angegeben
+(Dermoscopedia bzw. ISIC Archive).
+
+---
+
+## Dank
+
+Ein ausdrücklicher Dank geht an **Carsten** und **Wolfgang** für die Idee zu interaktiven
+SOPs: SOPs nicht nur als statische Texte abzulegen, sondern als klickbare, strukturierte
+und wiederverwendbare Arbeitsabläufe erlebbar zu machen.
 
 ## Lizenz
 
-Veröffentlicht unter der [MIT-Lizenz](LICENSE).
+Der Programmcode steht unter der [MIT-Lizenz](LICENSE).
+
+Die Bilder sind davon ausgenommen und unterliegen den oben genannten Bedingungen.
+
+## Haftungsausschluss
+
+Die enthaltenen SOPs, Scores, Grenzwerte und Textbausteine dienen der Demonstration und
+als Vorlage. Sie ersetzen keine ärztliche Entscheidung. Wer sie produktiv einsetzt, muss
+sie zuvor fachlich prüfen, an die eigenen Abläufe anpassen und ärztlich freigeben.
+Diagnosen und Therapieentscheidungen erfolgen ausschließlich ärztlich.

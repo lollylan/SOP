@@ -19,3 +19,47 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+===============================================================================
+AUSNAHME: BILDMATERIAL / EXCEPTION: IMAGE ASSETS
+===============================================================================
+
+Die MIT-Lizenz gilt fuer den Programmcode. Die im Projekt enthaltenen Bilder
+sind davon ausgenommen und unterliegen eigenen Bedingungen.
+
+The MIT license above covers the source code. The image assets included in this
+repository are excluded from it and carry their own terms.
+
+
+1. Sonographiebilder (assets/sonographie/)
+
+   Quelle: Sonographie-Atlas, https://sonographiebilder.de/sonographie-atlas
+   (C) Immanuel Albertinen Diakonie gGmbH, Hamburg
+
+   Diese Bilder duerfen ausschliesslich UNENTGELTLICH und NICHTKOMMERZIELL
+   genutzt werden. Wer diese Software weiterverwendet, anpasst oder weitergibt,
+   muss diesen Hinweis uebernehmen. Andernfalls ist jede weitere Verwendung der
+   Bilder erneut mit der Immanuel Albertinen Diakonie gGmbH abzustimmen.
+
+   These images may be used FREE OF CHARGE and for NON-COMMERCIAL purposes only.
+   Anyone reusing, adapting or redistributing this software must carry this
+   notice forward. Any other use of the images requires renewed agreement with
+   Immanuel Albertinen Diakonie gGmbH.
+
+   Einzelnachweise: assets/sonographie/BILDNACHWEIS.md
+
+
+2. Effloreszenzenbilder (assets/effloreszenzen/)
+
+   Quelle: Wikimedia Commons, jeweils unter Creative Commons bzw. Public Domain.
+   Bei Weitergabe gelten die jeweiligen Lizenzbedingungen (Namensnennung, bei
+   CC BY-SA zusaetzlich Weitergabe unter gleicher Lizenz).
+
+   Einzelnachweise: assets/effloreszenzen/BILDNACHWEIS.md
+
+
+3. Dermatoskopiebilder (sops/dermatoskopie-assets/)
+
+   Quelle: Dermoscopedia bzw. ISIC Archive; die Zuordnung steht als
+   Bildunterschrift an jedem einzelnen Bild in der Anwendung.

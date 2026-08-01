@@ -2,3 +2,9 @@
 .git/
 .git-codex/
 .gh-config/
+
+# Nicht veroeffentlichen: Arbeitsmaterial mit ungeklaerten Nutzungsrechten
+Inspirationen/
+
+# Lokale Sicherung des Praxislogos - gehoert nicht ins oeffentliche Repo
+config/logo-praxis.png

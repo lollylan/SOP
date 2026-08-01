@@ -1,9 +1,9 @@
 /*
    addons.js - MANIFEST
-   Diese Datei legt fest, welche Add-ons das Framework laedt.
+   Diese Datei legt fest, welche Add-ons das Framework lädt.
 
    Neue SOP-Datei in den Ordner sops/ legen und unten in die Liste
-   "sops" eine Zeile ergaenzen. Reihenfolge hier = Reihenfolge in der
+   "sops" eine Zeile ergänzen. Reihenfolge hier = Reihenfolge in der
    zweiten Spalte innerhalb des jeweiligen Bereichs.
 */
 window.PCM_ADDONS = {
@@ -11,27 +11,43 @@ window.PCM_ADDONS = {
   pvsTemplate: 'config/pvs-template.js',
 
   sops: [
-    'sops/sop-torwache.js',
-    'sops/akut-schattenstaub-husten.js',
-    'sops/akut-drachenrauch-reizung.js',
-    'sops/akut-trollsplitter-prellung.js',
-    'sops/akut-elbenlicht-ueberblendung.js',
-    'sops/akut-nebelmoor-taumel.js',
-    'sops/akut-runenbrand-hand.js',
-    'sops/chronisch-alte-eichenmuedigkeit.js',
-    'sops/chronisch-zwergenhammer-gelenkknarren.js',
-    'sops/chronisch-mondphasen-schlafgang.js',
-    'sops/chronisch-silberschuppen-hautglanz.js',
-    'sops/score-schattenlast.js',
-    'sops/score-drachenrauch.js',
-    'sops/score-elbenlicht.js',
-    'sops/score-zwergenhammer.js',
-    'sops/score-nebelmoor.js',
-    'sops/score-runenbrand.js',
-    'sops/score-mondphase.js',
-    'sops/score-silberschuppen.js',
-    'sops/score-waldlaeufer.js',
-    'sops/score-halblingsrast.js',
-    'sops/score-seherkugel.js'
+    'sops/startseite.js',
+    'sops/sop-telefontriage.js',
+    'sops/sop-hitze-medikation.js',
+    'sops/sop-ruecken.js',
+    'sops/sop-ellbogen.js',
+    'sops/sop-schulter.js',
+    'sops/sop-huefte.js',
+    'sops/sop-knie.js',
+    'sops/sop-hwi.js',
+    'sops/sop-kopfschmerz.js',
+    'sops/sop-magenschmerz.js',
+    'sops/sop-obere-atemwege.js',
+    'sops/sop-otalgie.js',
+    'sops/sop-gastroenteritis.js',
+    'sops/sop-guertelrose.js',
+    'sops/sop-onychomykose.js',
+    'sops/sop-konjunktivitis.js',
+    'sops/sop-urtikaria.js',
+    'sops/sop-chroniker.js',
+    'sops/patientenaufklaerungen-deximed.js',
+    'sops/sop-effloreszenzen.js',
+    'sops/sop-dermatoskopie.js',
+    'sops/sop-sono-abdomen.js',
+    'sops/sop-sono-schilddruese.js',
+    'sops/sop-orthopaedie.js',
+    'sops/sop-ekg.js',
+    'sops/scores-infektiologie.js',
+    'sops/scores-kardiologie.js',
+    'sops/scores-schlafmedizin.js',
+    'sops/scores-psychiatrie-sucht.js',
+    'sops/scores-nephrologie.js',
+    'sops/scores-neurologie.js',
+    'sops/scores-hepatologie.js',
+    'sops/scores-angiologie-pneumologie.js',
+    'sops/scores-osteologie.js',
+    'sops/scores-hno.js',
+    'sops/scores-urologie.js',
+    'sops/scores-unfallchirurgie.js'
   ]
 };

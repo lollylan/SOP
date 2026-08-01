@@ -1,0 +1,23 @@
+AN
+Dies ist die Anamnese
+
+BE
+Hier steht der körperliche Befund
+
+TH
+Hier steht die Therapie
+
+LD
+J06.9G
+
+SN
+So wird der Sonographiebefund dokumentiert
+
+RR
+130/90mmHg
+
+EK
+SR, normofrequent, keine sign. ERBS
+
+NO
+So sehen Notizen aus, die für die interne Nutzung gedacht sind

@@ -1,0 +1,200 @@
+﻿[
+    {
+        "id":  "macula",
+        "file":  "macula.jpg",
+        "title":  "Cafe au lait.jpg",
+        "license":  "CC BY 3.0 de",
+        "licenseUrl":  "https://creativecommons.org/licenses/by/3.0/de/deed.en",
+        "artist":  "Klaus D. Peter, Wiehl Germany",
+        "source":  "https://commons.wikimedia.org/wiki/File:Cafe_au_lait.jpg"
+    },
+    {
+        "id":  "papel",
+        "file":  "papel.jpg",
+        "title":  "Verruca vulgaris on the first toe.jpg",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist":  "Mndno",
+        "source":  "https://commons.wikimedia.org/wiki/File:Verruca_vulgaris_on_the_first_toe.jpg"
+    },
+    {
+        "id":  "plaque",
+        "file":  "plaque.jpg",
+        "title":  "Psoriasis2010.JPG",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist":  "James Heilman, MD",
+        "source":  "https://commons.wikimedia.org/wiki/File:Psoriasis2010.JPG"
+    },
+    {
+        "id":  "nodus",
+        "file":  "nodus.jpg",
+        "title":  "Erythema nodosum - Kolkata 2012-01-03 7753.JPG",
+        "license":  "CC BY 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by/3.0",
+        "artist":  "Biswarup Ganguly",
+        "source":  "https://commons.wikimedia.org/wiki/File:Erythema_nodosum_-_Kolkata_2012-01-03_7753.JPG"
+    },
+    {
+        "id":  "urtica",
+        "file":  "urtica.jpg",
+        "title":  "Hives Urticaria.jpg",
+        "license":  "CC BY-SA 4.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist":  "Allergyresearch",
+        "source":  "https://commons.wikimedia.org/wiki/File:Hives_Urticaria.jpg"
+    },
+    {
+        "id":  "vesikel",
+        "file":  "vesikel.jpg",
+        "title":  "Dyshidrosis.JPG",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "http://creativecommons.org/licenses/by-sa/3.0/",
+        "artist":  "No machine-readable author provided. Inwe~commonswiki assumed (based on copyright claims).",
+        "source":  "https://commons.wikimedia.org/wiki/File:Dyshidrosis.JPG"
+    },
+    {
+        "id":  "bulla",
+        "file":  "bulla.jpg",
+        "title":  "Second degree burn after 2 days (2).JPG",
+        "license":  "CC BY-SA 4.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist":  "Themidget17",
+        "source":  "https://commons.wikimedia.org/wiki/File:Second_degree_burn_after_2_days_(2).JPG"
+    },
+    {
+        "id":  "pustel",
+        "file":  "pustel.jpg",
+        "title":  "Isolated folliculitis.jpg",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist":  "Jmarchn",
+        "source":  "https://commons.wikimedia.org/wiki/File:Isolated_folliculitis.jpg"
+    },
+    {
+        "id":  "zyste",
+        "file":  "zyste.jpg",
+        "title":  "Sebaceous-Cyst-Calf.jpg",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist":  "Ianchai",
+        "source":  "https://commons.wikimedia.org/wiki/File:Sebaceous-Cyst-Calf.jpg"
+    },
+    {
+        "id":  "squama",
+        "file":  "squama.jpg",
+        "title":  "Ichthyosis (2).jpg",
+        "license":  "CC BY-SA 4.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist":  "Gzzz",
+        "source":  "https://commons.wikimedia.org/wiki/File:Ichthyosis_(2).jpg"
+    },
+    {
+        "id":  "crusta",
+        "file":  "crusta.jpg",
+        "title":  "Impetigo-infected.jpg",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist":  "Åsa Thörn",
+        "source":  "https://commons.wikimedia.org/wiki/File:Impetigo-infected.jpg"
+    },
+    {
+        "id":  "erosion",
+        "file":  "erosion.jpg",
+        "title":  "Pemphigus new photo due to antihypertensive drug.jpg",
+        "license":  "CC BY-SA 4.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist":  "Masryyy",
+        "source":  "https://commons.wikimedia.org/wiki/File:Pemphigus_new_photo_due_to_antihypertensive_drug.jpg"
+    },
+    {
+        "id":  "exkoriation",
+        "file":  "exkoriation.jpg",
+        "title":  "Dermatillomania.jpg",
+        "license":  "CC BY 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by/3.0",
+        "artist":  "Kairyu7",
+        "source":  "https://commons.wikimedia.org/wiki/File:Dermatillomania.jpg"
+    },
+    {
+        "id":  "rhagade",
+        "file":  "rhagade.jpg",
+        "title":  "Angular cheilitis.jpg",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist":  "Matthew Ferguson 57",
+        "source":  "https://commons.wikimedia.org/wiki/File:Angular_cheilitis.jpg"
+    },
+    {
+        "id":  "ulkus",
+        "file":  "ulkus.jpg",
+        "title":  "Venous ulcer dorsal leg.jpg",
+        "license":  "CC BY 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by/3.0",
+        "artist":  "Jonathan Moore",
+        "source":  "https://commons.wikimedia.org/wiki/File:Venous_ulcer_dorsal_leg.jpg"
+    },
+    {
+        "id":  "cicatrix",
+        "file":  "cicatrix.jpg",
+        "title":  "Keloid, Post Surgical.JPG",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist":  "Htirgan",
+        "source":  "https://commons.wikimedia.org/wiki/File:Keloid,_Post_Surgical.JPG"
+    },
+    {
+        "id":  "lichenifikation",
+        "file":  "lichenifikation.jpg",
+        "title":  "Lichen simplex chronicus 1.jpg",
+        "license":  "CC BY 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by/3.0",
+        "artist":  "kilbad (talk)",
+        "source":  "https://commons.wikimedia.org/wiki/File:Lichen_simplex_chronicus_1.jpg"
+    },
+    {
+        "id":  "nekrose",
+        "file":  "nekrose.jpg",
+        "title":  "Dry gangrene 4th toe.jpg",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "http://creativecommons.org/licenses/by-sa/3.0/",
+        "artist":  "",
+        "source":  "https://commons.wikimedia.org/wiki/File:Dry_gangrene_4th_toe.jpg"
+    },
+    {
+        "id":  "erythem",
+        "file":  "erythem.jpg",
+        "title":  "Erythema migrans - erythematous rash in Lyme disease - PHIL 9875.jpg",
+        "license":  "Public domain",
+        "licenseUrl":  null,
+        "artist":  "Photo Credit: James Gathany Content Providers(s): CDC/ James Gathany",
+        "source":  "https://commons.wikimedia.org/wiki/File:Erythema_migrans_-_erythematous_rash_in_Lyme_disease_-_PHIL_9875.jpg"
+    },
+    {
+        "id":  "ekzem",
+        "file":  "ekzem.jpg",
+        "title":  "Atopic dermatitis child.JPG",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "http://creativecommons.org/licenses/by-sa/3.0/",
+        "artist":  "The original uploader was Eisfelder at German Wikipedia.",
+        "source":  "https://commons.wikimedia.org/wiki/File:Atopic_dermatitis_child.JPG"
+    },
+    {
+        "id":  "exanthem",
+        "file":  "exanthem.jpg",
+        "title":  "Photo of childhood rash obtained from measles.jpg",
+        "license":  "Public domain",
+        "licenseUrl":  null,
+        "artist":  "w:National Center for Immunization and Respiratory Diseases",
+        "source":  "https://commons.wikimedia.org/wiki/File:Photo_of_childhood_rash_obtained_from_measles.jpg"
+    },
+    {
+        "id":  "atrophie",
+        "file":  "atrophie.jpg",
+        "title":  "Púrpura Senil 300413 REFON 1 WP.jpg",
+        "license":  "CC BY-SA 3.0",
+        "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist":  "José Reynaldo da Fonseca",
+        "source":  "https://commons.wikimedia.org/wiki/File:P%C3%BArpura_Senil_300413_REFON_1_WP.jpg"
+    }
+]
