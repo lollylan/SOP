@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'urtikaria',
   titel: 'Urtikaria',
-  untertitel: 'Quaddeln, Juckreiz und/oder Angioödeme - PCM-Erstassessment',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'URT',
   farbe: '#8E44AD',
   bereich: 'PCM-Sprechstunde',

@@ -62,11 +62,11 @@
       key: "leber", titel: "Leber",
       normal: "Leber normal groß, Organkontur glatt, Echotextur homogen, keine fokale Läsion, Lebervenen und Pfortader regelrecht.",
       optionen: [
-        { id: "steatose", name: "Steatosis hepatis (Fettleber)", beschreibung: "Diffus echogenitätsangehobenes Leberparenchym mit Schallabschwächung nach dorsal, vereinbar mit Steatosis hepatis.", icd: "K76.0G" },
-        { id: "hepatomegalie", name: "Hepatomegalie", beschreibung: "Vergrößerte Leber, kraniokaudaler Durchmesser (MCL) {wert}, Parenchym ansonsten unauffällig.", messfeld: { label: "Durchmesser MCL", einheit: "cm", platzhalter: "z. B. 16" }, icd: "R16.0G" },
-        { id: "zyste", name: "Leberzyste", beschreibung: "Echofreie, glatt begrenzte, dorsal schallverstärkte Raumforderung, Durchmesser {wert}, vereinbar mit einfacher Leberzyste.", messfeld: { label: "Durchmesser", einheit: "mm", platzhalter: "z. B. 15" }, icd: "K76.8G" },
-        { id: "zirrhose", name: "Zeichen einer Leberzirrhose", beschreibung: "Höckerige Leberoberfläche, inhomogenes, grobscholliges Parenchym, ggf. Splenomegalie und Aszites, vereinbar mit Leberzirrhose.", icd: "K74.60G", warn: true },
-        { id: "raumforderung", name: "Unklare fokale Leberläsion (V. a. Malignität)", beschreibung: "Fokale, echoarme/inhomogene Raumforderung mit unregelmäßiger Begrenzung, Durchmesser {wert} - weitere Abklärung (KM-Sonographie/CT/MRT) empfohlen.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "R93.2V", warn: true },
+        { id: "steatose", name: "Steatosis hepatis (Fettleber)", beschreibung: "Diffus echogenitätsangehobenes Leberparenchym mit Schallabschwächung nach dorsal, vereinbar mit Steatosis hepatis." },
+        { id: "hepatomegalie", name: "Hepatomegalie", beschreibung: "Vergrößerte Leber, kraniokaudaler Durchmesser (MCL) {wert}, Parenchym ansonsten unauffällig.", messfeld: { label: "Durchmesser MCL", einheit: "cm", platzhalter: "z. B. 16" } },
+        { id: "zyste", name: "Leberzyste", beschreibung: "Echofreie, glatt begrenzte, dorsal schallverstärkte Raumforderung, Durchmesser {wert}, vereinbar mit einfacher Leberzyste.", messfeld: { label: "Durchmesser", einheit: "mm", platzhalter: "z. B. 15" } },
+        { id: "zirrhose", name: "Zeichen einer Leberzirrhose", beschreibung: "Höckerige Leberoberfläche, inhomogenes, grobscholliges Parenchym, ggf. Splenomegalie und Aszites, vereinbar mit Leberzirrhose." },
+        { id: "raumforderung", name: "Unklare fokale Leberläsion (V. a. Malignität)", beschreibung: "Fokale, echoarme/inhomogene Raumforderung mit unregelmäßiger Begrenzung, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -74,10 +74,10 @@
       key: "gallenblase", titel: "Gallenblase / Gallenwege",
       normal: "Gallenblase regelrecht konfiguriert, wandschlank, kein Konkrementnachweis, Gallenwege nicht erweitert.",
       optionen: [
-        { id: "steine", name: "Gallensteine (Cholezystolithiasis)", beschreibung: "Echodichte, schallschattengebende, lageveränderliche Konkremente in der Gallenblase, größtes Konkrement {wert}.", messfeld: { label: "Größe größtes Konkrement", einheit: "mm" }, icd: "K80.20G" },
-        { id: "cholezystitis", name: "V. a. akute Cholezystitis", beschreibung: "Wandverdickung > 3 mm mit Dreischichtung, ggf. perivesikuläre Flüssigkeit, sonographisches Murphy-Zeichen positiv.", icd: "K81.0V", warn: true },
-        { id: "polyp", name: "Gallenblasenpolyp", beschreibung: "Wandständige, nicht schallschattengebende, lagekonstante Raumforderung, Durchmesser {wert}, vereinbar mit Gallenblasenpolyp.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "K82.8G" },
-        { id: "dhc", name: "Erweiterte Gallenwege (Cholestasezeichen)", beschreibung: "Ductus hepatocholedochus erweitert auf {wert} - V. a. Abflussbehinderung.", messfeld: { label: "DHC-Durchmesser", einheit: "mm" }, icd: "K83.1V", warn: true },
+        { id: "steine", name: "Gallensteine (Cholezystolithiasis)", beschreibung: "Echodichte, schallschattengebende, lageveränderliche Konkremente in der Gallenblase, größtes Konkrement {wert}.", messfeld: { label: "Größe größtes Konkrement", einheit: "mm" } },
+        { id: "cholezystitis", name: "V. a. akute Cholezystitis", beschreibung: "Wandverdickung > 3 mm mit Dreischichtung, ggf. perivesikuläre Flüssigkeit, sonographisches Murphy-Zeichen positiv." },
+        { id: "polyp", name: "Gallenblasenpolyp", beschreibung: "Wandständige, nicht schallschattengebende, lagekonstante Raumforderung, Durchmesser {wert}, vereinbar mit Gallenblasenpolyp.", messfeld: { label: "Durchmesser", einheit: "mm" } },
+        { id: "dhc", name: "Erweiterte Gallenwege (Cholestasezeichen)", beschreibung: "Ductus hepatocholedochus erweitert auf {wert}.", messfeld: { label: "DHC-Durchmesser", einheit: "mm" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -85,9 +85,9 @@
       key: "pankreas", titel: "Pankreas",
       normal: "Pankreas, soweit einsehbar, unauffällig, keine Raumforderung, Gangweite nicht erweitert.",
       optionen: [
-        { id: "pankreatitis", name: "V. a. akute Pankreatitis", beschreibung: "Diffus vergrößertes, echoarmes Pankreasparenchym mit unscharfer Kontur, ggf. peripankreatische Flüssigkeit.", icd: "K85.9V", warn: true },
-        { id: "zyste", name: "Pankreaszyste", beschreibung: "Echofreie, glatt begrenzte Läsion im Pankreas, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "K86.2G" },
-        { id: "raumforderung", name: "Unklare Pankreasraumforderung", beschreibung: "Echoarme, unregelmäßig begrenzte Raumforderung, Durchmesser {wert} - weitere Abklärung (Endosonographie/CT) empfohlen.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "R93.5V", warn: true },
+        { id: "pankreatitis", name: "V. a. akute Pankreatitis", beschreibung: "Diffus vergrößertes, echoarmes Pankreasparenchym mit unscharfer Kontur, ggf. peripankreatische Flüssigkeit." },
+        { id: "zyste", name: "Pankreaszyste", beschreibung: "Echofreie, glatt begrenzte Läsion im Pankreas, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
+        { id: "raumforderung", name: "Unklare Pankreasraumforderung", beschreibung: "Echoarme, unregelmäßig begrenzte Raumforderung, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -95,8 +95,8 @@
       key: "milz", titel: "Milz",
       normal: "Milz normal groß (Längsdurchmesser < 11 cm), homogenes Echomuster, keine fokale Läsion.",
       optionen: [
-        { id: "splenomegalie", name: "Splenomegalie", beschreibung: "Vergrößerte Milz, Längsdurchmesser {wert}, Parenchym homogen.", messfeld: { label: "Längsdurchmesser", einheit: "cm" }, icd: "R16.1G" },
-        { id: "zyste", name: "Milzzyste", beschreibung: "Echofreie, glatt begrenzte Läsion, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "D73.4G" },
+        { id: "splenomegalie", name: "Splenomegalie", beschreibung: "Vergrößerte Milz, Längsdurchmesser {wert}, Parenchym homogen.", messfeld: { label: "Längsdurchmesser", einheit: "cm" } },
+        { id: "zyste", name: "Milzzyste", beschreibung: "Echofreie, glatt begrenzte Läsion, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -104,10 +104,10 @@
       key: "niere_re", titel: "Niere rechts",
       normal: "Niere rechts regelrecht positioniert, normal groß, Parenchym-Pyelon-Differenzierung erhalten, kein Harnstau, keine Konkremente.",
       optionen: [
-        { id: "zyste", name: "Nierenzyste", beschreibung: "Echofreie, glatt begrenzte kortikale Raumforderung, Durchmesser {wert} (Bosniak I).", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "N28.1G" },
-        { id: "steine", name: "Nierensteine (Nephrolithiasis)", beschreibung: "Echodichte, schallschattengebende Konkremente im Nierenbecken-/Kelchsystem, größtes Konkrement {wert}.", messfeld: { label: "Größe größtes Konkrement", einheit: "mm" }, icd: "N20.0G" },
-        { id: "harnstau", name: "Harnstauungsniere (Hydronephrose)", beschreibung: "Erweitertes Nierenbecken-/Kelchsystem, vereinbar mit Harnstauung.", icd: "N13.30G", warn: true },
-        { id: "raumforderung", name: "Unklare Nierenraumforderung", beschreibung: "Solide, echoinhomogene Raumforderung, Durchmesser {wert} - weitere Abklärung empfohlen.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "R93.4V", warn: true },
+        { id: "zyste", name: "Nierenzyste", beschreibung: "Echofreie, glatt begrenzte kortikale Raumforderung, Durchmesser {wert} (Bosniak I).", messfeld: { label: "Durchmesser", einheit: "mm" } },
+        { id: "steine", name: "Nierensteine (Nephrolithiasis)", beschreibung: "Echodichte, schallschattengebende Konkremente im Nierenbecken-/Kelchsystem, größtes Konkrement {wert}.", messfeld: { label: "Größe größtes Konkrement", einheit: "mm" } },
+        { id: "harnstau", name: "Harnstauungsniere (Hydronephrose)", beschreibung: "Erweitertes Nierenbecken-/Kelchsystem, vereinbar mit Harnstauung." },
+        { id: "raumforderung", name: "Unklare Nierenraumforderung", beschreibung: "Solide, echoinhomogene Raumforderung, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -115,10 +115,10 @@
       key: "niere_li", titel: "Niere links",
       normal: "Niere links regelrecht positioniert, normal groß, Parenchym-Pyelon-Differenzierung erhalten, kein Harnstau, keine Konkremente.",
       optionen: [
-        { id: "zyste", name: "Nierenzyste", beschreibung: "Echofreie, glatt begrenzte kortikale Raumforderung, Durchmesser {wert} (Bosniak I).", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "N28.1G" },
-        { id: "steine", name: "Nierensteine (Nephrolithiasis)", beschreibung: "Echodichte, schallschattengebende Konkremente im Nierenbecken-/Kelchsystem, größtes Konkrement {wert}.", messfeld: { label: "Größe größtes Konkrement", einheit: "mm" }, icd: "N20.0G" },
-        { id: "harnstau", name: "Harnstauungsniere (Hydronephrose)", beschreibung: "Erweitertes Nierenbecken-/Kelchsystem, vereinbar mit Harnstauung.", icd: "N13.30G", warn: true },
-        { id: "raumforderung", name: "Unklare Nierenraumforderung", beschreibung: "Solide, echoinhomogene Raumforderung, Durchmesser {wert} - weitere Abklärung empfohlen.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "R93.4V", warn: true },
+        { id: "zyste", name: "Nierenzyste", beschreibung: "Echofreie, glatt begrenzte kortikale Raumforderung, Durchmesser {wert} (Bosniak I).", messfeld: { label: "Durchmesser", einheit: "mm" } },
+        { id: "steine", name: "Nierensteine (Nephrolithiasis)", beschreibung: "Echodichte, schallschattengebende Konkremente im Nierenbecken-/Kelchsystem, größtes Konkrement {wert}.", messfeld: { label: "Größe größtes Konkrement", einheit: "mm" } },
+        { id: "harnstau", name: "Harnstauungsniere (Hydronephrose)", beschreibung: "Erweitertes Nierenbecken-/Kelchsystem, vereinbar mit Harnstauung." },
+        { id: "raumforderung", name: "Unklare Nierenraumforderung", beschreibung: "Solide, echoinhomogene Raumforderung, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -126,9 +126,9 @@
       key: "harnblase", titel: "Harnblase",
       normal: "Harnblase mäßig gefüllt, wandschlank, kein relevanter Restharn, keine intraluminale Raumforderung.",
       optionen: [
-        { id: "restharn", name: "Erhöhter Restharn", beschreibung: "Restharnvolumen nach Miktion ca. {wert}.", messfeld: { label: "Restharnvolumen", einheit: "ml" }, icd: "R39.8G" },
-        { id: "steine", name: "Harnblasensteine", beschreibung: "Echodichte, schallschattengebende, lageveränderliche Konkremente in der Harnblase, Durchmesser {wert}.", messfeld: { label: "Größe", einheit: "mm" }, icd: "N21.0G" },
-        { id: "wandprozess", name: "V. a. Harnblasenwandprozess", beschreibung: "Umschriebene Wandverdickung/polypoide Struktur, Durchmesser {wert} - weitere urologische Abklärung (Zystoskopie) empfohlen.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "R93.4V", warn: true },
+        { id: "restharn", name: "Erhöhter Restharn", beschreibung: "Restharnvolumen nach Miktion ca. {wert}.", messfeld: { label: "Restharnvolumen", einheit: "ml" } },
+        { id: "steine", name: "Harnblasensteine", beschreibung: "Echodichte, schallschattengebende, lageveränderliche Konkremente in der Harnblase, Durchmesser {wert}.", messfeld: { label: "Größe", einheit: "mm" } },
+        { id: "wandprozess", name: "V. a. Harnblasenwandprozess", beschreibung: "Umschriebene Wandverdickung/polypoide Struktur, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -136,8 +136,8 @@
       key: "aorta", titel: "Aorta / große Gefäße",
       normal: "Aorta abdominalis im Verlauf regelrecht, Durchmesser < 3 cm, keine Wandunregelmäßigkeiten, keine Thrombosierung.",
       optionen: [
-        { id: "aneurysma", name: "Bauchaortenaneurysma", beschreibung: "Aorta abdominalis aneurysmatisch erweitert, maximaler Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "cm", platzhalter: "z. B. 4.2" }, icd: "I71.4G", warn: true },
-        { id: "arteriosklerose", name: "Arteriosklerotische Wandveränderungen", beschreibung: "Wandunregelmäßigkeiten/Kalzifikationen im Aortenverlauf ohne relevante Erweiterung.", icd: "I70.0G" },
+        { id: "aneurysma", name: "Bauchaortenaneurysma", beschreibung: "Aorta abdominalis aneurysmatisch erweitert, maximaler Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "cm", platzhalter: "z. B. 4.2" } },
+        { id: "arteriosklerose", name: "Arteriosklerotische Wandveränderungen", beschreibung: "Wandunregelmäßigkeiten/Kalzifikationen im Aortenverlauf ohne relevante Erweiterung." },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -145,7 +145,7 @@
       key: "peritoneum", titel: "Freie Flüssigkeit / Peritoneum",
       normal: "Kein Nachweis freier Flüssigkeit intraabdominell.",
       optionen: [
-        { id: "aszites", name: "Aszites", beschreibung: "Nachweis freier Flüssigkeit intraabdominell, Ausmaß: {wert}.", messfeld: { label: "Ausmaß", typ: "text", platzhalter: "gering / mäßig / ausgeprägt" }, icd: "R18G" },
+        { id: "aszites", name: "Aszites", beschreibung: "Nachweis freier Flüssigkeit intraabdominell, Ausmaß: {wert}.", messfeld: { label: "Ausmaß", typ: "text", platzhalter: "gering / mäßig / ausgeprägt" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -153,8 +153,8 @@
       key: "darm", titel: "Darm (orientierend)",
       normal: "Darm orientierend ohne Nachweis dilatierter Schlingen, unauffällige Peristaltik, keine Kokarden.",
       optionen: [
-        { id: "ileus", name: "V. a. mechanischen Ileus", beschreibung: "Dilatierte, flüssigkeitsgefüllte Dünndarmschlingen mit Pendelperistaltik.", icd: "K56.7V", warn: true },
-        { id: "divertikulitis", name: "V. a. Sigmadivertikulitis", beschreibung: "Kokardenartige Wandverdickung im linken Unterbauch, Durchmesser {wert}, umgebende entzündliche Reaktion.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "K57.92V", warn: true },
+        { id: "ileus", name: "V. a. mechanischen Ileus", beschreibung: "Dilatierte, flüssigkeitsgefüllte Dünndarmschlingen mit Pendelperistaltik." },
+        { id: "divertikulitis", name: "V. a. Sigmadivertikulitis", beschreibung: "Kokardenartige Wandverdickung im linken Unterbauch, Durchmesser {wert}, umgebende entzündliche Reaktion.", messfeld: { label: "Durchmesser", einheit: "mm" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     }
@@ -194,7 +194,7 @@
     var img = imgHtml(key);
     var help = img ? ('<button class="derm-help" type="button" data-sono-help="' + esc(key) + '">▸ Beispielbild</button>' +
       '<div class="derm-help-panel" data-sono-help-panel="' + esc(key) + '">' + img + '</div>') : "";
-    var cls = opt.warn ? " warn" : "";
+    var cls = "";
     return '<div class="derm-card' + cls + '" data-sono-card="' + esc(o.key) + '" data-id="' + esc(opt.id) + '">' +
       '<div class="derm-card-top"><div class="derm-card-title">' + esc(opt.name) + '</div>' +
       (opt.beschreibung ? '<div class="derm-card-desc">' + esc(opt.beschreibung.replace("{wert}", "…")) + '</div>' : '') +
@@ -335,18 +335,11 @@
     return satz;
   }
 
-  function aortaDurchmesser(d) {
-    var os = d.organe.aorta;
-    if (!os || (os.auswahl || []).indexOf("aneurysma") === -1) return NaN;
-    return parseFloat(os.messwerte && os.messwerte.aneurysma);
-  }
-
   function baustein(s) {
     var d = sonoState(s);
     var einschr = s.einschraenkungen || [];
     var zeilen = [];
     if (einschr.length) zeilen.push("Eingeschränkte Beurteilbarkeit durch " + einschr.join(", ") + ".");
-    var ld = [];
     ORGANE.forEach(function (o) {
       var os = d.organe[o.key];
       var auswahl = (os && os.auswahl) || [];
@@ -366,66 +359,18 @@
         }
         var val = os.messwerte && os.messwerte[opt.id];
         saetze.push(formatSatz(opt, val));
-        if (opt.icd && ld.indexOf(opt.icd) === -1) ld.push(opt.icd);
       });
       if (saetze.length) zeilen.push(o.titel + ": " + saetze.join(" "));
     });
     if (hasText(s.zusatz)) zeilen.push("Zusätzlich: " + s.zusatz);
 
-    var th = "";
-    var durchmesser = aortaDurchmesser(d);
-    if (!isNaN(durchmesser) && durchmesser >= 5.5) {
-      th = "Bei sonographischem V. a. rupturgefährdetes Bauchaortenaneurysma (≥ 5,5 cm) umgehende klinische Abklärung/Klinikeinweisung empfehlen.";
-    }
-
     return {
       AN: "Abdominelle Sonographie, indikationsgerecht durchgeführt.",
       BE: "",
       SN: zeilen.join("\n"),
-      TH: th,
-      LD: ld.join("\n")
+      TH: "",
+      LD: ""
     };
-  }
-
-  function auswertung(s) {
-    var d = sonoState(s);
-    var meldungen = [];
-    var redflag = false;
-
-    var durchmesser = aortaDurchmesser(d);
-    if (!isNaN(durchmesser) && durchmesser >= 5.5) {
-      redflag = true;
-      meldungen.push({ stil: "rot", titel: "V. a. rupturgefährdetes Bauchaortenaneurysma", text: "Durchmesser " + durchmesser + " cm (≥ 5,5 cm) - umgehende klinische Abklärung/Klinikeinweisung erwägen." });
-    } else if (!isNaN(durchmesser) && durchmesser >= 3) {
-      meldungen.push({ stil: "orange", titel: "Bauchaortenaneurysma", text: "Durchmesser " + durchmesser + " cm - Verlaufskontrolle nach Leitlinie einplanen." });
-    }
-
-    ORGANE.forEach(function (o) {
-      var os = d.organe[o.key];
-      var auswahl = (os && os.auswahl) || [];
-      auswahl.forEach(function (id) {
-        if (id === "__normal__") return;
-        var opt = optionById(o, id);
-        if (opt && opt.warn && !(o.key === "aorta" && opt.id === "aneurysma")) {
-          meldungen.push({ stil: "orange", titel: opt.name + " (" + o.titel + ")", text: "Zeitnahe ärztliche Einordnung/weitere Abklärung empfohlen." });
-        }
-      });
-    });
-
-    return { redflag: redflag, bannerText: "Sonographischer Hinweis auf rupturgefährdetes Bauchaortenaneurysma - sofort ärztlich handeln.", meldungen: meldungen };
-  }
-
-  /* -------- Styles fuer Beispielbilder (einmalig injiziert) -------- */
-  if (typeof document !== "undefined" && document.head && !document.getElementById("sono-img-styles")) {
-    var st = document.createElement("style");
-    st.id = "sono-img-styles";
-    st.textContent =
-      ".sono-figure{margin:0;padding:0}" +
-      ".sono-img{display:block;width:100%;max-height:240px;object-fit:contain;background:#000;" +
-      "border:1px solid var(--linie);border-radius:6px;cursor:zoom-in}" +
-      ".sono-figcap{font-size:10px;line-height:1.35;color:#8a7d70;margin-top:4px;word-break:break-word}" +
-      ".sono-figcap a{color:#8a7d70;text-decoration:underline}";
-    document.head.appendChild(st);
   }
 
   PCM.registerSOP({
@@ -438,7 +383,7 @@
     stand: "04.07.2026",
     bereich: "Sonographie",
     kategorie: "Sonographie",
-    delegationshinweis: "Das Modul unterstützt die strukturierte Dokumentation des Sonographiebefunds. Durchführung, Befundinterpretation und daraus abgeleitete Diagnosen/Procedere erfolgen ärztlich.",
+    delegationshinweis: "Reines Dokumentationsmodul: Es hält ausschließlich fest, was die untersuchende Person selbst als Befund ausgewählt und gemessen hat. Es bewertet keine Messwerte, vergleicht sie nicht mit Grenzwerten, leitet keine Diagnosen, ICD-Codes oder Handlungsempfehlungen ab und gibt keine Warnungen aus. Durchführung, Befundinterpretation, Diagnose und Procedere erfolgen ärztlich.",
     fussnote: 'Bildnachweis: Die sonographischen Referenzbilder stammen aus dem Sonographie-Atlas ' +
       '(<a href="https://sonographiebilder.de/sonographie-atlas" target="_blank" rel="noopener noreferrer">' +
       'sonographiebilder.de/sonographie-atlas</a>). Herzlichen Dank an das Albertinen Krankenhaus ' +
@@ -484,7 +429,6 @@
         ]
       }
     ],
-    auswertung: auswertung,
     baustein: baustein
   });
 })();

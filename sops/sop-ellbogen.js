@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'ellbogenschmerz',
   titel: 'Ellbogenschmerz',
-  untertitel: 'Akut/subakut - Trauma, Überlastung, Bursitis, Epikondylopathie',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'ELL',
   farbe: '#6C3483',
   bereich: 'PCM-Sprechstunde',

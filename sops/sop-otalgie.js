@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'otalgie',
   titel: 'Otalgie / Ohrenschmerz',
-  untertitel: 'Ohrenschmerz, Otitis media/externa, Tubenbelüftung, übertragener Schmerz',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'OHR',
   farbe: '#1F618D',
   bereich: 'PCM-Sprechstunde',

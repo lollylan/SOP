@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'knieschmerz',
   titel: 'Knieschmerzen',
-  untertitel: 'Akut/subakut - Trauma, Erguss, Meniskus/Bänder, Patella, Gonarthrose',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'KNI',
   farbe: '#884EA0',
   bereich: 'PCM-Sprechstunde',

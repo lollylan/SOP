@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'hypertonie-verlauf',
   titel: 'Hypertonie Verlaufskontrolle',
-  untertitel: 'Chroniker - Messqualität, Heimwerte, Adhärenz, Organschaden-Warnzeichen',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'HTN',
   farbe: '#025669',
   bereich: 'PCM-Sprechstunde',
@@ -23,7 +23,7 @@ PCM.registerSOP({
 PCM.registerSOP({
   id: 'dmp-diabetes-verlauf',
   titel: 'DMP Diabetes Verlaufskontrolle',
-  untertitel: 'Chroniker · DMP-Quartalskontakt / strukturierte Kontrolle',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'DMP',
   farbe: '#1E8449',
   bereich: 'PCM-Sprechstunde',

@@ -114,11 +114,7 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color
 .derm-zone.sel{fill:rgba(2,86,105,.25)}
 .derm-zone-label{font-weight:800;color:var(--praxis-dunkel);margin-bottom:8px;min-height:20px}
 .derm-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.derm-abcd-row{display:grid;grid-template-columns:32px minmax(0,1fr) 82px;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--linie)}
-.derm-abcd-row:last-child{border-bottom:0}
-.derm-letter{width:32px;height:32px;border-radius:50%;background:var(--blau);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
 .derm-small{font-size:11px;color:var(--grau);line-height:1.4}
-.derm-score{font-size:12px;font-weight:800;color:var(--blau);text-align:right;padding-top:6px}
 .derm-choice{display:flex;flex-direction:column;gap:5px;margin-top:6px}
 .derm-opt{display:flex;align-items:center;gap:8px;border:1px solid var(--linie);border-radius:5px;background:#fff;padding:5px 8px;font-size:12px;cursor:pointer}
 .derm-opt.sel{background:var(--blau-h);border-color:#A9C7CF;color:var(--blau);font-weight:700}
@@ -126,9 +122,6 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color
 .derm-dot{border-radius:50%}
 .derm-square{border-radius:3px}
 .derm-opt.sel .derm-dot,.derm-opt.sel .derm-square{background:var(--blau);border-color:var(--blau)}
-.derm-slider{width:100%;accent-color:var(--blau)}
-.derm-scorebox{background:var(--blau);color:#fff;border-radius:8px;padding:12px 16px;margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.derm-scorebox strong{font-size:28px;line-height:1}
 .derm-pill{font-size:12px;font-weight:800;border-radius:999px;padding:5px 11px;background:rgba(255,255,255,.16)}
 .derm-pill.green{background:var(--gruen-h);color:var(--gruen)}
 .derm-pill.orange{background:var(--org-h);color:var(--orange)}
@@ -142,7 +135,7 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color
 .derm-modal img{max-width:100%;max-height:82vh;border-radius:6px;box-shadow:0 8px 32px rgba(0,0,0,.45)}
 .derm-modal-caption{font-size:12px;color:#fff;opacity:.85;margin-top:8px}
 .derm-modal-close{position:absolute;right:-12px;top:-12px;width:28px;height:28px;border:0;border-radius:50%;background:#fff;color:var(--dunkel);font-weight:800;cursor:pointer}
-@media(max-width:560px){.derm-grid,.derm-location,.derm-form-grid{grid-template-columns:1fr}.derm-tab{min-width:50%}.derm-abcd-row{grid-template-columns:32px minmax(0,1fr)}.derm-score{grid-column:2;text-align:left;padding-top:0}}
+@media(max-width:560px){.derm-grid,.derm-location,.derm-form-grid{grid-template-columns:1fr}.derm-tab{min-width:50%}}
 
 /* ORTHOPÄDIE (Gelenkuntersuchung · Neutral-Null · Funktionstests) */
 .orth-nnm{width:100%;border-collapse:collapse;margin:7px 0;font-size:12.5px}
@@ -318,17 +311,6 @@ a.item-btn{text-decoration:none}
 .work-col .sop-embed .page{max-width:none}
 .sop-embed .page{max-width:none;padding:0}
 
-/* RED-FLAG-BANNER (zentrales Sicherheits-Signal) */
-.rf-banner{position:sticky;top:54px;z-index:99;background:var(--rot);color:#fff;border-radius:10px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;box-shadow:0 3px 14px rgba(192,57,43,.35);animation:rfpulse 1.6s ease-in-out infinite}
-@keyframes rfpulse{0%,100%{box-shadow:0 3px 14px rgba(192,57,43,.30)}50%{box-shadow:0 3px 22px rgba(192,57,43,.65)}}
-.rf-banner .rf-ico{font-size:24px;flex-shrink:0}
-.rf-banner .rf-h{font-size:14px;font-weight:800;letter-spacing:.02em;font-family:var(--font-head)}
-.rf-banner .rf-text{font-size:12px;color:rgba(255,255,255,.92);margin-top:1px}
-@media print{.rf-banner{animation:none}}
-
-/* MELDUNGS-PANEL (dynamische Hinweise) */
-.meld-panel{margin-bottom:12px}
-
 /* LOADER / FEHLER */
 .boot-card{max-width:640px;margin:40px auto;background:#fff;border:1px solid var(--linie);border-radius:12px;padding:26px 28px;text-align:center}
 .boot-card .spinner{width:34px;height:34px;border:3px solid var(--blau-h);border-top-color:var(--blau);border-radius:50%;margin:0 auto 14px;animation:spin 1s linear infinite}
@@ -354,6 +336,7 @@ a.item-btn{text-decoration:none}
 /* FOOTER */
 .praxis-footer{margin-top:22px;padding-top:14px;border-top:2px solid var(--blau);text-align:center;font-size:11px;color:var(--grau);line-height:1.7}
 .praxis-footer .pf-name{font-family:var(--font-head);font-weight:700;color:var(--blau);font-size:12px}
+.praxis-footer .pf-zweck{display:block;max-width:760px;margin:6px auto 4px;padding:8px 12px;border:1px solid var(--linie);border-radius:6px;background:#fbfaf8;color:var(--grau);font-size:10.5px;line-height:1.6}
 .praxis-footer a.pf-name{text-decoration:none}
 .praxis-footer a.pf-name:hover{text-decoration:underline}
 
@@ -400,8 +383,10 @@ a.item-btn{text-decoration:none}
 /* ====================================================================
    PCM-SOP-FRAMEWORK - Engine
    Lädt Add-ons (Weg A: selbst-registrierende .js-Dateien), rendert das
-   Dashboard und die SOP-Viewer, wertet Red Flags live aus und baut den
-   PVS-Textbaustein über das austauschbare PVS-Template zusammen.
+   Dashboard und die SOP-Viewer und baut den PVS-Textbaustein über das
+   austauschbare PVS-Template zusammen. Die Engine bewertet bewusst NICHTS:
+   Es gibt keine Auswertungsschnittstelle, keine Scores und keine Hinweis-
+   oder Warnausgabe. Siehe ZWECKBESTIMMUNG.md.
    Diese Datei wird NICHT pro Praxis angepasst - nur die Add-ons.
    ==================================================================== */
 
@@ -655,15 +640,13 @@ function renderDashboard() {
 
 const PCM_BEREICHE = [
   { key: 'Startseite', titel: 'Startseite', sub: 'Über dieses Programm · Bildnachweise' },
-  { key: 'Telefontriage', titel: 'Telefontriage', sub: 'Erstkontakt, Notfallzeichen' },
-  { key: 'PCM-Sprechstunde', titel: 'PCM-Sprechstunde', sub: 'Akutsprechstunde und SOPs' },
-  { key: 'HitzeMedikation', titel: 'Hitze-Medikation', sub: 'CALOR-Liste · Medikamentenanpassung' },
+  { key: 'PCM-Sprechstunde', titel: 'PCM-Sprechstunde', sub: 'Dokumentationsvorlagen' },
+  { key: 'HitzeMedikation', titel: 'Hitze-Medikation', sub: 'Platzhalter · Inhalt folgt' },
   { key: 'Patientenaufklaerungen', titel: 'Patientenaufklärungen', sub: 'Deximed-Links für Beratung' },
-  { key: 'Dermatologie', titel: 'Dermatologie', sub: 'Effloreszenzen, Dermatoskopie und PVS-Doku' },
-  { key: 'Sonographie', titel: 'Sonographie', sub: 'Ultraschallbefund (SN) und PVS-Doku' },
+  { key: 'Dermatologie', titel: 'Dermatologie', sub: 'Befundbeschreibung und PVS-Doku' },
+  { key: 'Sonographie', titel: 'Sonographie', sub: 'Strukturierte Befunddokumentation (SN)' },
   { key: 'Orthopädie', titel: 'Orthopädie', sub: 'Gelenkuntersuchung · Neutral-Null · Funktionstests' },
-  { key: 'EKG', titel: 'EKG', sub: 'EKG-Befundung (EK) und PVS-Doku' },
-  { key: 'Scores', titel: 'Scores', sub: 'Rechner und Dokumentation' }
+  { key: 'EKG', titel: 'EKG', sub: 'Strukturierte Befunddokumentation (EK)' }
 ];
 const PCM_ROLLEN = ['Arzt', 'PCM', 'VERAH', 'MFA', 'Medizinstudent'];
 const PCM_UNTERBEREICHE = ['Akutanlaesse', 'Chroniker'];
@@ -681,20 +664,6 @@ const PCM_FACHBEREICHE = [
   'Neurologie',
   'Psychiatrie',
   'Sonstige'
-];
-const SCORE_UNTERBEREICHE = [
-  'Infektiologie',
-  'Kardiologie',
-  'Schlafmedizin',
-  'Psychiatrie / Sucht',
-  'Nephrologie',
-  'Neurologie',
-  'Hepatologie',
-  'Angiologie / Pneumologie',
-  'Osteologie',
-  'HNO',
-  'Urologie',
-  'Unfallchirurgie'
 ];
 const PATIENTEN_FACHBEREICHE = [
   'Allergologie',
@@ -741,8 +710,6 @@ function saveAktiveRolle(rolle) {
 
 function sopBereich(s) {
   if (s.bereich) return s.bereich;
-  if (s.kategorie === 'Scores') return 'Scores';
-  if (s.kategorie === 'Telefontriage') return 'Telefontriage';
   return 'PCM-Sprechstunde';
 }
 
@@ -754,7 +721,7 @@ function sopUnterbereich(s) {
 
 function sopFachbereich(s) {
   if (s.fachbereich) return s.fachbereich;
-  if (s.kategorie && s.kategorie !== 'Scores' && s.kategorie !== 'Telefontriage') return s.kategorie;
+  if (s.kategorie) return s.kategorie;
   return 'Sonstige';
 }
 
@@ -842,7 +809,7 @@ function renderDashboard(bereich) {
 
   // Kopfzeile: Programmname oben, darunter die Praxis aus config/praxis.js
   const kopfSub = [p.name, p.untertitel].filter(Boolean).join(' · ') ||
-    'Interaktive SOPs, Red-Flag-Hinweise und PVS-Dokumentation';
+    'Dokumentationsvorlagen und PVS-Textbausteine';
 
   let html =
     '<div class="dashboard-header">' + logoHtml +
@@ -892,20 +859,6 @@ function renderDashboard(bereich) {
         fachItems.forEach(function (s) { bodyHtml += itemButtonHtml(s); });
         html += renderToggleGroupHtml('pat-' + fi, unterbereichTitel(fach), bodyHtml, false);
       });
-    } else if (aktiverBereich === 'Scores') {
-      SCORE_UNTERBEREICHE.forEach(function (gruppe, gi) {
-        const gruppenItems = items.filter(function (s) { return sopUnterbereich(s) === gruppe; });
-        if (!gruppenItems.length) return;
-        let bodyHtml = '';
-        gruppenItems.forEach(function (s) { bodyHtml += itemButtonHtml(s); });
-        html += renderToggleGroupHtml('grp-' + gi, unterbereichTitel(gruppe), bodyHtml, false);
-      });
-      const sonstigeItems = items.filter(function (s) { return SCORE_UNTERBEREICHE.indexOf(sopUnterbereich(s)) === -1; });
-      if (sonstigeItems.length) {
-        let bodyHtml = '';
-        sonstigeItems.forEach(function (s) { bodyHtml += itemButtonHtml(s); });
-        html += renderToggleGroupHtml('grp-sonstige', unterbereichTitel('Sonstige'), bodyHtml, false);
-      }
     } else {
       items.forEach(function (s) {
         html += itemButtonHtml(s);
@@ -941,16 +894,27 @@ function renderDashboard(bereich) {
   const roleSelect = $('#pcm-role-select', dash);
   if (roleSelect) roleSelect.addEventListener('change', function () { saveAktiveRolle(roleSelect.value); });
 
-  if (items.length && !items[0].link && (items.length === 1 || aktiverBereich === 'Telefontriage')) openSOP(items[0].id, true);
+  if (items.length && !items[0].link && items.length === 1) openSOP(items[0].id, true);
   window.scrollTo(0, 0);
 }
 
+/* Feste Zweckbestimmung. Bewusst NICHT ueber config/praxis.js
+   ueberschreibbar: Sie ist Teil der Engine und wird bei jeder Ausspielung
+   mitgeliefert. Siehe ZWECKBESTIMMUNG.md. */
+const ZWECKBESTIMMUNG =
+  'Dieses Programm ist ein reines Dokumentations- und Vorlagenwerkzeug. ' +
+  'Es trifft keine Aussage zu Diagnose, Therapie oder Dringlichkeit, ' +
+  'berechnet keine medizinischen Scores und gibt keine Handlungsempfehlungen. ' +
+  'Es ist kein Medizinprodukt und nicht fuer die Anwendung am Patienten als ' +
+  'Entscheidungshilfe bestimmt. Jede medizinische Bewertung erfolgt ausschliesslich aerztlich.';
+
 function footerHtml(p) {
-  if (!p.footer) return '';
   const brand = p.footerBrand || 'Asklaion';
   const brandHtml = p.footerLink ? '<a class="pf-name" href="' + esc(p.footerLink) + '" target="_blank" rel="noopener noreferrer">' + esc(brand) + '</a>'
     : '<span class="pf-name">' + esc(brand) + '</span>';
-  return '<div class="praxis-footer">' + brandHtml + '<br>' + esc(p.footer) + '</div>';
+  return '<div class="praxis-footer">' + brandHtml +
+    '<br><span class="pf-zweck">' + esc(ZWECKBESTIMMUNG) + '</span>' +
+    (p.footer ? '<br>' + esc(p.footer) : '') + '</div>';
 }
 
 /* ---- 7. SOP-Viewer -------------------------------------------------- */
@@ -1018,10 +982,6 @@ function renderViewer(def) {
   const v = $('#pcm-workspace') || $('#pcm-viewer');
   let html =
     '' +
-    '<div class="rf-banner hidden" id="pcm-rf-banner"><span class="rf-ico">!</span>' +
-    '<div><div class="rf-h">Red Flag - Arzt hinzuziehen</div>' +
-    '<div class="rf-text" id="pcm-rf-text">Kein eigenständiges PCM/VERAH/MFA-Management.</div></div></div>' +
-    '<div class="meld-panel" id="pcm-meld"></div>' +
     '<div class="sop-embed"><div class="page">' + headerHtml(def);
 
   (def.schritte || []).forEach(function (sc, i) {
@@ -1190,7 +1150,7 @@ function wireViewer(def) {
     });
   });
 
-  // Checklisten (rot = Red Flags / blau-grn = sonstige)
+  // Checklisten (rein zur Dokumentation des Abgehakten)
   v.querySelectorAll('[data-check]').forEach(function (row) {
     row.addEventListener('click', function () {
       row.querySelector('.cb').classList.toggle('on');
@@ -1300,95 +1260,14 @@ function collectIcd(v, id) {
   return out;
 }
 
-function isScoreDefinition(def) {
-  return !!def && (sopBereich(def) === 'Scores' || def.kategorie === 'Scores');
-}
-
-function appendSentence(base, sentence) {
-  base = String(base || '').trim();
-  sentence = String(sentence || '').trim();
-  if (!sentence) return base;
-  if (base && !/[.!?]$/.test(base)) base += '.';
-  if (sentence && !/[.!?]$/.test(sentence)) sentence += '.';
-  return (base ? base + ' ' : '') + sentence;
-}
-
-function scoreEinordnung(def, st) {
-  if (!isScoreDefinition(def) || typeof def.auswertung !== 'function') return '';
-  let res;
-  try { res = def.auswertung(st) || {}; }
-  catch (e) { return ''; }
-  const teile = [];
-  (res.meldungen || []).forEach(function (m) {
-    const titel = String(m.titel || '').trim();
-    const text = String(m.text || '').trim();
-    if (text) teile.push(text);
-    else if (titel) teile.push(titel);
-  });
-  return teile.join(' | ');
-}
-
-function ohneDoppelteEinordnung(einordnung, befund) {
-  einordnung = String(einordnung || '').trim();
-  befund = String(befund || '').trim();
-  if (!einordnung || !befund) return einordnung;
-  return einordnung
-    .match(/[^.!?]+[.!?]*/g)
-    .filter(Boolean)
-    .filter(function (satz) {
-      const sauber = satz.replace(/[.!?]+$/, '').trim();
-      return sauber && befund.indexOf(sauber) === -1;
-    })
-    .join(' ');
-}
-
-function optionText(el, wert) {
-  const opt = (el.optionen || []).find(function (o) { return String(o.wert) === String(wert); });
-  return opt ? opt.text : wert;
-}
-
-function labelText(el) {
-  return String(el.label || el.titel || el.id || '').replace(/:\s*$/, '').trim();
-}
-
-function scoreAntwortDetails(def, st) {
-  if (!isScoreDefinition(def)) return '';
-  const details = [];
-  (def.schritte || []).forEach(function (schritt) {
-    (schritt.elemente || []).forEach(function (el) {
-      if (!el.id) return;
-      if (el.typ === 'auswahl') {
-        const wert = st[el.id];
-        if (wert == null || wert === '') return;
-        details.push(labelText(el) + ': ' + optionText(el, wert));
-      } else if (el.typ === 'zahl') {
-        const z = st[el.id] || {};
-        if (z.wert == null || z.wert === '') return;
-        details.push(labelText(el) + ': ' + z.wert + (z.einheit ? ' ' + z.einheit : ''));
-      }
-    });
-  });
-  return details.join('; ');
-}
-
-/* Live-Auswertung: Red-Flag-Banner + Hinweis-Panel */
+/* Aktualisierung nach jeder Eingabe.
+   Bewusst OHNE inhaltliche Auswertung: Das Framework bewertet Eingaben
+   nicht, berechnet keine Scores, leitet keine Verdachtsdiagnosen ab und
+   gibt keine Handlungsempfehlungen aus. Es uebernimmt ausschliesslich das,
+   was die anwendende Person selbst eingetragen hat, in den Dokumentations-
+   text. Siehe ZWECKBESTIMMUNG.md. */
 function refresh() {
   if (!aktiveSOP) return;
-  let res = { redflag: false, meldungen: [] };
-  if (typeof aktiveSOP.auswertung === 'function') {
-    try { res = aktiveSOP.auswertung(state) || res; }
-    catch (e) { res = { redflag: false, meldungen: [{ stil: 'orange', titel: 'Auswertungsfehler', text: String(e.message || e) }] }; }
-  }
-  const banner = $('#pcm-rf-banner');
-  banner.classList.toggle('hidden', !res.redflag);
-  if (res.redflag && res.bannerText) $('#pcm-rf-text').textContent = res.bannerText;
-
-  const meld = $('#pcm-meld');
-  meld.innerHTML = (res.meldungen || []).map(function (m) {
-    return '<div class="box ' + (STIL_BOX[m.stil] || 'bx-blue') + '">' +
-      (m.titel ? '<div class="lbl">' + esc(m.titel) + '</div>' : '') + esc(m.text) + '</div>';
-  }).join('');
-
   // PVS-Baustein immer direkt erzeugen und live aktualisieren.
   generateBaustein(true);
 }
@@ -1446,10 +1325,6 @@ function generateBaustein(silent) {
     $('#pcm-out').classList.remove('hidden');
     return;
   }
-  const einordnung = ohneDoppelteEinordnung(scoreEinordnung(aktiveSOP, state), sections.BE);
-  if (einordnung) sections.BE = appendSentence(sections.BE, 'Einordnung: ' + einordnung);
-  const antwortDetails = scoreAntwortDetails(aktiveSOP, state);
-  if (antwortDetails) sections.BE = appendSentence(sections.BE, 'Einzelantworten: ' + antwortDetails);
   sections = rollenSections(sections);
   $('#pcm-out-text').value = applyPvsTemplate(sections);
   $('#pcm-out').classList.remove('hidden');

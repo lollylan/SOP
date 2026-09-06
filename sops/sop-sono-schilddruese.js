@@ -41,10 +41,10 @@
   }
 
   var KNOTEN_OPTIONEN = [
-    { id: "knoten_solitaer", name: "Solitärknoten", beschreibung: "Echoarmer/echoreicher, glatt begrenzter Knoten, Durchmesser {wert}, regelrechte Randbegrenzung.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "E04.1G" },
-    { id: "knoten_multipel", name: "Mehrere Knoten (Knotenstruma)", beschreibung: "Mehrere umschriebene Knoten, größter Knoten {wert}, Parenchym dazwischen unauffällig.", messfeld: { label: "Größter Knoten", einheit: "mm" }, icd: "E04.2G" },
-    { id: "zyste", name: "Zyste", beschreibung: "Echofreie, glatt begrenzte, dorsal schallverstärkte Läsion, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "E04.1G" },
-    { id: "malignitaetsverdacht", name: "Malignitätsverdächtiger Knoten", beschreibung: "Echoarmer, unscharf begrenzter Knoten mit Mikrokalzifikationen und Hoch-größer-als-breit-Konfiguration, Durchmesser {wert} - fachärztliche Abklärung (Feinnadelpunktion) empfohlen.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "C73V", warn: true },
+    { id: "knoten_solitaer", name: "Solitärknoten", beschreibung: "Echoarmer/echoreicher, glatt begrenzter Knoten, Durchmesser {wert}, regelrechte Randbegrenzung.", messfeld: { label: "Durchmesser", einheit: "mm" } },
+    { id: "knoten_multipel", name: "Mehrere Knoten (Knotenstruma)", beschreibung: "Mehrere umschriebene Knoten, größter Knoten {wert}, Parenchym dazwischen unauffällig.", messfeld: { label: "Größter Knoten", einheit: "mm" } },
+    { id: "zyste", name: "Zyste", beschreibung: "Echofreie, glatt begrenzte, dorsal schallverstärkte Läsion, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
+    { id: "malignitaetsverdacht", name: "Malignitätsverdächtiger Knoten", beschreibung: "Echoarmer, unscharf begrenzter Knoten mit Mikrokalzifikationen und Hoch-größer-als-breit-Konfiguration, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
     { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
   ];
 
@@ -53,9 +53,9 @@
       key: "gesamt", titel: "Parenchym / Gesamtbeurteilung",
       normal: "Schilddrüse orthotop, Parenchym homogen und normal echogen, keine diffuse Vergrößerung, keine fokale Läsion.",
       optionen: [
-        { id: "struma_diffus", name: "Diffuse Struma", beschreibung: "Diffus vergrößerte Schilddrüse ohne umschriebene Knotenbildung, Echotextur homogen.", icd: "E04.0G" },
-        { id: "hashimoto", name: "V. a. Autoimmunthyreoiditis (Hashimoto-Muster)", beschreibung: "Diffus echoarmes, landkartenartig-inhomogenes Parenchym, vereinbar mit Autoimmunthyreoiditis.", icd: "E06.3V" },
-        { id: "basedow", name: "V. a. Morbus Basedow (Hypervaskularisation)", beschreibung: 'Diffus echoarmes Parenchym mit deutlich vermehrter Vaskularisation ("thyreoidales Inferno"), V. a. Morbus Basedow.', icd: "E05.0V", warn: true },
+        { id: "struma_diffus", name: "Diffuse Struma", beschreibung: "Diffus vergrößerte Schilddrüse ohne umschriebene Knotenbildung, Echotextur homogen." },
+        { id: "hashimoto", name: "V. a. Autoimmunthyreoiditis (Hashimoto-Muster)", beschreibung: "Diffus echoarmes, landkartenartig-inhomogenes Parenchym, vereinbar mit Autoimmunthyreoiditis." },
+        { id: "basedow", name: "V. a. Morbus Basedow (Hypervaskularisation)", beschreibung: 'Diffus echoarmes Parenchym mit deutlich vermehrter Vaskularisation ("thyreoidales Inferno"), V. a. Morbus Basedow.' },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     },
@@ -73,7 +73,7 @@
       key: "isthmus", titel: "Isthmus",
       normal: "Isthmus normal breit, homogenes Echomuster, kein Knotennachweis.",
       optionen: [
-        { id: "knoten", name: "Knoten im Isthmus", beschreibung: "Umschriebener Knoten, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" }, icd: "E04.1G" },
+        { id: "knoten", name: "Knoten im Isthmus", beschreibung: "Umschriebener Knoten, Durchmesser {wert}.", messfeld: { label: "Durchmesser", einheit: "mm" } },
         { id: "sonstiges", name: "Sonstiger/atypischer Befund", freitext: true }
       ]
     }
@@ -113,7 +113,7 @@
     var img = imgHtml(key);
     var help = img ? ('<button class="derm-help" type="button" data-sono-help="' + esc(key) + '">▸ Beispielbild</button>' +
       '<div class="derm-help-panel" data-sono-help-panel="' + esc(key) + '">' + img + '</div>') : "";
-    var cls = opt.warn ? " warn" : "";
+    var cls = "";
     return '<div class="derm-card' + cls + '" data-sono-card="' + esc(o.key) + '" data-id="' + esc(opt.id) + '">' +
       '<div class="derm-card-top"><div class="derm-card-title">' + esc(opt.name) + '</div>' +
       (opt.beschreibung ? '<div class="derm-card-desc">' + esc(opt.beschreibung.replace("{wert}", "…")) + '</div>' : '') +
@@ -257,7 +257,6 @@
   function baustein(s) {
     var d = sonoState(s);
     var zeilen = [];
-    var ld = [];
     ORGANE.forEach(function (o) {
       var os = d.organe[o.key];
       var auswahl = (os && os.auswahl) || [];
@@ -277,7 +276,6 @@
         }
         var val = os.messwerte && os.messwerte[opt.id];
         saetze.push(formatSatz(opt, val));
-        if (opt.icd && ld.indexOf(opt.icd) === -1) ld.push(opt.icd);
       });
       if (saetze.length) zeilen.push(o.titel + ": " + saetze.join(" "));
     });
@@ -285,59 +283,13 @@
     if (hasText(vol)) zeilen.push("Geschätztes Gesamtvolumen: " + vol + " ml.");
     if (hasText(s.zusatz)) zeilen.push("Zusätzlich: " + s.zusatz);
 
-    var th = "";
-    var malignitaet = Object.keys(d.organe).some(function (k) { return d.organe[k] && (d.organe[k].auswahl || []).indexOf("malignitaetsverdacht") !== -1; });
-    if (malignitaet) th = "Fachärztliche/endokrinologische Vorstellung zur weiteren Abklärung (Feinnadelpunktion) empfehlen.";
-
     return {
       AN: "Sonographie der Schilddrüse, indikationsgerecht durchgeführt.",
       BE: "",
       SN: zeilen.join("\n"),
-      TH: th,
-      LD: ld.join("\n")
+      TH: "",
+      LD: ""
     };
-  }
-
-  function auswertung(s) {
-    var d = sonoState(s);
-    var meldungen = [];
-    var redflag = false;
-
-    ORGANE.forEach(function (o) {
-      var os = d.organe[o.key];
-      var auswahl = (os && os.auswahl) || [];
-      auswahl.forEach(function (id) {
-        if (id === "__normal__") return;
-        var opt = optionById(o, id);
-        if (!opt || !opt.warn) return;
-        if (opt.id === "malignitaetsverdacht") {
-          redflag = true;
-          meldungen.push({ stil: "rot", titel: "Malignitätsverdächtiger Knoten (" + o.titel + ")", text: "Fachärztliche/endokrinologische Abklärung (Feinnadelpunktion) zeitnah empfehlen." });
-        } else {
-          meldungen.push({ stil: "orange", titel: opt.name + " (" + o.titel + ")", text: "Weitere Einordnung (Labor/Klinik) empfohlen." });
-        }
-      });
-    });
-
-    var vol = parseFloat(s.volumen && s.volumen.wert);
-    if (!isNaN(vol) && vol > 25) {
-      meldungen.push({ stil: "orange", titel: "Vergrößertes Schätzvolumen", text: "Gesamtvolumen " + vol + " ml - Struma möglich, ggf. Funktionsdiagnostik ergänzen." });
-    }
-
-    return { redflag: redflag, bannerText: "Malignitätsverdächtiger Schilddrüsenknoten - zeitnahe fachärztliche Abklärung einleiten.", meldungen: meldungen };
-  }
-
-  /* -------- Styles fuer Beispielbilder (einmalig injiziert) -------- */
-  if (typeof document !== "undefined" && document.head && !document.getElementById("sono-img-styles")) {
-    var st = document.createElement("style");
-    st.id = "sono-img-styles";
-    st.textContent =
-      ".sono-figure{margin:0;padding:0}" +
-      ".sono-img{display:block;width:100%;max-height:240px;object-fit:contain;background:#000;" +
-      "border:1px solid var(--linie);border-radius:6px;cursor:zoom-in}" +
-      ".sono-figcap{font-size:10px;line-height:1.35;color:#8a7d70;margin-top:4px;word-break:break-word}" +
-      ".sono-figcap a{color:#8a7d70;text-decoration:underline}";
-    document.head.appendChild(st);
   }
 
   PCM.registerSOP({
@@ -350,7 +302,7 @@
     stand: "04.07.2026",
     bereich: "Sonographie",
     kategorie: "Sonographie",
-    delegationshinweis: "Das Modul unterstützt die strukturierte Dokumentation des Sonographiebefunds. Durchführung, Befundinterpretation und daraus abgeleitete Diagnosen/Procedere erfolgen ärztlich.",
+    delegationshinweis: "Reines Dokumentationsmodul: Es hält ausschließlich fest, was die untersuchende Person selbst als Befund ausgewählt und gemessen hat. Es bewertet keine Messwerte, vergleicht sie nicht mit Grenzwerten, leitet keine Diagnosen, ICD-Codes oder Handlungsempfehlungen ab und gibt keine Warnungen aus. Durchführung, Befundinterpretation, Diagnose und Procedere erfolgen ärztlich.",
     fussnote: 'Bildnachweis: Die sonographischen Referenzbilder stammen aus dem Sonographie-Atlas ' +
       '(<a href="https://sonographiebilder.de/sonographie-atlas" target="_blank" rel="noopener noreferrer">' +
       'sonographiebilder.de/sonographie-atlas</a>). Herzlichen Dank an das Albertinen Krankenhaus ' +
@@ -396,7 +348,6 @@
         ]
       }
     ],
-    auswertung: auswertung,
     baustein: baustein
   });
 })();

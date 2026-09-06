@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'hwi-basis',
   titel: 'Harnwegsinfekt',
-  untertitel: 'Akut - unkomplizierte Zystitis, komplizierter HWI, Pyelonephritis-Ausschluss',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'HWI',
   farbe: '#2471A3',
   bereich: 'PCM-Sprechstunde',

@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'schulterschmerz',
   titel: 'Schulterschmerz',
-  untertitel: 'Akut/subakut - Trauma, Rotatorenmanschette, Impingement, Schultersteife',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'SCH',
   farbe: '#5B2C6F',
   bereich: 'PCM-Sprechstunde',

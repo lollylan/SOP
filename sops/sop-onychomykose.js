@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'onychomykose',
   titel: 'Onychomykose',
-  untertitel: 'Chronisch - Nagelpilzverdacht, Differenzialdiagnosen, Risikofuß, Therapievorbereitung',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'ONY',
   farbe: '#7D6608',
   bereich: 'PCM-Sprechstunde',

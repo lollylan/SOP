@@ -146,7 +146,7 @@
 
   /* ======================================================================
      Gelenk-Daten (Reihenfolge = 2. Spalte, von kranial nach kaudal)
-     Jeder Test: name, ablauf[], bedeutung (bei positiv), kurzBed (Baustein).
+     Jeder Test: name, ablauf[], bedeutung (Nachschlage-Information).
      Das zugehoerige Untersuchungsvideo haengt an der Test-ID (siehe VIDEOS).
      ====================================================================== */
   var JOINTS = [
@@ -163,16 +163,13 @@
       tests: [
         { id: "hws_spurling", name: "Spurling-Test (Foramenkompressionstest)",
           ablauf: ["Kopf zur betroffenen Seite neigen und leicht reklinieren.", "Vorsichtiger axialer Druck von oben auf den Scheitel.", "Auf reproduzierbare, in den Arm ausstrahlende Schmerzen achten."],
-          bedeutung: "In das Dermatom ausstrahlender Schmerz spricht für eine zervikale Nervenwurzelkompression (Zervikobrachialgie, z. B. Bandscheibenprotrusion, Neuroforamenstenose).",
-          kurzBed: "V.a. zervikale Radikulopathie" },
+          bedeutung: "In das Dermatom ausstrahlender Schmerz spricht für eine zervikale Nervenwurzelkompression (Zervikobrachialgie, z. B. Bandscheibenprotrusion, Neuroforamenstenose)." },
         { id: "hws_distraktion", name: "Distraktionstest",
           ablauf: ["Kopf umfassen und manuellen Längszug nach kranial ausüben.", "Reaktion auf die Entlastung beobachten."],
-          bedeutung: "Nachlassen radikulärer Beschwerden unter Zug bestätigt eine Wurzelkompression (Gegenstück zum Spurling).",
-          kurzBed: "Entlastung spricht für Radikulopathie" },
+          bedeutung: "Nachlassen radikulärer Beschwerden unter Zug bestätigt eine Wurzelkompression (Gegenstück zum Spurling)." },
         { id: "hws_lhermitte", name: "Lhermitte-Zeichen",
           ablauf: ["Kopf aktiv/passiv nach vorn beugen (Flexion).", "Auf elektrisierende, entlang der Wirbelsäule/in die Extremitäten schießende Missempfindung achten."],
-          bedeutung: "Positiv bei zervikaler Myelopathie oder Läsionen des Rückenmarks (z. B. MS, zervikale Stenose) — ärztliche Abklärung.",
-          kurzBed: "V.a. zervikale Myelopathie" }
+          bedeutung: "Positiv bei zervikaler Myelopathie oder Läsionen des Rückenmarks (z. B. MS, zervikale Stenose) — ärztliche Abklärung." }
       ]
     },
     {
@@ -190,20 +187,16 @@
       tests: [
         { id: "lws_schober", name: "Schober-/Ott-Zeichen",
           ablauf: ["Schober: von S1 10 cm nach kranial markieren; bei max. Rumpfbeuge messen.", "Ott: von C7 30 cm nach kaudal markieren; bei Rumpfbeuge messen."],
-          bedeutung: "Verminderte Zunahme = eingeschränkte Entfaltbarkeit der LWS (Schober) bzw. BWS (Ott), z. B. bei Morbus Bechterew, degenerativ oder muskulär.",
-          kurzBed: "eingeschränkte WS-Entfaltung" },
+          bedeutung: "Verminderte Zunahme = eingeschränkte Entfaltbarkeit der LWS (Schober) bzw. BWS (Ott), z. B. bei Morbus Bechterew, degenerativ oder muskulär." },
         { id: "lws_lasegue", name: "Lasègue-Test (Straight Leg Raise)",
           ablauf: ["Rückenlage, das gestreckte Bein langsam anheben.", "Winkel notieren, bei dem ein in das Bein ausstrahlender Schmerz auftritt."],
-          bedeutung: "Radikulärer Schmerz bei < 60° spricht für eine Reizung der Wurzeln L5/S1 (z. B. lumbaler Bandscheibenvorfall). Rein lumbaler Rückenschmerz ist unspezifisch.",
-          kurzBed: "V.a. Wurzelreizung L5/S1" },
+          bedeutung: "Radikulärer Schmerz bei < 60° spricht für eine Reizung der Wurzeln L5/S1 (z. B. lumbaler Bandscheibenvorfall). Rein lumbaler Rückenschmerz ist unspezifisch." },
         { id: "lws_bragard", name: "Bragard-Zeichen",
           ablauf: ["Bein bis zur Schmerzgrenze (Lasègue) anheben, dann etwas absenken.", "Fuß passiv dorsalextendieren."],
-          bedeutung: "Erneuter/verstärkter radikulärer Schmerz bestätigt die Nervenwurzelreizung und grenzt sie von muskulären Ursachen ab.",
-          kurzBed: "bestätigt radikuläre Reizung" },
+          bedeutung: "Erneuter/verstärkter radikulärer Schmerz bestätigt die Nervenwurzelreizung und grenzt sie von muskulären Ursachen ab." },
         { id: "lws_umgekehrt", name: "Umgekehrter Lasègue (Femoralis-Dehnung)",
           ablauf: ["Bauchlage, Knie gebeugt, Oberschenkel im Hüftgelenk überstrecken."],
-          bedeutung: "Schmerz an der Oberschenkelvorderseite spricht für eine Reizung höherer Lumbalwurzeln (L3/L4, N. femoralis).",
-          kurzBed: "V.a. Wurzelreizung L3/L4" }
+          bedeutung: "Schmerz an der Oberschenkelvorderseite spricht für eine Reizung höherer Lumbalwurzeln (L3/L4, N. femoralis)." }
       ]
     },
     {
@@ -215,20 +208,16 @@
       tests: [
         { id: "isg_faber", name: "Patrick-/FABERE-Test („Vierer-Zeichen“)",
           ablauf: ["Rückenlage, Bein in Figur-4-Position (Fuß auf das Gegenknie).", "Knie der getesteten Seite nach außen-unten drücken, Becken gegenhalten."],
-          bedeutung: "Schmerz dorsal/über dem ISG spricht für eine ISG-Pathologie; Leistenschmerz eher für eine Hüft-/Coxarthrose-Ursache.",
-          kurzBed: "ISG- vs. Hüftpathologie" },
+          bedeutung: "Schmerz dorsal/über dem ISG spricht für eine ISG-Pathologie; Leistenschmerz eher für eine Hüft-/Coxarthrose-Ursache." },
         { id: "isg_mennell", name: "Mennell-Zeichen",
           ablauf: ["Bauchlage; Becken/Kreuzbein mit einer Hand fixieren.", "Das gestreckte Bein mit der anderen Hand nach hinten überstrecken (Hyperextension)."],
-          bedeutung: "Schmerz über dem ISG weist auf eine ISG-Blockade/-Reizung oder Sakroiliitis hin.",
-          kurzBed: "V.a. ISG-Blockade/Sakroiliitis" },
+          bedeutung: "Schmerz über dem ISG weist auf eine ISG-Blockade/-Reizung oder Sakroiliitis hin." },
         { id: "isg_vorlauf", name: "Vorlaufphänomen",
           ablauf: ["Im Stehen beide Daumen auf die Spinae iliacae posteriores superiores (SIPS).", "Patient beugt sich langsam nach vorn; Bewegung der SIPS vergleichen."],
-          bedeutung: "„Vorlaufen“ einer SIPS = eingeschränkte ISG-Beweglichkeit dieser Seite (Blockadehinweis, seitendifferent).",
-          kurzBed: "Seitenhinweis ISG-Blockade" },
+          bedeutung: "„Vorlaufen“ einer SIPS = eingeschränkte ISG-Beweglichkeit dieser Seite (Blockadehinweis, seitendifferent)." },
         { id: "isg_kompression", name: "Kompressions-/Distraktionstest",
           ablauf: ["Rückenlage: beide Beckenschaufeln zusammendrücken (Kompression) bzw. nach außen drücken (Distraktion)."],
-          bedeutung: "Reproduzierbarer ISG-/tiefer Gesäßschmerz spricht für eine ISG-Beteiligung (z. B. Sakroiliitis).",
-          kurzBed: "V.a. ISG-Reizung" }
+          bedeutung: "Reproduzierbarer ISG-/tiefer Gesäßschmerz spricht für eine ISG-Beteiligung (z. B. Sakroiliitis)." }
       ]
     },
     {
@@ -244,32 +233,25 @@
       tests: [
         { id: "sch_neer", name: "Neer-Impingement-Test",
           ablauf: ["Skapula mit einer Hand fixieren.", "Den innenrotierten Arm passiv nach vorn-oben eleviert führen."],
-          bedeutung: "Schmerz bei forcierter Elevation = subakromiales Impingement (Enge zwischen Humeruskopf und Akromion, oft Supraspinatus).",
-          kurzBed: "subakromiales Impingement" },
+          bedeutung: "Schmerz bei forcierter Elevation = subakromiales Impingement (Enge zwischen Humeruskopf und Akromion, oft Supraspinatus)." },
         { id: "sch_hawkins", name: "Hawkins-Kennedy-Test",
           ablauf: ["Arm 90° antevertiert, Ellbogen 90° gebeugt.", "Unterarm nach unten führen (forcierte Innenrotation)."],
-          bedeutung: "Schmerz = subakromiales Impingement bzw. Reizung der Supraspinatussehne.",
-          kurzBed: "Impingement (Supraspinatus)" },
+          bedeutung: "Schmerz = subakromiales Impingement bzw. Reizung der Supraspinatussehne." },
         { id: "sch_jobe", name: "Jobe-Test („Empty Can“)",
           ablauf: ["Arme 90° in der Skapulaebene abduzieren, Daumen nach unten.", "Patient hält gegen Abwärtsdruck des Untersuchers."],
-          bedeutung: "Schmerz/Kraftminderung spricht für eine Läsion oder Tendinopathie des M. supraspinatus.",
-          kurzBed: "Supraspinatus-Läsion" },
+          bedeutung: "Schmerz/Kraftminderung spricht für eine Läsion oder Tendinopathie des M. supraspinatus." },
         { id: "sch_painarc", name: "Painful Arc (schmerzhafter Bogen)",
           ablauf: ["Arm aktiv in der Frontalebene abduzieren.", "Schmerzhaften Winkelbereich bestimmen."],
-          bedeutung: "Schmerz bei 60–120° = subakromiales Impingement; Schmerz bei 140–180° = AC-Gelenk-Pathologie.",
-          kurzBed: "Impingement bzw. AC-Gelenk" },
+          bedeutung: "Schmerz bei 60–120° = subakromiales Impingement; Schmerz bei 140–180° = AC-Gelenk-Pathologie." },
         { id: "sch_droparm", name: "Drop-Arm-Test",
           ablauf: ["Arm passiv auf 90° Abduktion bringen.", "Patient soll den Arm langsam absenken/halten."],
-          bedeutung: "Plötzliches Absinken/Nicht-Halten-Können = größere Rotatorenmanschettenruptur (v. a. Supraspinatus).",
-          kurzBed: "V.a. RM-Ruptur" },
+          bedeutung: "Plötzliches Absinken/Nicht-Halten-Können = größere Rotatorenmanschettenruptur (v. a. Supraspinatus)." },
         { id: "sch_liftoff", name: "Lift-off / Belly-press (Subscapularis)",
           ablauf: ["Lift-off: Handrücken auf das Kreuz, Hand vom Rücken abheben lassen.", "Alternativ Belly-press: Hand auf Bauch drücken, Ellbogen vorn halten."],
-          bedeutung: "Nicht möglich = Läsion/Insuffizienz des M. subscapularis (Innenrotator).",
-          kurzBed: "Subscapularis-Läsion" },
+          bedeutung: "Nicht möglich = Läsion/Insuffizienz des M. subscapularis (Innenrotator)." },
         { id: "sch_apprehension", name: "Apprehension-/Relocation-Test",
           ablauf: ["Rückenlage, Arm 90° abduziert, langsam außenrotieren.", "Relocation: dorsalen Druck auf den Humeruskopf ausüben."],
-          bedeutung: "Abwehr/Unbehagen bei Außenrotation, Besserung durch Relocation = vordere Schulterinstabilität.",
-          kurzBed: "vordere Instabilität" }
+          bedeutung: "Abwehr/Unbehagen bei Außenrotation, Besserung durch Relocation = vordere Schulterinstabilität." }
       ]
     },
     {
@@ -283,16 +265,13 @@
       tests: [
         { id: "ell_cozen", name: "Cozen-Test (Tennisellbogen)",
           ablauf: ["Ellbogen leicht gebeugt, Unterarm proniert, Faust ballen.", "Patient streckt Handgelenk gegen Widerstand des Untersuchers."],
-          bedeutung: "Schmerz am lateralen Epicondylus = Epicondylitis humeri radialis (lateralis, „Tennisellbogen“).",
-          kurzBed: "Epicondylitis radialis" },
+          bedeutung: "Schmerz am lateralen Epicondylus = Epicondylitis humeri radialis (lateralis, „Tennisellbogen“)." },
         { id: "ell_golfer", name: "Reverse-Cozen / Golferellbogen",
           ablauf: ["Unterarm supiniert, Patient beugt Handgelenk gegen Widerstand."],
-          bedeutung: "Schmerz am medialen Epicondylus = Epicondylitis humeri ulnaris (medialis, „Golferellbogen“).",
-          kurzBed: "Epicondylitis ulnaris" },
+          bedeutung: "Schmerz am medialen Epicondylus = Epicondylitis humeri ulnaris (medialis, „Golferellbogen“)." },
         { id: "ell_valgus", name: "Valgus-/Varusstress",
           ablauf: ["Ellbogen ~20–30° beugen, Valgus- bzw. Varusstress ausüben.", "Aufklappbarkeit im Seitenvergleich beurteilen."],
-          bedeutung: "Vermehrte Aufklappbarkeit medial = ulnares Kollateralband; lateral = radiales Kollateralband.",
-          kurzBed: "Kollateralband-Läsion" }
+          bedeutung: "Vermehrte Aufklappbarkeit medial = ulnares Kollateralband; lateral = radiales Kollateralband." }
       ]
     },
     {
@@ -307,28 +286,22 @@
       tests: [
         { id: "han_finkelstein", name: "Finkelstein-Test",
           ablauf: ["Daumen in die Faust einschließen.", "Handgelenk nach ulnar abknicken (Ulnarabduktion).", "Streng genommen ist diese Variante der Eichhoff-Test — im klinischen Alltag meist als Finkelstein-Test bezeichnet."],
-          bedeutung: "Schmerz über dem 1. Strecksehnenfach (radial) = Tendovaginitis stenosans de Quervain.",
-          kurzBed: "Tendovaginitis de Quervain" },
+          bedeutung: "Schmerz über dem 1. Strecksehnenfach (radial) = Tendovaginitis stenosans de Quervain." },
         { id: "han_phalen", name: "Phalen-Test",
           ablauf: ["Handrücken gegeneinander, Handgelenke max. 90° beugen.", "Position ca. 60 s halten."],
-          bedeutung: "Kribbeln/Taubheit in Finger I–III = Karpaltunnelsyndrom (Kompression N. medianus).",
-          kurzBed: "Karpaltunnelsyndrom (N. medianus)" },
+          bedeutung: "Kribbeln/Taubheit in Finger I–III = Karpaltunnelsyndrom (Kompression N. medianus)." },
         { id: "han_tinel", name: "Tinel-Hoffmann-Zeichen",
           ablauf: ["Über dem Karpaltunnel (Handgelenksbeugeseite) leicht beklopfen."],
-          bedeutung: "In die Finger einschießende Parästhesien = Irritation des N. medianus (Karpaltunnelsyndrom).",
-          kurzBed: "N.-medianus-Irritation (KTS)" },
+          bedeutung: "In die Finger einschießende Parästhesien = Irritation des N. medianus (Karpaltunnelsyndrom)." },
         { id: "han_grind", name: "Grind-Test (Daumensattelgelenk)",
           ablauf: ["Ersten Mittelhandknochen axial komprimieren und dabei rotieren."],
-          bedeutung: "Krepitation/Schmerz im Daumensattelgelenk = Rhizarthrose (CMC-I-Arthrose).",
-          kurzBed: "Rhizarthrose" },
+          bedeutung: "Krepitation/Schmerz im Daumensattelgelenk = Rhizarthrose (CMC-I-Arthrose)." },
         { id: "han_froment", name: "Froment-Zeichen",
           ablauf: ["Ein Blatt Papier zwischen Daumen und Zeigefinger halten und wegziehen."],
-          bedeutung: "Kompensatorische Beugung im Daumenendglied = Schwäche des M. adductor pollicis (N. ulnaris).",
-          kurzBed: "N.-ulnaris-Läsion" },
+          bedeutung: "Kompensatorische Beugung im Daumenendglied = Schwäche des M. adductor pollicis (N. ulnaris)." },
         { id: "han_watson", name: "Watson-Test (Scaphoid-Shift)",
           ablauf: ["Druck auf den distalen Skaphoidpol, Handgelenk von ulnar nach radial führen."],
-          bedeutung: "Schmerzhaftes Schnappen = skapholunäre (SL-)Bandinstabilität.",
-          kurzBed: "SL-Bandinstabilität" }
+          bedeutung: "Schmerzhaftes Schnappen = skapholunäre (SL-)Bandinstabilität." }
       ]
     },
     {
@@ -344,24 +317,19 @@
       tests: [
         { id: "hue_thomas", name: "Thomas-Handgriff",
           ablauf: ["Rückenlage; die kontralaterale Hüfte maximal beugen (Lordose ausgleichen).", "Beobachten, ob sich das getestete Bein von der Unterlage abhebt."],
-          bedeutung: "Abheben/Beugung des gestreckten Beins = Hüftbeugekontraktur (Flexionskontraktur, z. B. Coxarthrose).",
-          kurzBed: "Hüftbeugekontraktur" },
+          bedeutung: "Abheben/Beugung des gestreckten Beins = Hüftbeugekontraktur (Flexionskontraktur, z. B. Coxarthrose)." },
         { id: "hue_trendelenburg", name: "Trendelenburg-/Duchenne-Zeichen",
           ablauf: ["Einbeinstand auf der zu testenden Seite.", "Beckenstand der Spielbeinseite beobachten."],
-          bedeutung: "Absinken des Beckens zur Spielbeinseite (bzw. Rumpfneigung zur Standbeinseite = Duchenne) = Insuffizienz der Hüftabduktoren (M. glutaeus medius).",
-          kurzBed: "Glutealinsuffizienz" },
+          bedeutung: "Absinken des Beckens zur Spielbeinseite (bzw. Rumpfneigung zur Standbeinseite = Duchenne) = Insuffizienz der Hüftabduktoren (M. glutaeus medius)." },
         { id: "hue_fadir", name: "FADIR-/Impingement-Test",
           ablauf: ["Hüfte und Knie 90° beugen; dann Flexion + Adduktion + Innenrotation."],
-          bedeutung: "Reproduzierbarer Leistenschmerz = femoroacetabuläres Impingement (FAI) bzw. Labrumläsion.",
-          kurzBed: "V.a. FAI / Labrumläsion" },
+          bedeutung: "Reproduzierbarer Leistenschmerz = femoroacetabuläres Impingement (FAI) bzw. Labrumläsion." },
         { id: "hue_faber", name: "FABER-/Patrick-Test",
           ablauf: ["Bein in Figur-4-Position, Knie nach außen-unten drücken."],
-          bedeutung: "Leistenschmerz spricht für eine Hüft-/Coxarthrose-Ursache; dorsaler Schmerz eher für das ISG.",
-          kurzBed: "Coxarthrose vs. ISG" },
+          bedeutung: "Leistenschmerz spricht für eine Hüft-/Coxarthrose-Ursache; dorsaler Schmerz eher für das ISG." },
         { id: "hue_drehmann", name: "Drehmann-Zeichen",
           ablauf: ["Hüfte passiv beugen und dabei die Rotation beobachten."],
-          bedeutung: "Zwangsläufige Außenrotation bei zunehmender Beugung = strukturelle Hüftpathologie (z. B. Epiphysiolysis capitis femoris, Coxarthrose).",
-          kurzBed: "strukturelle Hüftpathologie" }
+          bedeutung: "Zwangsläufige Außenrotation bei zunehmender Beugung = strukturelle Hüftpathologie (z. B. Epiphysiolysis capitis femoris, Coxarthrose)." }
       ]
     },
     {
@@ -375,36 +343,28 @@
       tests: [
         { id: "kni_erguss", name: "Tanzende Patella (Erguss)",
           ablauf: ["Recessus suprapatellaris ausstreichen, dann die Patella nach dorsal drücken."],
-          bedeutung: "Federndes Anschlagen der Patella = intraartikulärer Kniegelenkerguss.",
-          kurzBed: "Kniegelenkerguss" },
+          bedeutung: "Federndes Anschlagen der Patella = intraartikulärer Kniegelenkerguss." },
         { id: "kni_schubladeV", name: "Vordere Schublade",
           ablauf: ["Knie 90° beugen, Fuß fixieren; Tibia mit beiden Händen nach vorn ziehen."],
-          bedeutung: "Vermehrte Ventralverschiebung der Tibia = Insuffizienz des vorderen Kreuzbands (VKB).",
-          kurzBed: "V.a. VKB-Ruptur" },
+          bedeutung: "Vermehrte Ventralverschiebung der Tibia = Insuffizienz des vorderen Kreuzbands (VKB)." },
         { id: "kni_lachman", name: "Lachman-Test",
           ablauf: ["Knie ca. 20–30° beugen; Femur fixieren, Tibia nach vorn ziehen.", "Ausmaß der Translation und Endpunkt („weich“) beurteilen."],
-          bedeutung: "Vermehrte Translation mit weichem Anschlag = VKB-Insuffizienz (sensibelster Kreuzbandtest).",
-          kurzBed: "V.a. VKB-Ruptur" },
+          bedeutung: "Vermehrte Translation mit weichem Anschlag = VKB-Insuffizienz (sensibelster Kreuzbandtest)." },
         { id: "kni_schubladeH", name: "Hintere Schublade",
           ablauf: ["Knie 90° beugen; Tibia nach hinten drücken.", "Auf dorsales Absinken der Tibia achten (Rücklauf-/Sag-Zeichen)."],
-          bedeutung: "Vermehrte Dorsalverschiebung = Insuffizienz des hinteren Kreuzbands (HKB).",
-          kurzBed: "V.a. HKB-Ruptur" },
+          bedeutung: "Vermehrte Dorsalverschiebung = Insuffizienz des hinteren Kreuzbands (HKB)." },
         { id: "kni_valgus", name: "Valgus-/Varusstress (0° und 30°)",
           ablauf: ["In Streckung und in 30° Beugung Valgus- bzw. Varusstress ausüben."],
-          bedeutung: "Mediale Aufklappbarkeit = Innenband (MCL); laterale Aufklappbarkeit = Außenband (LCL). Aufklappbarkeit in Streckung spricht für zusätzliche Kreuzbandbeteiligung.",
-          kurzBed: "Kollateralband-Läsion (MCL/LCL)" },
+          bedeutung: "Mediale Aufklappbarkeit = Innenband (MCL); laterale Aufklappbarkeit = Außenband (LCL). Aufklappbarkeit in Streckung spricht für zusätzliche Kreuzbandbeteiligung." },
         { id: "kni_mcmurray", name: "McMurray-Test",
           ablauf: ["Knie maximal beugen; unter Außenrotation strecken (Innenmeniskus) bzw. unter Innenrotation (Außenmeniskus)."],
-          bedeutung: "Schnappen/Schmerz am Gelenkspalt = Meniskusläsion.",
-          kurzBed: "V.a. Meniskusläsion" },
+          bedeutung: "Schnappen/Schmerz am Gelenkspalt = Meniskusläsion." },
         { id: "kni_steinmann", name: "Steinmann I / II",
           ablauf: ["Steinmann I: bei gebeugtem Knie Unterschenkel ruckartig rotieren.", "Steinmann II: Druckschmerz am Gelenkspalt wandert bei Beugung nach dorsal."],
-          bedeutung: "Rotations-/Druckschmerz am Gelenkspalt = Meniskusläsion.",
-          kurzBed: "V.a. Meniskusläsion" },
+          bedeutung: "Rotations-/Druckschmerz am Gelenkspalt = Meniskusläsion." },
         { id: "kni_zohlen", name: "Zohlen-Zeichen / Patella-Anpresstest",
           ablauf: ["Patella nach distal drücken; Patient spannt den Quadrizeps an."],
-          bedeutung: "Retropatellarer Schmerz = femoropatellares Schmerzsyndrom / retropatellare Chondropathie (Test wenig spezifisch).",
-          kurzBed: "femoropatellares Schmerzsyndrom" }
+          bedeutung: "Retropatellarer Schmerz = femoropatellares Schmerzsyndrom / retropatellare Chondropathie (Test wenig spezifisch)." }
       ]
     },
     {
@@ -419,20 +379,16 @@
       tests: [
         { id: "osg_schublade", name: "Vordere Schublade (OSG)",
           ablauf: ["Unterschenkel/Tibia fixieren; Ferse (Kalkaneus) nach vorn ziehen."],
-          bedeutung: "Vermehrter Talusvorschub = Läsion des Lig. fibulotalare anterius (LFTA/ATFL, laterale Bandläsion).",
-          kurzBed: "V.a. laterale Bandläsion (LFTA)" },
+          bedeutung: "Vermehrter Talusvorschub = Läsion des Lig. fibulotalare anterius (LFTA/ATFL, laterale Bandläsion)." },
         { id: "osg_taluskippung", name: "Taluskippung (Inversionsstress)",
           ablauf: ["Rückfuß in Inversion/Supination kippen; Aufklappbarkeit im Seitenvergleich."],
-          bedeutung: "Vermehrte laterale Aufklappbarkeit = Läsion der lateralen Bänder (LFTA + Lig. fibulocalcaneare).",
-          kurzBed: "laterale Bandinstabilität" },
+          bedeutung: "Vermehrte laterale Aufklappbarkeit = Läsion der lateralen Bänder (LFTA + Lig. fibulocalcaneare)." },
         { id: "osg_thompson", name: "Thompson-Test (Wadenkompression)",
           ablauf: ["Bauchlage, Fuß über die Kante hängen lassen; Wade kräftig zusammendrücken."],
-          bedeutung: "Ausbleibende Plantarflexion des Fußes = komplette Achillessehnenruptur.",
-          kurzBed: "V.a. Achillessehnenruptur" },
+          bedeutung: "Ausbleibende Plantarflexion des Fußes = komplette Achillessehnenruptur." },
         { id: "osg_squeeze", name: "Squeeze-Test (Syndesmose)",
           ablauf: ["Tibia und Fibula auf Höhe der Wadenmitte zusammendrücken."],
-          bedeutung: "Schmerz distal über der Syndesmose = Verdacht auf Syndesmosenverletzung („hohe“ OSG-Distorsion).",
-          kurzBed: "V.a. Syndesmosenverletzung" }
+          bedeutung: "Schmerz distal über der Syndesmose = Verdacht auf Syndesmosenverletzung („hohe“ OSG-Distorsion)." }
       ]
     }
   ];
@@ -576,7 +532,7 @@
         var pos = [], neg = [];
         joint.tests.forEach(function (t) {
           var v = (st.tests || {})[t.id];
-          if (v === "pos") pos.push(t.name + (t.kurzBed ? " (" + t.kurzBed + ")" : ""));
+          if (v === "pos") pos.push(t.name);
           else if (v === "neg") neg.push(t.name);
         });
         var be = "Klinische Untersuchung " + joint.name + ".";

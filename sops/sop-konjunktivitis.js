@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'konjunktivitis',
   titel: 'Konjunktivitis / Rotes Auge',
-  untertitel: 'Akut - infektiös, allergisch, irritativ; Keratitis-/Glaukom-/Trauma-Ausschluss',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'AUG',
   farbe: '#117A65',
   bereich: 'PCM-Sprechstunde',

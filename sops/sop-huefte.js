@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'hueftschmerz',
   titel: 'Hüftschmerz',
-  untertitel: 'Akut/subakut - Trauma, Koxarthrose, Trochanterschmerz, intraartikulär, LWS/SI',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'HÜF',
   farbe: '#7D3C98',
   bereich: 'PCM-Sprechstunde',

@@ -12,7 +12,6 @@ window.PCM_ADDONS = {
 
   sops: [
     'sops/startseite.js',
-    'sops/sop-telefontriage.js',
     'sops/sop-hitze-medikation.js',
     'sops/sop-ruecken.js',
     'sops/sop-ellbogen.js',
@@ -32,22 +31,9 @@ window.PCM_ADDONS = {
     'sops/sop-chroniker.js',
     'sops/patientenaufklaerungen-deximed.js',
     'sops/sop-effloreszenzen.js',
-    'sops/sop-dermatoskopie.js',
     'sops/sop-sono-abdomen.js',
     'sops/sop-sono-schilddruese.js',
     'sops/sop-orthopaedie.js',
-    'sops/sop-ekg.js',
-    'sops/scores-infektiologie.js',
-    'sops/scores-kardiologie.js',
-    'sops/scores-schlafmedizin.js',
-    'sops/scores-psychiatrie-sucht.js',
-    'sops/scores-nephrologie.js',
-    'sops/scores-neurologie.js',
-    'sops/scores-hepatologie.js',
-    'sops/scores-angiologie-pneumologie.js',
-    'sops/scores-osteologie.js',
-    'sops/scores-hno.js',
-    'sops/scores-urologie.js',
-    'sops/scores-unfallchirurgie.js'
+    'sops/sop-ekg.js'
   ]
 };

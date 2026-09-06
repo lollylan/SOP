@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'magenschmerz',
   titel: 'Magenschmerz / Oberbauchschmerz',
-  untertitel: 'Akut/subakut - Dyspepsie, Reflux, Ulkuszeichen, biliär/pankreatisch/kardial',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'MAG',
   farbe: '#A04000',
   bereich: 'PCM-Sprechstunde',

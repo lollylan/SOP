@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'ruecken',
   titel: 'Akute Rückenschmerzen (nicht-spezifischer Kreuzschmerz)',
-  untertitel: 'LWS · Erstmanifestation · Dauer < 6 Wochen',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: '🦴',
   farbe: '#7D3C98',
   bereich: 'PCM-Sprechstunde',

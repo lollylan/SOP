@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'infekt-obere-atemwege',
   titel: 'Infekt der oberen Atemwege',
-  untertitel: 'Erkältung, Halsschmerz, Rhinosinusitis - PCM-Erstassessment',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'IAW',
   farbe: '#117A65',
   bereich: 'PCM-Sprechstunde',

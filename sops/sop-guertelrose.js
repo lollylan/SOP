@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'guertelrose',
   titel: 'Gürtelrose / Herpes zoster',
-  untertitel: 'Akut - dermatomaler Schmerz, Vesikel, Augen-/Ohrbeteiligung, Immunsuppression',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'ZOS',
   farbe: '#922B21',
   bereich: 'PCM-Sprechstunde',

@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'hitze-medikation',
   titel: 'Hitze-Medikation (CALOR-Liste)',
-  untertitel: 'Medikamente suchen · Hitze-Anpassung · Patienteninfo drucken',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: '🌡️',
   farbe: '#D35400',
   bereich: 'HitzeMedikation',

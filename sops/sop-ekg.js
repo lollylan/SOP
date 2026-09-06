@@ -34,7 +34,7 @@
     { id: "sinusarrhythmie", label: "Sinusarrhythmie mit wechselnden RR-Zeiten", hint: "Meist atemabhängige, physiologische Schwankung der RR-Abstände (respiratorische Sinusarrhythmie)." },
     { id: "sinustachykardie", label: "Sinustachykardie", hint: "Sinusrhythmus mit Frequenz > 100/min." },
     { id: "sinusbradykardie", label: "Sinusbradykardie", hint: "Sinusrhythmus mit Frequenz < 60/min." },
-    { id: "absolute-arrhythmie", label: "Absolute Arrhythmie", warn: true, hint: "Komplett unregelmäßige RR-Abstände ohne erkennbare P-Wellen – typisch bei Vorhofflimmern; bei sägezahnartigen Flatterwellen und variabler Überleitung auch bei Vorhofflattern mit wechselnder Blockierung." },
+    { id: "absolute-arrhythmie", label: "Absolute Arrhythmie", hint: "Komplett unregelmäßige RR-Abstände ohne erkennbare P-Wellen – typisch bei Vorhofflimmern; bei sägezahnartigen Flatterwellen und variabler Überleitung auch bei Vorhofflattern mit wechselnder Blockierung." },
     { id: "schrittmacherrhythmus", label: "Schrittmacherrhythmus (Stimulations-EKG)", hint: "Spikes vor QRS- und/oder P-Welle je nach Stimulationsort. ST-Strecke und T-Welle sind sekundär meist nicht regelrecht beurteilbar (schenkelblockartige, bei RV-apikaler Stimulation meist LSB-artige QRS-Konfiguration)." },
     { id: "sonstiges", label: "Sonstiges", hint: "Freitext, z. B. atrialer Ersatzrhythmus, junktionaler Rhythmus.", freitext: true }
   ];
@@ -42,10 +42,10 @@
   var LAGETYP_OPTIONS = [
     { id: "indifferenztyp", label: "Indifferenztyp", range: "+30° bis +60°", angleFrom: 30, angleTo: 60, hint: 'Physiologischer Lagetyp bei Erwachsenen ("Normaltyp"/"Mitteltyp"). R-Zacke am größten in Ableitung II.' },
     { id: "linkstyp", label: "Linkstyp", range: "−30° bis +30°", angleFrom: -30, angleTo: 30, hint: "Physiologisch, insb. bei älteren und adipösen Patient:innen (Herzachse verschiebt sich mit Alter/Gewicht nach links). R-Zacke am größten in Ableitung I." },
-    { id: "ueberdrehter-linkstyp", label: "Überdrehter Linkstyp", range: "< −30° (−30° bis −90°)", angleFrom: -90, angleTo: -30, warn: true, hint: "In der Regel pathologisch: DD linksanteriorer Hemiblock, linksventrikuläre Hypertrophie, Vorhofseptumdefekt. Ableitung II negativ." },
+    { id: "ueberdrehter-linkstyp", label: "Überdrehter Linkstyp", range: "< −30° (−30° bis −90°)", angleFrom: -90, angleTo: -30, hint: "In der Regel pathologisch: DD linksanteriorer Hemiblock, linksventrikuläre Hypertrophie, Vorhofseptumdefekt. Ableitung II negativ." },
     { id: "steiltyp", label: "Steiltyp", range: "+60° bis +90°", angleFrom: 60, angleTo: 90, hint: "Physiologisch v. a. bei jungen, schlanken/asthenischen Personen; auch bei Rechtsherzbelastung (z. B. COPD) möglich." },
-    { id: "rechtstyp", label: "Rechtstyp", range: "+90° bis +120°", angleFrom: 90, angleTo: 120, warn: true, hint: "Bei Erwachsenen abklärungsbedürftig: DD Rechtsherzbelastung (z. B. Lungenembolie, Cor pulmonale), Kinder/Jugendliche physiologisch." },
-    { id: "nordwesttyp", label: 'Unmöglicher Lagetyp ("Nordwest-Typ")', range: "> +120° bis ±180° / −90° bis −180°", angleFrom: 120, angleTo: 180, angleFromExtra: -180, angleToExtra: -90, warn: true, hint: 'Extreme (superiore) Achsenlage, Ableitung I und aVF beide negativ ("No man\'s land"). Immer pathologisch: DD kombinierter Hemiblock, Hyperkaliämie, ventrikulärer Ursprung, Zustand nach ausgedehntem Infarkt.' },
+    { id: "rechtstyp", label: "Rechtstyp", range: "+90° bis +120°", angleFrom: 90, angleTo: 120, hint: "Bei Erwachsenen: DD Rechtsherzbelastung (z. B. Lungenembolie, Cor pulmonale), Kinder/Jugendliche physiologisch." },
+    { id: "nordwesttyp", label: 'Unmöglicher Lagetyp ("Nordwest-Typ")', range: "> +120° bis ±180° / −90° bis −180°", angleFrom: 120, angleTo: 180, angleFromExtra: -180, angleToExtra: -90, hint: 'Extreme (superiore) Achsenlage, Ableitung I und aVF beide negativ ("No man\'s land"). Immer pathologisch: DD kombinierter Hemiblock, Hyperkaliämie, ventrikulärer Ursprung, Zustand nach ausgedehntem Infarkt.' },
     { id: "nicht-festlegbar", label: "Durch die Ableitungen/Artefakte etc. nicht festlegbar", range: "", angleFrom: null, angleTo: null, hint: "Z. B. bei Extremitätenableitungs-Artefakten, liegender Vorderwandinfarktnarbe mit isoelektrischen QRS in mehreren Extremitätenableitungen, oder unzureichender Ableitungsqualität." }
   ];
 
@@ -55,11 +55,11 @@
     { id: "p-biatrial", label: "Biatriale Vergrößerung (Amplitudenerhöhung UND Verbreiterung)", hint: "Kombination aus P-dextrocardiale- und P-sinistrocardiale-Kriterien – Hinweis auf kombinierte Vorhofbelastung." },
     { id: "p-variabel", label: "P-Wellen mit variabler Form (Hinweis auf ektope Vorhofaktivität)", hint: "Wechselnde P-Wellen-Morphologie von Schlag zu Schlag, z. B. bei wandering pacemaker oder multifokaler atrialer Tachykardie." },
     { id: "p-fehlend", label: "P-Welle fehlend, isoelektrische Grundlinie (ohne Flimmerwellen)", hint: "Keine erkennbare Vorhoferregung bei unauffälliger, glatter Grundlinie – z. B. bei Sinusarrest, AV-junktionalem Ersatzrhythmus oder schwerer Hyperkaliämie. PQ-Zeit dadurch nicht beurteilbar." },
-    { id: "p-flimmerwellen", label: "Anstelle von P-Wellen: unregelmäßig undulierende Flimmerwellen", warn: true, hint: "Unregelmäßige, undulierende Grundlinie unterschiedlicher Amplitude und Frequenz (350–600/min) anstelle abgrenzbarer P-Wellen – klassisches Bild des Vorhofflimmerns, meist in Kombination mit absoluter Arrhythmie. PQ-Zeit dadurch nicht beurteilbar." },
+    { id: "p-flimmerwellen", label: "Anstelle von P-Wellen: unregelmäßig undulierende Flimmerwellen", hint: "Unregelmäßige, undulierende Grundlinie unterschiedlicher Amplitude und Frequenz (350–600/min) anstelle abgrenzbarer P-Wellen – klassisches Bild des Vorhofflimmerns, meist in Kombination mit absoluter Arrhythmie. PQ-Zeit dadurch nicht beurteilbar." },
     { id: "p-negativ", label: "Negative P-Wellen (retrograde Vorhoferregung)", hint: "P negativ in II, III, aVF – Hinweis auf AV-junktionalen Rhythmus oder retrograde Leitung." },
-    { id: "p-av-dissoziation", label: "P-Wellen unabhängig von den QRS-Komplexen (AV-Dissoziation)", warn: true, hint: "Vorhof- und Kammererregung laufen unabhängig voneinander ab, z. B. bei AV-Block III° oder ventrikulärer Tachykardie." },
+    { id: "p-av-dissoziation", label: "P-Wellen unabhängig von den QRS-Komplexen (AV-Dissoziation)", hint: "Vorhof- und Kammererregung laufen unabhängig voneinander ab, z. B. bei AV-Block III° oder ventrikulärer Tachykardie." },
     { id: "p-vor-jedem-qrs-plus-extra", label: "P-Welle vor jedem QRS-Komplex, dazwischen zusätzliche (nicht übergeleitete) P-Wellen", hint: "Typisch für Vorhofflattern oder atriale Tachykardie mit fixierter Überleitung (z. B. 2:1- oder 3:1-Block) bzw. für gehäufte blockierte atriale Extrasystolen." },
-    { id: "p-saegezahn", label: "Sägezahnartige P-Wellen mit positiver/negativer Amplitude", warn: true, hint: "Typisches Flatterwellen-Muster (v. a. in II, III, aVF), am ausgeprägtesten bei Vorhofflattern; Polarität abhängig von der Kreiserregungsrichtung (typisch gegen den Uhrzeigersinn: negativ inferior)." }
+    { id: "p-saegezahn", label: "Sägezahnartige P-Wellen mit positiver/negativer Amplitude", hint: "Typisches Flatterwellen-Muster (v. a. in II, III, aVF), am ausgeprägtesten bei Vorhofflattern; Polarität abhängig von der Kreiserregungsrichtung (typisch gegen den Uhrzeigersinn: negativ inferior)." }
   ];
 
   var QRS_FINDINGS = [
@@ -82,16 +82,16 @@
     { id: "st-traege-aszendierend", label: "Träge aszendierende ST-Strecke", leads: true, hint: "ST-Segment noch 60–80 ms nach dem J-Punkt ≥ 0,1 mV unterhalb der Nulllinie – grenzwertiger, belastungsabhängig relevanter Befund." }
   ];
   var ST_FINDINGS_OMI = [
-    { id: "st-hebung-signifikant", label: "Signifikante ST-Streckenhebung", leads: true, warn: true, hint: "In der Regel > 0,1 mV in Extremitäten-/lateralen Ableitungen; in V2/V3 alters- und geschlechtsabhängig höhere Schwellen. Klassisches STEMI-Kriterium." },
-    { id: "sgarbossa-a", label: "Sgarbossa-Kriterium A: ST-Hebung > 1 mm konkordant in Ableitungen mit positivem QRS (V4–6, aVL, I) bei bestehendem LSB", warn: true, points: 5, hint: "5 Punkte im (modifizierten) Sgarbossa-Score." },
-    { id: "sgarbossa-b", label: "Sgarbossa-Kriterium B: ST-Senkung > 1 mm konkordant in V1–V3", warn: true, points: 3, hint: "3 Punkte im Sgarbossa-Score." },
-    { id: "sgarbossa-c", label: "Sgarbossa-Kriterium C: ST-Hebung > 25 % des vorangehenden S in Ableitungen mit diskordantem QRS-Komplex", warn: true, points: 2, hint: "2 Punkte im (modifizierten) Sgarbossa-Score (ursprünglich fix ≥ 5 mm)." },
-    { id: "avr-hebung", label: 'Isolierte signifikante ST-Hebung > 1 mm in aVR bei gleichzeitiger ST-Senkung in ≥ 6 Ableitungen ("Sign-to-Heaven")', warn: true, hint: "Verdachtsmoment für eine Hauptstammstenose bzw. hochgradige proximale RIVA-/Mehrgefäßerkrankung – kardiologischer Notfall." },
-    { id: "dewinter", label: "DeWinter-Zeichen: signifikante ST-Senkung in V1–V6 mit Übergang in überhöhtes, symmetrisches T", warn: true, hint: "STEMI-Äquivalent für eine akute proximale RIVA-Okklusion (Vorderwandischämie) – sofortige kardiologische Vorstellung." },
-    { id: "wellens", label: "Wellens-Zeichen: leichtgradige ST-Hebung mit Übergang in terminal negatives/biphasisches T in V2–V3", warn: true, hint: "Hinweis auf eine kritische proximale LAD-Stenose im beschwerdefreien Intervall – zeitnahe Koronarangiographie empfohlen." }
+    { id: "st-hebung-signifikant", label: "Signifikante ST-Streckenhebung", leads: true, hint: "In der Regel > 0,1 mV in Extremitäten-/lateralen Ableitungen; in V2/V3 alters- und geschlechtsabhängig höhere Schwellen. Klassisches STEMI-Kriterium." },
+    { id: "sgarbossa-a", label: "Sgarbossa-Kriterium A: ST-Hebung > 1 mm konkordant in Ableitungen mit positivem QRS (V4–6, aVL, I) bei bestehendem LSB", hint: "Kriterium A der (modifizierten) Sgarbossa-Kriterien." },
+    { id: "sgarbossa-b", label: "Sgarbossa-Kriterium B: ST-Senkung > 1 mm konkordant in V1–V3", hint: "Kriterium B der Sgarbossa-Kriterien." },
+    { id: "sgarbossa-c", label: "Sgarbossa-Kriterium C: ST-Hebung > 25 % des vorangehenden S in Ableitungen mit diskordantem QRS-Komplex", hint: "Kriterium C der modifizierten Sgarbossa-Kriterien (ursprünglich fix ≥ 5 mm)." },
+    { id: "avr-hebung", label: 'Isolierte signifikante ST-Hebung > 1 mm in aVR bei gleichzeitiger ST-Senkung in ≥ 6 Ableitungen ("Sign-to-Heaven")', hint: "In der Literatur beschrieben im Zusammenhang mit Hauptstammstenose bzw. hochgradiger proximaler RIVA-/Mehrgefäßerkrankung." },
+    { id: "dewinter", label: "DeWinter-Zeichen: signifikante ST-Senkung in V1–V6 mit Übergang in überhöhtes, symmetrisches T", hint: "In der Literatur als STEMI-Äquivalent bei akuter proximaler RIVA-Okklusion beschrieben." },
+    { id: "wellens", label: "Wellens-Zeichen: leichtgradige ST-Hebung mit Übergang in terminal negatives/biphasisches T in V2–V3", hint: "In der Literatur beschrieben als Muster bei kritischer proximaler LAD-Stenose im beschwerdefreien Intervall." }
   ];
   var ST_FINDINGS_DIFF = [
-    { id: "perikarditis-muster", label: "Perikarditis-Muster: diffuse, konkavförmige ST-Streckenhebung in mehreren, nicht territorial begrenzten Ableitungsgruppen mit PR-Senkung (außer aVR/V1: PR-Hebung)", leads: true, hint: "Differentialdiagnose zur regionalen, meist konvexen ST-Hebung beim STEMI. Klinische Korrelation und Echokardiographie empfohlen." },
+    { id: "perikarditis-muster", label: "Perikarditis-Muster: diffuse, konkavförmige ST-Streckenhebung in mehreren, nicht territorial begrenzten Ableitungsgruppen mit PR-Senkung (außer aVR/V1: PR-Hebung)", leads: true, hint: "Differentialdiagnose zur regionalen, meist konvexen ST-Hebung beim STEMI." },
     { id: "early-repolarization", label: "Frühe Repolarisation (Early Repolarization): J-Punkt-Hebung mit Notching/Slurring am Ende des QRS-Komplexes und konkaver ST-Hebung", leads: true, hint: "Typisch: J-Punkt-Hebung ≥ 0,1 mV in ≥ 2 benachbarten Ableitungen (außer V1–V3), End-QRS-Notch (\"Fish-hook\") oder -Slur, schmaler QRS (< 120 ms), konkave ST-Hebung, oft hohe/spitze T-Wellen; häufig inferior/lateral, gelegentlich reziproke ST-Senkung in aVR. Meist junge, gesunde bzw. sportliche Patienten – benigne Normalvariante, bei Nachweis in inferioren/lateralen Ableitungen aber mit gering erhöhtem Risiko für ventrikuläre Arrhythmien assoziiert. Abgrenzung zu STEMI (keine regionale Konvexität, kein Terminal-T-Verlust) und Perikarditis (keine PR-Senkung, kein diffuses Muster über alle Ableitungsgruppen) wichtig." }
   ];
   var ST_FINDINGS = ST_FINDINGS_BASIC.concat(ST_FINDINGS_OMI).concat(ST_FINDINGS_DIFF);
@@ -120,8 +120,8 @@
     "sokolow-lv": ["SV1 (bzw. SV2) + RV5/6 ≥ 3,5 mV", "Erst ab dem 30. Lebensjahr verwertbar, bei Adipositas häufig falsch negativ"],
     "strain-pattern": ["Deszendierende ST-Senkung mit asymmetrischer T-Negativierung", "Typische Lokalisation: I, aVL, V5/V6", "Begleitbefund einer ausgeprägten linksventrikulären Hypertrophie"],
     "st-hebung-signifikant": ["Konvexbogige (\"Katzenbuckel\") oder horizontale ST-Hebung, regional begrenzt (Territorium)", "Meist begleitet von spiegelbildlichen ST-Senkungen (reziproke Veränderungen)"],
-    "sgarbossa-a": ["ST-Hebung ≥ 1 mm konkordant zum positiven QRS-Hauptausschlag bei bestehendem LSB", "5 Punkte im (modifizierten) Sgarbossa-Score"],
-    "sgarbossa-b": ["ST-Senkung ≥ 1 mm konkordant in V1–V3", "3 Punkte im Sgarbossa-Score"],
+    "sgarbossa-a": ["ST-Hebung ≥ 1 mm konkordant zum positiven QRS-Hauptausschlag bei bestehendem LSB", "Kriterium A der (modifizierten) Sgarbossa-Kriterien"],
+    "sgarbossa-b": ["ST-Senkung ≥ 1 mm konkordant in V1–V3", "Kriterium B der Sgarbossa-Kriterien"],
     "sgarbossa-c": ["Exzessiv diskordante ST-Hebung in Ableitungen mit negativem QRS-Hauptausschlag", "Modifiziert bewertet als Verhältnis ST-Hebung/vorangehendes S > 25 %"],
     "avr-hebung": ["Isolierte ST-Hebung > 1 mm in aVR", "Gleichzeitige ST-Senkung in ≥ 6 weiteren Ableitungen (\"Sign-to-Heaven\")"],
     "dewinter": ["Aufsteigende ST-Senkung in V1–V6 mit Übergang in hohe, symmetrische T-Wellen", "Keine klassische ST-Hebung, dennoch STEMI-Äquivalent"],
@@ -134,41 +134,10 @@
     "t-u-welle": ["Zusätzliche, meist niedrig-amplitudige Welle nach der T-Welle, präkordial (V2–V4) am deutlichsten", "Klassisch bei Hypokaliämie, auch physiologisch bei Bradykardie"]
   };
 
-  var LEAD_TERRITORIES = [
-    { name: "anteroseptal", leads: ["V1", "V2", "V3"] },
-    { name: "anterior (Vorderwand)", leads: ["V3", "V4"] },
-    { name: "anterolateral", leads: ["V4", "V5", "V6"] },
-    { name: "hochlateral", leads: ["I", "aVL"] },
-    { name: "tieflateral", leads: ["V5", "V6"] },
-    { name: "inferior (Hinterwand)", leads: ["II", "III", "aVF"] }
-  ];
-  function territoryMatches(leadsObj) {
-    if (!leadsObj) return [];
-    var out = [];
-    LEAD_TERRITORIES.forEach(function (t) {
-      var overlap = t.leads.filter(function (l) { return leadsObj[l]; }).length;
-      if (overlap >= 2) out.push(t.name);
-    });
-    return out;
-  }
-  function territoryPhrase(leadsObj) {
-    var m = territoryMatches(leadsObj);
-    return m.length ? " (Verteilungsmuster passend zu " + m.join(" bzw. ") + ")" : "";
-  }
   function leadsListText(leadsObj) {
     if (!leadsObj) return "";
     return LEADS_ALL.filter(function (l) { return leadsObj[l]; }).join(", ");
   }
-
-  var ICD_BY_SUGGESTION = {
-    "dd-vhf": "I48.9G",
-    "dd-vhflattern": "I48.0G",
-    "avblock1": "I44.0G",
-    "rsb-komplett": "I45.1G",
-    "lsb-komplett": "I44.7G",
-    "wpw": "I45.6G"
-  };
-  var CRITICAL_SUGGESTIONS = ["st-hebung-s", "sgarbossa-pos", "hauptstamm", "dewinter-s", "wellens-s", "qtc-lang", "nordwest-s", "dd-avdissoz"];
 
   /* ======================================================================
      STATE
@@ -176,7 +145,6 @@
   function ekgState(s) {
     s.ekg = s.ekg || {};
     var d = s.ekg;
-    if (!d.geschlecht) d.geschlecht = "unbekannt";
     if (d.freq === undefined) d.freq = "";
     if (!d.regelmaessig) d.regelmaessig = "regelmaessig";
     if (!d.rhythmus) d.rhythmus = "normofrequenter-sinusrhythmus";
@@ -190,7 +158,6 @@
     if (d.qtcWert === undefined) d.qtcWert = "";
     d.st = d.st || { isoelektrisch: true, findings: {}, sonstText: "" };
     d.t = d.t || { findings: {}, sonstText: "" };
-    d.beurteilungChecked = d.beurteilungChecked || {};
     if (d.beurteilungFreitext === undefined) d.beurteilungFreitext = "";
     return d;
   }
@@ -203,43 +170,6 @@
   function isTNormal(d) {
     return Object.keys(d.t.findings).every(function (k) { return !(d.t.findings[k] && d.t.findings[k].checked); }) && !hasText(d.t.sonstText);
   }
-  function computeSgarbossaScore(d) {
-    var score = 0;
-    ["sgarbossa-a", "sgarbossa-b", "sgarbossa-c"].forEach(function (id) {
-      var f = d.st.findings[id];
-      if (f && f.checked) score += (ST_FINDINGS.filter(function (x) { return x.id === id; })[0] || {}).points || 0;
-    });
-    return score;
-  }
-  function qrsFlag(v) {
-    if (!hasText(v)) return null;
-    var n = parseInt(v, 10);
-    if (isNaN(n)) return null;
-    if (n >= 120) return { label: "pathologisch verbreitert", farbe: "var(--rot)" };
-    if (n >= 110) return { label: "grenzwertig", farbe: "var(--orange)" };
-    return { label: "im Normbereich", farbe: "var(--gruen)" };
-  }
-  function qtcThresholds(geschlecht) {
-    if (geschlecht === "m") return { normal: 440 };
-    if (geschlecht === "w") return { normal: 460 };
-    return { normal: 450 };
-  }
-  function qtcFlag(v, geschlecht) {
-    if (!hasText(v)) return null;
-    var n = parseInt(v, 10);
-    if (isNaN(n)) return null;
-    var th = qtcThresholds(geschlecht);
-    if (n < 350) return { label: "verkürzt – DD Short-QT-Syndrom, Hyperkalzämie, Digitalis-Effekt", farbe: "var(--rot)" };
-    if (n >= 500) return { label: "deutlich verlängert – erhöhtes Risiko für Torsade-de-pointes-Tachykardien", farbe: "var(--rot)" };
-    if (n > th.normal) return { label: "verlängert (Grenzwert " + (geschlecht === "m" ? "Männer" : geschlecht === "w" ? "Frauen" : "unbek. Geschlecht") + " > " + th.normal + " ms)", farbe: "var(--orange)" };
-    return { label: "im Normbereich", farbe: "var(--gruen)" };
-  }
-  function qtcHasBbbContext(d) {
-    var qrsBreite = parseInt(d.qrs.verbreitertWert || "0", 10);
-    var qrsWide = hasText(d.qrs.verbreitertWert) && qrsBreite >= 120;
-    return qrsWide || d.qrs.findings["rsb-verzoegert"] || d.qrs.findings["lsb-verzoegert"] || d.rhythmus === "schrittmacherrhythmus";
-  }
-
   /* ======================================================================
      CABRERA-KREIS (SVG)
      ====================================================================== */
@@ -289,7 +219,7 @@
   }
   function cardHtml(kind, id, title, hint, opts) {
     opts = opts || {};
-    var badge = opts.points ? ' <span class="badge b-orange">' + opts.points + " Punkte</span>" : "";
+    var badge = "";
     var rangeTxt = opts.range ? ' <span style="color:var(--grau);font-weight:400">(' + esc(opts.range) + ")</span>" : "";
     var extra = "";
     if (opts.hasValue) {
@@ -304,7 +234,7 @@
         }).join("") + "</div></div>";
     }
     extra += merkmaleHtml(id);
-    return '<div class="derm-card' + (opts.warn ? " warn" : "") + '" data-ekg-card="' + kind + '" data-id="' + esc(id) + '">' +
+    return '<div class="derm-card' + '" data-ekg-card="' + kind + '" data-id="' + esc(id) + '">' +
       '<div class="derm-card-top"><div class="derm-card-title">' + esc(title) + rangeTxt + badge + "</div>" +
       (hint ? '<div class="derm-card-desc">' + esc(hint) + "</div>" : "") + "</div>" + extra + "</div>";
   }
@@ -327,9 +257,6 @@
 
   function renderRhythmus() {
     var html = '<div class="box bx-blue"><div class="lbl">Hinweis</div>Rhythmus/Frequenz erfassen (Einfachauswahl) sowie ggf. Extrasystolie.</div>';
-    html += '<div class="form-row"><label>Geschlecht</label><select data-ekg-geschlecht>' +
-      labeledOptsHtml([["unbekannt", "unbekannt"], ["m", "männlich"], ["w", "weiblich"]], "unbekannt") + "</select>" +
-      '<span class="hint" style="margin:0">für geschlechtsspezifische QTc-Grenzwerte, nicht Teil des PVS-Textes</span></div>';
     html += '<div class="form-row"><label>Herzfrequenz</label>' +
       '<input type="number" min="20" max="300" placeholder="z. B. 72" data-ekg-freq style="width:80px"><span class="unit">/min</span>' +
       '<label style="margin-left:14px">Kammerrhythmus</label><select data-ekg-regel>' +
@@ -393,8 +320,8 @@
   function renderQrs() {
     var html = '<div class="box bx-green" data-ekg-badge="qrs-normal"><div class="lbl">Standard</div>QRS mit normaler Länge.</div>';
     html += '<div class="form-row"><label>QRS-Breite</label><input type="number" min="0" max="400" placeholder="ms" data-ekg-num="qrs.verbreitertWert" style="width:90px">' +
-      '<span class="unit">ms</span><span data-ekg-flag="qrs" style="font-size:.85rem;font-weight:600"></span>' +
-      '<span class="hint" style="margin:0">110–120 ms grenzwertig, &gt; 120 ms pathologisch.</span></div>';
+      '<span class="unit">ms</span>' +
+      '<span class="hint" style="margin:0">Referenz: Norm bis 110 ms, 110–120 ms grenzwertig, &gt; 120 ms verbreitert.</span></div>';
     html += QRS_FINDINGS.map(function (f) { return cardHtml("qrs", f.id, f.label, f.hint, { hasValue: f.hasValue }); }).join("");
     html += '<div class="form-row"><input type="text" data-ekg-text="qrs.sonstText" placeholder="Sonstiges – Freitext …" style="flex:1;min-width:220px"></div>';
     return '<div data-ekg-tool="qrs">' + html + "</div>";
@@ -404,7 +331,7 @@
     var html = cardHtml("st-iso", "iso", "Isoelektrische ST-Strecke, unauffällige Erregungsrückbildung", "");
     html += ST_FINDINGS_BASIC.map(function (f) { return cardHtml("st", f.id, f.label, f.hint, { leads: f.leads }); }).join("");
     html += '<div class="sec" style="color:var(--rot)">⚠ OMI-Kriterien / STEMI-Äquivalente (Hochrisikomuster für akuten Koronarverschluss)</div>';
-    html += ST_FINDINGS_OMI.map(function (f) { return cardHtml("st", f.id, f.label, f.hint, { leads: f.leads, warn: f.warn, points: f.points }); }).join("");
+    html += ST_FINDINGS_OMI.map(function (f) { return cardHtml("st", f.id, f.label, f.hint, { leads: f.leads }); }).join("");
     html += '<div class="sec" style="color:var(--blau)">Differentialdiagnose bei ST-Hebung</div>';
     html += ST_FINDINGS_DIFF.map(function (f) { return cardHtml("st", f.id, f.label, f.hint, { leads: f.leads }); }).join("");
     html += '<div class="form-row"><input type="text" data-ekg-text="st.sonstText" placeholder="Sonstiges – Freitext …" style="flex:1;min-width:220px"></div>';
@@ -417,17 +344,17 @@
     html += '<div class="form-row"><input type="text" data-ekg-text="t.sonstText" placeholder="Sonstiges – Freitext …" style="flex:1;min-width:220px"></div>';
     html += '<div class="sec">QTc-Zeit</div>';
     html += '<div class="form-row"><label>QTc-Zeit</label><input type="number" min="200" max="800" placeholder="ms" data-ekg-num="qtcWert" style="width:90px">' +
-      '<span class="unit">ms</span><span data-ekg-flag="qtc" style="font-size:.85rem;font-weight:600"></span></div>' +
+      '<span class="unit">ms</span></div>' +
       '<div class="hint">Direkt vom EKG übernehmen (bereits frequenzkorrigierter Gerätewert), sinnvollerweise anhand Ableitung II, V5 oder V6 überprüfen (klare T-Endpunkte, wenig Artefakte). Referenz: ca. 350–440/460 ms (m/w); ab ≥ 500 ms deutlich erhöhtes Risiko für Torsade-de-pointes-Tachykardien.</div>' +
-      '<div data-ekg-qtc-warn></div>';
+      '<div class="hint">Bei Schenkelblock oder Schrittmacherrhythmus wird die QTc-Zeit durch die verbreiterte Kammererregung überschätzt.</div>';
     return '<div data-ekg-tool="t">' + html + "</div>";
   }
 
   function renderBeurteilung() {
-    var html = '<div class="box bx-blue"><div class="lbl">Hinweis</div>Automatische Vorschläge auf Basis der erfassten Befunde – per Klick abwählbar. Nur angehakte Vorschläge landen in der PVS-Dokumentation.</div>';
-    html += '<div data-ekg-suggestions></div>';
-    html += '<div class="form-row" style="display:block"><label style="display:block;margin-bottom:4px">Ergänzender Freitext</label>' +
-      '<textarea data-ekg-text="beurteilungFreitext" placeholder="Eigene Ergänzungen zur Beurteilung …" style="width:100%;min-height:70px"></textarea></div>';
+    var html = '<div class="box bx-blue"><div class="lbl">Hinweis</div>Das Modul erstellt keine Beurteilung und macht keine Vorschläge. ' +
+      'Die Beurteilung formulieren Sie selbst; sie wird unverändert in die Dokumentation übernommen.</div>';
+    html += '<div class="form-row" style="display:block"><label style="display:block;margin-bottom:4px">Ärztliche Beurteilung</label>' +
+      '<textarea data-ekg-text="beurteilungFreitext" placeholder="Eigene Beurteilung des Befundes …" style="width:100%;min-height:110px"></textarea></div>';
     return '<div data-ekg-tool="beurteilung">' + html + "</div>";
   }
 
@@ -481,7 +408,6 @@
     if (t.matches("[data-ekg-num]")) { setNum(t, d, t.getAttribute("data-ekg-num")); commit(); return; }
     if (t.matches("[data-ekg-text]")) { setNum(t, d, t.getAttribute("data-ekg-text")); commit(); return; }
     if (name === "rhythmus") {
-      if (t.matches("[data-ekg-geschlecht]")) { d.geschlecht = t.value; commit(); return; }
       if (t.matches("[data-ekg-freq]")) { d.freq = t.value.slice(0, 3); commit(); return; }
       if (t.matches("[data-ekg-regel]")) { d.regelmaessig = t.value; commit(); return; }
       if (t.matches("[data-ekg-schrittmacher]")) { d.schrittmacherModus = t.value; commit(); return; }
@@ -563,12 +489,11 @@
 
   function paintAll(root, d, commit) {
     paintRhythmus(root, d); paintLagetyp(root, d); paintP(root, d); paintPq(root, d);
-    paintQrs(root, d); paintSt(root, d); paintT(root, d); paintBeurteilung(root, d, commit);
+    paintQrs(root, d); paintSt(root, d); paintT(root, d); paintBeurteilung(root, d);
   }
 
   function paintRhythmus(root, d) {
     var tool = root.querySelector('[data-ekg-tool="rhythmus"]'); if (!tool) return;
-    setVal(tool.querySelector("[data-ekg-geschlecht]"), d.geschlecht);
     setVal(tool.querySelector("[data-ekg-freq]"), d.freq);
     setVal(tool.querySelector("[data-ekg-regel]"), d.regelmaessig);
     selectCards(tool, "rhythmus", function (id) { return id === d.rhythmus; });
@@ -616,9 +541,6 @@
     var tool = root.querySelector('[data-ekg-tool="qrs"]'); if (!tool) return;
     var badge = tool.querySelector('[data-ekg-badge="qrs-normal"]'); if (badge) badge.style.display = isQrsNormal(d) ? "" : "none";
     setVal(tool.querySelector('[data-ekg-num="qrs.verbreitertWert"]'), d.qrs.verbreitertWert);
-    var flag = qrsFlag(d.qrs.verbreitertWert);
-    var flagSpan = tool.querySelector('[data-ekg-flag="qrs"]');
-    if (flagSpan) { flagSpan.textContent = flag ? flag.label : ""; flagSpan.style.color = flag ? flag.farbe : ""; }
     selectCards(tool, "qrs", function (id) { return !!d.qrs.findings[id]; });
     setVal(tool.querySelector('[data-ekg-sokolow="lv"]'), d.qrs.sokolowLvWert);
     setVal(tool.querySelector('[data-ekg-sokolow="rv"]'), d.qrs.sokolowRvWert);
@@ -650,38 +572,9 @@
     });
     setVal(tool.querySelector('[data-ekg-text="t.sonstText"]'), d.t.sonstText);
     setVal(tool.querySelector('[data-ekg-num="qtcWert"]'), d.qtcWert);
-    var flag = qtcFlag(d.qtcWert, d.geschlecht);
-    var flagSpan = tool.querySelector('[data-ekg-flag="qtc"]');
-    if (flagSpan) { flagSpan.textContent = flag ? flag.label : ""; flagSpan.style.color = flag ? flag.farbe : ""; }
-    var warnBox = tool.querySelector("[data-ekg-qtc-warn]");
-    if (warnBox) {
-      warnBox.innerHTML = qtcHasBbbContext(d) ? '<div class="box bx-orange" style="margin-top:8px"><div class="lbl">Achtung bei Schenkelblock/Schrittmacher</div>Die gemessene QTc-Zeit wird durch die verbreiterte Kammererregung überschätzt. Näherungsweise Korrektur: QTc(korrigiert) ≈ gemessene QTc − (QRS-Breite − 120 ms).</div>' : "";
-    }
   }
-  function paintBeurteilung(root, d, commit) {
+  function paintBeurteilung(root, d) {
     var tool = root.querySelector('[data-ekg-tool="beurteilung"]'); if (!tool) return;
-    var box = tool.querySelector("[data-ekg-suggestions]"); if (!box) return;
-    var sug = generateSuggestions(d);
-    if (!sug.length) {
-      box.innerHTML = '<div class="hint" style="font-style:italic">Noch keine Beurteilungsvorschläge – bitte Befund oben vervollständigen.</div>';
-      setVal(tool.querySelector('[data-ekg-text="beurteilungFreitext"]'), d.beurteilungFreitext);
-      return;
-    }
-    box.innerHTML = sug.map(function (s) {
-      var checked = d.beurteilungChecked[s.id] !== undefined ? d.beurteilungChecked[s.id] : true;
-      d.beurteilungChecked[s.id] = checked;
-      var lvl = s.level === "hoch" ? "b-red" : s.level === "mittel" ? "b-orange" : "b-green";
-      var lvlTxt = s.level === "hoch" ? "relevant" : s.level === "mittel" ? "möglich" : "unauffällig";
-      return '<label class="chk chk-g" style="cursor:pointer" data-ekg-sugg="' + esc(s.id) + '"><div class="cb' + (checked ? " on" : "") + '"></div>' +
-        "<span>" + esc(s.text) + ' <span class="badge ' + lvl + '">' + lvlTxt + "</span></span></label>";
-    }).join("");
-    box.querySelectorAll("[data-ekg-sugg]").forEach(function (row) {
-      row.addEventListener("click", function () {
-        var id = row.getAttribute("data-ekg-sugg");
-        d.beurteilungChecked[id] = !(d.beurteilungChecked[id] !== false);
-        commit();
-      });
-    });
     setVal(tool.querySelector('[data-ekg-text="beurteilungFreitext"]'), d.beurteilungFreitext);
   }
 
@@ -722,19 +615,12 @@
     if (d.p.findings["p-fehlend"] || d.p.findings["p-flimmerwellen"]) {
       parts.push("PQ-Zeit: P-Wellen nicht vorhanden/darstellbar, nicht beurteilbar.");
     } else if (hasText(d.pqWert)) {
-      var v = parseInt(d.pqWert, 10);
-      var flag = "im Normbereich";
-      if (v > 200) flag = "verlängert (path., > 200 ms)";
-      else if (v < 120) flag = "verkürzt (path., < 120 ms, DD Präexzitation)";
-      parts.push("PQ-Zeit " + d.pqWert + " ms, " + flag + ".");
-    } else {
-      parts.push("PQ-Zeit im Normbereich.");
+      parts.push("PQ-Zeit " + d.pqWert + " ms.");
     }
 
     var qParts = [];
     if (hasText(d.qrs.verbreitertWert)) {
-      var qf = qrsFlag(d.qrs.verbreitertWert);
-      qParts.push("QRS-Breite " + d.qrs.verbreitertWert + " ms (" + (qf ? qf.label : "verbreitert") + ")");
+      qParts.push("QRS-Breite " + d.qrs.verbreitertWert + " ms");
     }
     QRS_FINDINGS.forEach(function (f) {
       if (!d.qrs.findings[f.id]) return;
@@ -754,7 +640,7 @@
         var st = d.st.findings[f.id];
         if (st && st.checked) {
           var lt = f.leads ? leadsListText(st.leads) : "";
-          sParts.push(f.label + (lt ? " in " + lt : "") + (f.leads ? territoryPhrase(st.leads) : ""));
+          sParts.push(f.label + (lt ? " in " + lt : ""));
         }
       });
     }
@@ -769,7 +655,7 @@
         var st = d.t.findings[f.id];
         if (st && st.checked) {
           var lt = f.leads ? leadsListText(st.leads) : "";
-          tParts.push(f.label + (lt ? " in " + lt : "") + (f.leads ? territoryPhrase(st.leads) : ""));
+          tParts.push(f.label + (lt ? " in " + lt : ""));
         }
       });
       if (hasText(d.t.sonstText)) tParts.push(d.t.sonstText);
@@ -777,126 +663,9 @@
     parts.push(capFirst(tParts.join("; ")) + ".");
 
     if (hasText(d.qtcWert)) {
-      var qtf = qtcFlag(d.qtcWert, d.geschlecht);
-      parts.push("QTc-Zeit " + d.qtcWert + " ms (" + (qtf ? qtf.label : "-") + ").");
+      parts.push("QTc-Zeit " + d.qtcWert + " ms.");
     }
     return parts.join(" ");
-  }
-
-  /* ======================================================================
-     BEURTEILUNGS-VORSCHLAGSMOTOR
-     ====================================================================== */
-  function generateSuggestions(d) {
-    var sug = [];
-    function add(id, text, level) { sug.push({ id: id, text: text, level: level }); }
-
-    if (d.rhythmus === "absolute-arrhythmie") {
-      if (d.p.findings["p-flimmerwellen"] || d.p.findings["p-fehlend"]) add("dd-vhf", "Vorhofflimmern", "hoch");
-      else add("dd-arrhythmie", "Absolute Arrhythmie, DD Vorhofflimmern – klinische Korrelation empfohlen", "mittel");
-    }
-    if (d.p.findings["p-saegezahn"]) add("dd-vhflattern", "Vorhofflattern (sägezahnartige Flatterwellen)", "hoch");
-    if (d.p.findings["p-vor-jedem-qrs-plus-extra"]) add("dd-vhflattern2", "V. a. Vorhofflattern bzw. atriale Tachykardie mit fixierter Überleitung – ggf. weiterführende Diagnostik", "mittel");
-    if (d.p.findings["p-av-dissoziation"]) add("dd-avdissoz", "AV-Dissoziation – DD AV-Block III°, ventrikuläre Tachykardie (klinischer Kontext entscheidend)", "hoch");
-    if (d.p.findings["p-negativ"]) add("dd-junktional", "Retrograde Vorhoferregung – DD AV-junktionaler Rhythmus", "mittel");
-    if (d.p.findings["p-variabel"]) add("dd-wanderpm", "Wechselnde P-Wellen-Morphologie – DD Wandering Pacemaker / multifokale atriale Tachykardie", "mittel");
-
-    if (d.p.amplPath && d.p.amplRichtung === "erhoeht") add("p-dextro", "P-dextrocardiale – Zeichen der rechtsatrialen Erregungsausbreitungsstörung", "mittel");
-    if (d.p.amplPath && d.p.amplRichtung === "erniedrigt") add("p-hypok", "Abgeflachte P-Welle – ggf. Hinweis auf Hyperkaliämie, laborchemische Kontrolle empfohlen", "mittel");
-    if (d.p.findings["p-doppelgipflig"]) add("p-sinistro", "P-sinistrocardiale – Zeichen der linksatrialen Erregungsausbreitungsstörung", "mittel");
-    if (d.p.findings["p-dextrocardiale"]) add("p-dextro-chk", "P-dextrocardiale – Zeichen der rechtsatrialen Erregungsausbreitungsstörung", "mittel");
-    if (d.p.findings["p-biatrial"]) add("p-biatrial-s", "Biatriale Vergrößerung", "mittel");
-
-    if (hasText(d.pqWert)) {
-      var pqV = parseInt(d.pqWert, 10);
-      if (pqV > 200) add("avblock1", "AV-Block I. Grades", "mittel");
-      if (pqV < 120 && pqV > 0) add("praeexz", "Verkürzte PQ-Zeit – DD Präexzitationssyndrom (WPW, LGL); bei begleitender Delta-Welle WPW-Syndrom wahrscheinlich", "mittel");
-    }
-
-    var qrsHasWert = hasText(d.qrs.verbreitertWert);
-    var qrsBreite = parseInt(d.qrs.verbreitertWert || "0", 10);
-    if (qrsHasWert && qrsBreite >= 120 && d.qrs.findings["rsb-verzoegert"]) add("rsb-komplett", "Kompletter Rechtsschenkelblock", "hoch");
-    else if (d.qrs.findings["rsb-verzoegert"]) add("rsb-hinweis", "Hinweis auf Rechtsschenkelblock – QRS-Breite zur Abgrenzung komplett/inkomplett ergänzen", "mittel");
-    if (qrsHasWert && qrsBreite >= 120 && d.qrs.findings["lsb-verzoegert"]) add("lsb-komplett", "Kompletter Linksschenkelblock", "hoch");
-    else if (d.qrs.findings["lsb-verzoegert"]) add("lsb-hinweis", "Hinweis auf Linksschenkelblock – QRS-Breite zur Abgrenzung komplett/inkomplett ergänzen", "mittel");
-    if (d.qrs.findings["rsb-inkomplett"]) add("irsb", "Inkompletter Rechtsschenkelblock", "mittel");
-    if (d.qrs.findings["lsb-inkomplett"]) add("ilsb", "Inkompletter Linksschenkelblock", "mittel");
-    if (qrsHasWert && qrsBreite >= 110 && qrsBreite < 120 && !d.qrs.findings["rsb-verzoegert"] && !d.qrs.findings["lsb-verzoegert"]) add("qrs-grenzwertig", "Grenzwertige QRS-Verbreiterung – Verlaufskontrolle empfohlen", "mittel");
-    if (d.qrs.findings["niedervoltage"]) add("niedervolt", "Niedervoltage – DD Adipositas, Perikarderguss, Lungenemphysem, Hypothyreose, Amyloidose", "mittel");
-
-    var lvhCriteria = d.qrs.findings["sokolow-lv"] || d.qrs.findings["avl-hypertrophie"];
-    if (lvhCriteria) {
-      var t = "Zeichen der linksventrikulären Hypertrophie (Sokolow-Lyon-Index positiv)";
-      if (d.qrs.findings["strain-pattern"]) t += " mit sekundärer Erregungsrückbildungsstörung (Strain-Pattern)";
-      add("lvh", t, "mittel");
-    }
-    if (d.qrs.findings["sokolow-rv"]) add("rvh", "Zeichen der rechtsventrikulären Hypertrophie (Sokolow-Index positiv)", "mittel");
-    if ((d.lagetyp === "rechtstyp" || d.lagetyp === "nordwesttyp") && d.qrs.findings["sokolow-rv"]) add("rechtsherz", "In Zusammenschau mit dem Lagetyp Hinweis auf Rechtsherzbelastung", "mittel");
-    if (d.lagetyp === "ueberdrehter-linkstyp") add("hemiblock", "Überdrehter Linkstyp – DD linksanteriorer Hemiblock, insb. bei begleitender leichter QRS-Verbreiterung", "mittel");
-    if (d.lagetyp === "nordwesttyp") add("nordwest-s", 'Unmöglicher Lagetyp ("Nordwest-Typ") – immer abklärungsbedürftig, DD kombinierter Hemiblock, Hyperkaliämie, ventrikulärer Ursprung', "hoch");
-
-    if (d.qrs.findings["delta-welle"]) {
-      var pq = hasText(d.pqWert) ? parseInt(d.pqWert, 10) : null;
-      if (pq !== null && pq < 120) add("wpw", "WPW-Syndrom wahrscheinlich (Delta-Welle mit verkürzter PQ-Zeit " + d.pqWert + " ms) – ggf. elektrophysiologische Abklärung; Cave bei Vorhofflimmern (Gefahr sehr schneller Überleitung über die akzessorische Bahn)", "hoch");
-      else add("delta-s", "Delta-Welle – Hinweis auf ventrikuläre Präexzitation (WPW), PQ-Zeit und Klinik korrelieren", "mittel");
-    }
-
-    if (d.extra.svesChecked && (d.extra.svesHaeufigkeit === "gehäuft" || d.extra.svesHaeufigkeit === "bigeminusartig")) add("sves-s", "Gehäufte supraventrikuläre Extrasystolen (" + d.extra.svesHaeufigkeit + ") – ggf. Vorbote von Vorhofflimmern, Verlaufskontrolle empfehlenswert", "mittel");
-    if (d.extra.vesChecked) {
-      var vh = d.extra.vesHaeufigkeit;
-      var complex = d.extra.vesMorphologie === "polymorph" || vh === "mit Couplets (Paare)" || vh === "mit Salven (≥3 konsekutiv, nsVT)" || vh === "gehäuft";
-      if (complex) add("ves-komplex", "Gehäufte und/oder komplexe ventrikuläre Extrasystolen (" + d.extra.vesMorphologie + ", " + vh + ") – Langzeit-EKG und Echokardiographie zur weiteren Risikostratifizierung empfehlenswert", "hoch");
-      else add("ves-einfach", "Vereinzelte monomorphe ventrikuläre Extrasystolen – in der Regel benigne, bei Beschwerdesymptomatik oder Häufung Verlaufskontrolle", "mittel");
-    }
-
-    var stKeys = Object.keys(d.st.findings).filter(function (k) { return d.st.findings[k].checked; });
-    if (stKeys.indexOf("st-signifikant-horizontal") !== -1 || stKeys.indexOf("st-signifikant-deszendierend") !== -1) {
-      var leadsUnion = {};
-      ["st-signifikant-horizontal", "st-signifikant-deszendierend"].forEach(function (id) {
-        var st = d.st.findings[id];
-        if (st && st.checked) Object.keys(st.leads || {}).forEach(function (l) { if (st.leads[l]) leadsUnion[l] = true; });
-      });
-      add("st-ischaemie", "Signifikante ST-Streckensenkung" + territoryPhrase(leadsUnion) + " – Erregungsrückbildungsstörung, DD Myokardischämie; klinische Korrelation und ggf. weiterführende Diagnostik empfohlen", "hoch");
-    }
-    if (stKeys.indexOf("st-traege-aszendierend") !== -1) add("st-traege-s", "Träge aszendierende ST-Senkung – grenzwertiger Befund, im Kontext von Belastung/Herzfrequenz zu werten", "mittel");
-    if (stKeys.indexOf("st-hebung-signifikant") !== -1) {
-      var sthx = d.st.findings["st-hebung-signifikant"];
-      add("st-hebung-s", "Signifikante ST-Streckenhebung" + territoryPhrase(sthx.leads) + " – bei akutem Beschwerdebild dringender V. a. ST-Hebungsinfarkt (STEMI), sofortige kardiologische Abklärung", "hoch");
-    }
-    var sgScore = computeSgarbossaScore(d);
-    if (sgScore > 0) {
-      if (sgScore >= 3) add("sgarbossa-pos", "Sgarbossa-Score " + sgScore + " Punkte (≥ 3) – bei bestehendem Linksschenkelblock hinweisend auf akute Myokardischämie", "hoch");
-      else add("sgarbossa-neg", "Sgarbossa-Score " + sgScore + " Punkte (< 3) – Ischämiehinweis bei LSB nicht ausreichend gesichert, klinische Korrelation erforderlich", "mittel");
-    }
-    if (stKeys.indexOf("avr-hebung") !== -1) add("hauptstamm", "ST-Hebung in aVR mit ausgedehnter ST-Senkung – dringender V. a. Hauptstammstenose bzw. hochgradige Mehrgefäßerkrankung, sofortige kardiologische Vorstellung", "hoch");
-    if (stKeys.indexOf("dewinter") !== -1) add("dewinter-s", "DeWinter-Zeichen – STEMI-Äquivalent bei V. a. akute proximale RIVA-Okklusion, sofortige kardiologische Vorstellung", "hoch");
-    if (stKeys.indexOf("wellens") !== -1) add("wellens-s", "Wellens-Zeichen – V. a. kritische proximale LAD-Stenose, zeitnahe Koronarangiographie empfohlen", "hoch");
-    if (stKeys.indexOf("perikarditis-muster") !== -1) add("perikarditis-s", "Perikarditis-Muster – DD Myokardischämie; klinische Korrelation und Echokardiographie empfohlen", "mittel");
-    if (stKeys.indexOf("early-repolarization") !== -1) add("early-repol-s", "Frühe Repolarisation (J-Punkt-Hebung mit End-QRS-Notch/-Slur und konkaver ST-Hebung) – bei inferior/lateraler Lokalisation DD zu Myokardischämie und Perikarditis, im Zweifel klinische Korrelation und Vergleich mit Vor-EKG", "mittel");
-
-    if (hasText(d.qtcWert)) {
-      var qflag = qtcFlag(d.qtcWert, d.geschlecht);
-      var qv = parseInt(d.qtcWert, 10);
-      if (qflag && qflag.farbe === "var(--rot)" && qv >= 500) add("qtc-lang", "Deutlich verlängerte QTc-Zeit (" + d.qtcWert + " ms) – erhöhtes Risiko für Torsade-de-pointes-Tachykardien; Medikamentenanamnese und Elektrolyte umgehend überprüfen", "hoch");
-      else if (qflag && qflag.farbe === "var(--rot)") add("qtc-kurz", "Verkürzte QTc-Zeit (" + d.qtcWert + " ms) – DD Short-QT-Syndrom, Hyperkalzämie, Digitalis-Effekt", "mittel");
-      else if (qflag && qflag.farbe === "var(--orange)") add("qtc-grenz", "Verlängerte QTc-Zeit (" + d.qtcWert + " ms) – Medikamentenanamnese und Elektrolyte überprüfen" + (qtcHasBbbContext(d) ? "; Schenkelblock-/Schrittmacher-bedingte Überschätzung beachten" : ""), "mittel");
-    }
-
-    var tKeys = Object.keys(d.t.findings).filter(function (k) { return d.t.findings[k].checked; });
-    if (tKeys.indexOf("t-ueberspitzt") !== -1) add("hyperk", "Überspitzte/zeltförmige T-Wellen – ggf. Hinweis auf Hyperkaliämie, laborchemische Kontrolle empfohlen", "mittel");
-    if (tKeys.indexOf("t-abgeflacht") !== -1) add("hypok-t", "Abgeflachte T-Wellen – unspezifisch, ggf. Hinweis auf Hypokaliämie", "mittel");
-    if (tKeys.indexOf("t-praeterminal") !== -1 || tKeys.indexOf("t-terminal") !== -1) {
-      var tUnion = {};
-      ["t-praeterminal", "t-terminal"].forEach(function (id) {
-        var st = d.t.findings[id];
-        if (st && st.checked) Object.keys(st.leads || {}).forEach(function (l) { if (st.leads[l]) tUnion[l] = true; });
-      });
-      add("t-neg", "T-Negativierung" + territoryPhrase(tUnion) + " – Erregungsrückbildungsstörung, DD KHK/Ischämie, Hypertrophie, Zustand nach Ischämie; klinische Korrelation empfohlen", "mittel");
-    }
-    if (tKeys.indexOf("t-u-welle") !== -1) add("u-welle", "Zusätzliche U-Welle bzw. T-U-Verschmelzungswelle – ggf. Hinweis auf Hypokaliämie", "mittel");
-
-    var hasAnyPath = sug.length > 0 || ["rechtstyp", "ueberdrehter-linkstyp", "nordwesttyp", "nicht-festlegbar"].indexOf(d.lagetyp) !== -1 || d.rhythmus !== "normofrequenter-sinusrhythmus";
-    if (!hasAnyPath) add("normalbefund", "Altersentsprechender Normalbefund, kein Anhalt für relevante Erregungsbildungs-, Erregungsleitungs- oder Erregungsrückbildungsstörung", "normal");
-    return sug;
   }
 
   /* ======================================================================
@@ -905,57 +674,31 @@
   function baustein(s) {
     var d = ekgState(s);
     var befund = generateBefundText(d);
-    var sug = generateSuggestions(d);
-    var chosen = sug.filter(function (sgg) { return d.beurteilungChecked[sgg.id] !== false; });
-    var beurteilungTexte = chosen.map(function (sgg) { return sgg.text; });
-    if (hasText(d.beurteilungFreitext)) beurteilungTexte.push(d.beurteilungFreitext);
-    var beurteilungTxt = beurteilungTexte.length ? beurteilungTexte.join("; ") + "." : "-";
-
-    var ld = [];
-    chosen.forEach(function (sgg) {
-      var code = ICD_BY_SUGGESTION[sgg.id];
-      if (code && ld.indexOf(code) === -1) ld.push(code);
-    });
-
-    var critical = sug.some(function (sgg) { return CRITICAL_SUGGESTIONS.indexOf(sgg.id) !== -1; });
-    var th = critical ? "Bei den erhobenen EKG-Kriterien umgehende ärztliche Bewertung und ggf. sofortige kardiologische Vorstellung/Klinikeinweisung empfehlen." : "";
-
+    var eigene = hasText(d.beurteilungFreitext) ? d.beurteilungFreitext.trim() : "";
     return {
       AN: "Ruhe-EKG, indikationsgerecht abgeleitet und befundet.",
       BE: "",
-      EK: befund + " Beurteilung: " + beurteilungTxt,
-      TH: th,
-      LD: ld.join("\n")
-    };
-  }
-
-  function auswertung(s) {
-    var d = ekgState(s);
-    var sug = generateSuggestions(d);
-    var critical = sug.filter(function (sgg) { return CRITICAL_SUGGESTIONS.indexOf(sgg.id) !== -1; });
-    var meldungen = critical.map(function (sgg) { return { stil: "rot", titel: sgg.text.split(" – ")[0], text: sgg.text }; });
-    return {
-      redflag: critical.length > 0,
-      bannerText: "Kritischer EKG-Befund (z. B. STEMI-Zeichen, hochgradige QTc-Verlängerung oder AV-Dissoziation) – sofort ärztlich handeln.",
-      meldungen: meldungen
+      EK: befund + (eigene ? " Beurteilung: " + eigene + (/[.!?]$/.test(eigene) ? "" : ".") : ""),
+      TH: "",
+      LD: ""
     };
   }
 
   PCM.registerSOP({
     id: "ekg",
     titel: "EKG-Befundung",
-    untertitel: "Systematische EKG-Befundung: Rhythmus, Lagetyp, P/PQ/QRS/ST/T, Beurteilung – EK-Dokumentation",
+    untertitel: "Strukturierte EKG-Befunddokumentation: Rhythmus, Lagetyp, P/PQ/QRS/ST/T – EK-Dokumentation",
     icon: "📈",
     farbe: "#025669",
     version: "1.1",
     stand: "05.07.2026",
     bereich: "EKG",
     kategorie: "EKG",
-    leitlinie: "Systematische EKG-Interpretation; Sgarbossa-/modifizierte Sgarbossa-Kriterien; DeWinter-/Wellens-Zeichen",
-    delegationshinweis: "Das Modul unterstützt die strukturierte Dokumentation des EKG-Befunds. Diagnose, Therapie und Procedere erfolgen ärztlich.",
+    leitlinie: "Nomenklatur der systematischen EKG-Befundbeschreibung",
+    delegationshinweis: "Reines Dokumentationsmodul: Es erhebt und formuliert ausschließlich das, was die untersuchende Person selbst eingetragen hat. Es bewertet keine Messwerte, berechnet keine Scores, macht keine Beurteilungsvorschläge und leitet keine Diagnosen oder ICD-Codes ab. Befundung, Beurteilung, Diagnose und Procedere erfolgen ärztlich.",
     initialState: {
       ekg: {
-        geschlecht: "unbekannt", freq: "", regelmaessig: "regelmaessig", rhythmus: "normofrequenter-sinusrhythmus",
+        freq: "", regelmaessig: "regelmaessig", rhythmus: "normofrequenter-sinusrhythmus",
         rhythmusSonstText: "", schrittmacherModus: "",
         extra: { svesChecked: false, svesHaeufigkeit: "vereinzelt", vesChecked: false, vesMorphologie: "monomorph", vesHaeufigkeit: "vereinzelt" },
         lagetyp: "indifferenztyp",
@@ -965,7 +708,7 @@
         qtcWert: "",
         st: { isoelektrisch: true, findings: {}, sonstText: "" },
         t: { findings: {}, sonstText: "" },
-        beurteilungChecked: {}, beurteilungFreitext: ""
+        beurteilungFreitext: ""
       }
     },
     schritte: [
@@ -976,9 +719,8 @@
       { nr: 5, titel: "QRS-Breite und Konfiguration", rolle: "Arzt", rolleStil: "blue", farbe: "#025669", elemente: [{ typ: "ekg", id: "ekg-qrs", ansicht: "qrs", render: render, wire: wire }] },
       { nr: 6, titel: "ST-Strecke", rolle: "Arzt", rolleStil: "orange", farbe: "#BB4E26", elemente: [{ typ: "ekg", id: "ekg-st", ansicht: "st", render: render, wire: wire }] },
       { nr: 7, titel: "T-Wellen und QTc-Zeit", rolle: "Arzt", rolleStil: "blue", farbe: "#025669", elemente: [{ typ: "ekg", id: "ekg-t", ansicht: "t", render: render, wire: wire }] },
-      { nr: 8, titel: "Beurteilung", rolle: "Dokumentation", rolleStil: "green", farbe: "#1E8449", elemente: [{ typ: "ekg", id: "ekg-beurteilung", ansicht: "beurteilung", render: render, wire: wire }] }
+      { nr: 8, titel: "Beurteilung (Freitext)", rolle: "Dokumentation", rolleStil: "green", farbe: "#1E8449", elemente: [{ typ: "ekg", id: "ekg-beurteilung", ansicht: "beurteilung", render: render, wire: wire }] }
     ],
-    auswertung: auswertung,
     baustein: baustein
   });
 })();

@@ -624,10 +624,6 @@
     return { AN: "", BE: BE, TH: "", LD: "" };
   }
 
-  function auswertung(s) {
-    return { redflag: false, bannerText: "", meldungen: [] };
-  }
-
   /* -------- Styles fuer Beispielbilder (einmalig injiziert) -------- */
   if (typeof document !== "undefined" && document.head && !document.getElementById("derm-eff-styles")) {
     var st = document.createElement("style");
@@ -676,7 +672,6 @@
       { nr: 7, titel: "Befund und PVS-Dokumentation", rolle: "Dokumentation", rolleStil: "green", farbe: "#1E8449",
         elemente: [{ typ: "effloreszenz", id: "eff-befund", ansicht: "befund", render: render, wire: wire }] }
     ],
-    auswertung: auswertung,
     baustein: baustein
   });
 })();

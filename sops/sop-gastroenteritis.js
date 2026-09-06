@@ -3,7 +3,7 @@
 PCM.registerSOP({
   id: 'gastroenteritis',
   titel: 'Akute Gastroenteritis',
-  untertitel: 'Durchfall und/oder Erbrechen < 14 Tage - PCM-Erstassessment',
+  untertitel: 'Platzhalter · Inhalt folgt',
   icon: 'GE',
   farbe: '#138D75',
   bereich: 'PCM-Sprechstunde',
